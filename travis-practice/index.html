@@ -4,20 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NSNumber And NSDictionary | Zachary&#39;s blog</title>
+  <title>travis-practice | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="NSNumber and NSDictionary are the basic class and most useful class in objective c.">
-<meta name="keywords" content="Objective-C">
-<meta property="og:type" content="article">
-<meta property="og:title" content="NSNumber And NSDictionary">
-<meta property="og:url" content="http://dontcry2013.github.io/2016/12/28/objective-c/index.html">
+  <meta name="description" content="hello">
+<meta property="og:type" content="website">
+<meta property="og:title" content="travis-practice">
+<meta property="og:url" content="http://dontcry2013.github.io/travis-practice/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="NSNumber and NSDictionary are the basic class and most useful class in objective c.">
+<meta property="og:description" content="hello">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-28T05:44:15.807Z">
+<meta property="og:updated_time" content="2019-12-05T00:11:53.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NSNumber And NSDictionary">
-<meta name="twitter:description" content="NSNumber and NSDictionary are the basic class and most useful class in objective c.">
+<meta name="twitter:title" content="travis-practice">
+<meta name="twitter:description" content="hello">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -198,11 +197,11 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-objective-c" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/28/objective-c/" class="article-date">
-  	<time datetime="2016-12-27T13:12:43.000Z" itemprop="datePublished">2016-12-28</time>
+      <a href="/travis-practice/index.html" class="article-date">
+  	<time datetime="2019-12-05T00:10:54.000Z" itemprop="datePublished">2019-12-05</time>
 </a>
     </div>
   
@@ -215,7 +214,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      NSNumber And NSDictionary
+      travis-practice
     </h1>
   
 
@@ -223,15 +222,7 @@ var _hmt = _hmt || [];
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objective-c/">Objective-C</a></li></ul>
-	</div>
-
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/ios/">iOS</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -239,34 +230,13 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>NSNumber and NSDictionary are the basic class and most useful class in objective c.<br><a id="more"></a></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实时获取下载进度百分比</span></span><br><span class="line">- (<span class="keyword">void</span>) dataDownloadAtPercent:(PvUrlSessionDownload*)downloader withVid:(NSString *)vid percent: (NSNumber *) aPercent&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  [[FMDBHelper sharedInstance] updateDownloadPercent:vid percent:aPercent];</span></span><br><span class="line">    <span class="keyword">if</span>(nil == <span class="built_in">map</span>)&#123;</span><br><span class="line">        <span class="built_in">map</span> = [NSMutableDictionary dictionaryWithCapacity:<span class="number">10</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> y = [aPercent intValue];</span><br><span class="line">        <span class="keyword">if</span>(nil == [<span class="built_in">map</span> objectForKey:vid])&#123;</span><br><span class="line">           [<span class="built_in">map</span> setObject:[[NSNumber alloc] initWithInt:y] forKey:vid];</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>([[<span class="built_in">map</span> objectForKey:vid] isKindOfClass:[NSNumber class]])&#123;</span><br><span class="line">                x = [[<span class="built_in">map</span> objectForKey:vid] intValue];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        RCTLogInfo(@<span class="string">"来自Xcode的信息－下载了:%@|%d|%d"</span>,aPercent,y,x);</span><br><span class="line">        <span class="keyword">if</span>(x!=y)&#123;</span><br><span class="line">            [<span class="built_in">map</span> setObject:[[NSNumber alloc] initWithInt:y] forKey:vid];</span><br><span class="line">            [self.bridge.eventDispatcher sendAppEventWithName:@<span class="string">"DownloadEvent"</span></span><br><span class="line">                                                         body:@&#123;@<span class="string">"what"</span>: @<span class="number">4</span>,</span><br><span class="line">                                                                @<span class="string">"status"</span>: [NSNumber numberWithInt:y],</span><br><span class="line">                                                                @<span class="string">"name"</span>: @<span class="string">"downloadAtPercent"</span>,</span><br><span class="line">                                                                @<span class="string">"vid"</span>:vid&#125;];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本数据类型</span></span><br><span class="line"><span class="comment">//专门用来装基础类型的对象</span></span><br><span class="line">NSNumber * intNumber = [[NSNumber alloc] initWithInt:<span class="number">5</span>];</span><br><span class="line">NSNumber * floatNumber = [[NSNumber alloc] initWithFloat:<span class="number">3.14f</span>];</span><br><span class="line">NSNumber * doubleNumber = [[NSNumber alloc] initWithDouble:<span class="number">6.7</span>];</span><br><span class="line">NSNumber * charNumber = [[NSNumber alloc] initWithChar:<span class="string">'A'</span>];</span><br><span class="line"><span class="comment">//这种比较也是可以跨不同对象的，比如：比较intNumber和floatNumber</span></span><br><span class="line">BOOL ret = [intNumber isEqualToNumber:intNumber2]; </span><br><span class="line"><span class="comment">//比较两个整型的NSNumber的大小</span></span><br><span class="line"><span class="keyword">if</span> ([intNumber compare:intNumber] == NSOrderedAscending) &#123;</span><br><span class="line">    NSLog(@<span class="string">"&lt;"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>([intNumber compare:intNumber2] == NSOrderedSame)&#123;</span><br><span class="line">    NSLog(@<span class="string">"="</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>([intNumber compare:intNumber2] == NSOrderedDescending)&#123;</span><br><span class="line">    NSLog(@<span class="string">"&gt;"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//通过以下方法可以还原这些基本数据类型的数据</span></span><br><span class="line">NSLog(@<span class="string">"%d"</span>, [intNumber intValue]);</span><br><span class="line">NSLog(@<span class="string">"%f"</span>, [floatNumber floatValue]);</span><br><span class="line">NSLog(@<span class="string">"%f"</span>, [doubleNumber doubleValue]);</span><br><span class="line">NSLog(@<span class="string">"%c"</span>, [charNumber charValue]);</span><br></pre></td></tr></table></figure>
+        <h1 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h1>
       
     </div>
     
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2017/02/21/js_property/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          The Difference Between __proto__ And prototype
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/11/28/self-executing-anonymous-functions/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Self-Executing Anonymous Functions</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
   
 </article>
 
@@ -296,7 +266,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="objective-c" data-title="NSNumber And NSDictionary" data-url="http://dontcry2013.github.io/2016/12/28/objective-c/"></div>
+	<div class="ds-thread" data-thread-key="" data-title="travis-practice" data-url="http://dontcry2013.github.io/travis-practice/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -340,7 +310,7 @@ var _hmt = _hmt || [];
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -7,16 +7,17 @@
   <title>Travis Practice | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Coding is just part of the software development, and more time usually spent on building and testing. In order to improve the efficiency of software development, automated tools for building and testi">
-<meta name="keywords" content="GitHub">
+<meta name="keywords" content="GitHub,Travis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Travis Practice">
-<meta property="og:url" content="http://dontcry2013.github.io/2019/12/06/travis-practice/index.html">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2019/12/06/travis-practice/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="Coding is just part of the software development, and more time usually spent on building and testing. In order to improve the efficiency of software development, automated tools for building and testi">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://dontcry2013.github.io/img/travis-logo.png">
 <meta property="og:image" content="http://dontcry2013.github.io/img/travis-github.png">
-<meta property="og:updated_time" content="2019-12-07T12:30:43.716Z">
+<meta property="og:image" content="http://dontcry2013.github.io/img/travis-github-token.png">
+<meta property="og:updated_time" content="2019-12-08T12:14:44.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Travis Practice">
 <meta name="twitter:description" content="Coding is just part of the software development, and more time usually spent on building and testing. In order to improve the efficiency of software development, automated tools for building and testi">
@@ -25,9 +26,9 @@
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/blog/img/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/blog/css/style.css">
   
 <script>
 var _hmt = _hmt || [];
@@ -49,7 +50,7 @@ var _hmt = _hmt || [];
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="/img/litten.png" class="js-avatar">
+			<img lazy-src="/blog/img/litten.png" class="js-avatar">
 			
 		</a>
 
@@ -109,9 +110,9 @@ var _hmt = _hmt || [];
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/">homepage</a></li>
+							<li><a href="/blog/blog/">homepage</a></li>
 				        
-							<li><a href="/archives">archives</a></li>
+							<li><a href="/blog/blog/archives">archives</a></li>
 				        
 						</ul>
 					</nav>
@@ -129,7 +130,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 12px;">Android</a> <a href="/tags/android-studio/" style="font-size: 10px;">Android Studio</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/css/" style="font-size: 10px;">CSS</a> <a href="/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/tags/command/" style="font-size: 12px;">Command</a> <a href="/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/tags/es5/" style="font-size: 16px;">ES5</a> <a href="/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/tags/example/" style="font-size: 10px;">Example</a> <a href="/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/git/" style="font-size: 12px;">Git</a> <a href="/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/tags/html/" style="font-size: 10px;">HTML</a> <a href="/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/tags/java/" style="font-size: 14px;">Java</a> <a href="/tags/javascript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/php/" style="font-size: 10px;">PHP</a> <a href="/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+						<a href="/blog/tags/android/" style="font-size: 14px;">Android</a> <a href="/blog/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/blog/tags/c/" style="font-size: 14px;">C</a> <a href="/blog/tags/css/" style="font-size: 10px;">CSS</a> <a href="/blog/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/blog/tags/command/" style="font-size: 12px;">Command</a> <a href="/blog/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/blog/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/blog/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/blog/tags/example/" style="font-size: 10px;">Example</a> <a href="/blog/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/blog/tags/git/" style="font-size: 12px;">Git</a> <a href="/blog/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/blog/tags/html/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/blog/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/blog/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/blog/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/blog/tags/java/" style="font-size: 14px;">Java</a> <a href="/blog/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/blog/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/blog/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/blog/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/blog/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/blog/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/blog/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/blog/tags/php/" style="font-size: 10px;">PHP</a> <a href="/blog/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/blog/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/blog/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/blog/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/blog/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/blog/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/blog/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/blog/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/blog/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/blog/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/blog/tags/英语/" style="font-size: 10px;">英语</a>
 					</div>
 				</section>
 				
@@ -169,7 +170,7 @@ var _hmt = _hmt || [];
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="/img/litten.png" class="js-avatar">
+				<img lazy-src="/blog/img/litten.png" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -181,9 +182,9 @@ var _hmt = _hmt || [];
 			<nav class="header-menu">
 				<ul>
 				
-					<li><a href="/">homepage</a></li>
+					<li><a href="/blog/blog/">homepage</a></li>
 		        
-					<li><a href="/archives">archives</a></li>
+					<li><a href="/blog/blog/archives">archives</a></li>
 		        
 		        <div class="clearfix"></div>
 				</ul>
@@ -204,7 +205,7 @@ var _hmt = _hmt || [];
       <div class="body-wrap"><article id="post-travis-practice" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/12/06/travis-practice/" class="article-date">
+      <a href="/blog/2019/12/06/travis-practice/" class="article-date">
   	<time datetime="2019-12-06T12:46:03.000Z" itemprop="datePublished">2019-12-06</time>
 </a>
     </div>
@@ -227,12 +228,12 @@ var _hmt = _hmt || [];
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">GitHub</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/travis/">Travis</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/ci/">CI</a>
+	<a class="article-category-link" href="/blog/categories/ci/">CI</a><a class="article-category-link" href="/blog/categories/ci/basic/">Basic</a><a class="article-category-link" href="/blog/categories/ci/basic/tools/">Tools</a>
 	</div>
 
 
@@ -243,7 +244,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Coding is just part of the software development, and more time usually spent on building and testing.</p>
-<p>In order to improve the efficiency of software development, automated tools for building and testing are constantly emerging. <a href="https://travis-ci.org" target="_blank" rel="noopener">Travis CI</a> is one of these tools with the largest <a href="(https://github.com/blog/2463-github-welcomes-all-ci-tools)">market share</a>.<br><img src="/img/travis-logo.png" alt="travis" title="Travis CI"></p>
+<p>In order to improve the efficiency of software development, automated tools for building and testing are constantly emerging. <a href="https://travis-ci.org" target="_blank" rel="noopener">Travis CI</a> is one of these tools with the largest <a href="https://github.com/blog/2463-github-welcomes-all-ci-tools" target="_blank" rel="noopener">market share</a>.<br><img src="/img/travis-logo.png" alt="travis" title="Travis CI"></p>
 <a id="more"></a>
 <h1 id="What-is-CI"><a href="#What-is-CI" class="headerlink" title="What is CI?"></a>What is CI?</h1><p>With the first glance of the name, people often ask what is CI? Well, CI stands for continuous integration.</p>
 <p>Continuous integration refers to automatically running builds and tests whenever the code changes, and feeding back the results of the operation. After ensuring that it meet expectations.</p>
@@ -252,14 +253,13 @@ var _hmt = _hmt || [];
 <h1 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h1><p>Travis CI have two sites，<strong><code>travis-ci.org</code></strong> targeted at open source project, Open source project hosted on Github can use it freely. <strong><code>travis-ci.com</code></strong> is for commercial projects, new user can build up to 100 times freely.</p>
 <p>In order to try it on freely, you have to meet the following conditions:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- Have a GitHub account</span><br><span class="line">- There is an open source project under this account</span><br><span class="line">- The project has runnable code</span><br><span class="line">- The project also contains build or test scripts</span><br></pre></td></tr></table></figure></p>
 <h1 id="Try-It"><a href="#Try-It" class="headerlink" title="Try It"></a>Try It</h1><ul>
-<li><p>Add <a href="(https://github.com/marketplace/travis-ci)">Travis CI</a> to your account.</p>
+<li>Add <a href="https://github.com/marketplace/travis-ci" target="_blank" rel="noopener">Travis CI</a> to your account.</li>
+<li><p>Go to <a href="https://github.com/settings/installations" target="_blank" rel="noopener">Applications settings</a>, configure Travis CI to have access to the repo.</p>
 <p><img src="/img/travis-github.png" alt="TravisCI in GitHub" title="Travis in GitHub"></p>
 </li>
-<li><p>Go to <a href="(https://github.com/settings/installations)">Applications settings</a>, configure Travis CI to have access to the repo.</p>
-</li>
 <li>You’ll be redirected to Travis page.</li>
-<li><p>On a new tab, generate a <a href="(https://github.com/settings/tokens)">new token</a> with repo scopes. Note down the token value.</p>
-<p>![Token in GitHub][TravisCI-Token-GitHub]</p>
+<li><p>On a new tab, generate a <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">new token</a> with repo scopes. Note down the token value.</p>
+<p><img src="/img/travis-github-token.png" alt="Token in GitHub" title="Token in GitHub"></p>
 </li>
 <li>On the Travis page, go to your repo’s setting. Under <strong><code>Environment Variables</code></strong>, put <strong><code>GH_TOKEN</code></strong> as name and paste the token onto value. Click Add to save it.</li>
 <li>Add .travis.yml file to your repo, just like below.<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">10</span> <span class="comment"># use nodejs v10 LTS or lts/*</span></span><br><span class="line"><span class="attr">cache:</span> <span class="string">npm</span></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">hexo</span> <span class="comment"># build hexo branch only</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo</span> <span class="string">generate</span> <span class="comment"># generate static files</span></span><br><span class="line"><span class="attr">after_script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">cd</span> <span class="string">./public</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">init</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.name</span> <span class="string">"your name"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.email</span> <span class="string">"your email"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">add</span> <span class="string">.</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">commit</span> <span class="string">-m</span> <span class="string">"Update blog content by Travis CI"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">push</span> <span class="string">--force</span> <span class="string">--quiet</span> <span class="string">"https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;"</span> <span class="string">master:master</span></span><br></pre></td></tr></table></figure>
@@ -272,8 +272,23 @@ var _hmt = _hmt || [];
 <li>Once Travis CI finish the deployment, the generated pages can be found in the master branch of your repository</li>
 </ul>
 <blockquote>
-<p>This script actually created for my blog to auto deploy which triggered by push commit, I made a branch <strong><code>hexo</code></strong> to hold the markdown raw files, this the default branch, and <strong><code>master</code></strong> servers the generated html files.</p>
+<p>This script actually created for my blog to auto deploy which triggered by push commit, I made a branch <strong><code>hexo</code></strong> to hold the markdown raw files, that is also the default branch, and <strong><code>master</code></strong> servers the generated html files.</p>
 </blockquote>
+<h1 id="Encrypted-Information"><a href="#Encrypted-Information" class="headerlink" title="Encrypted Information"></a>Encrypted Information</h1><p>If you are not assured that confidential information is clearly on the Travis website, you can use the encryption provided by Travis.</p>
+<p>First, install Ruby’s package <code>travis</code>.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install travis</span><br></pre></td></tr></table></figure></p>
+<p>You can then use <code>travis encrypt</code> commands to encrypt the information.</p>
+<p>In the root directory of the project, execute the following command.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ travis encrypt SOMEVAR=secretvalue</span><br></pre></td></tr></table></figure></p>
+<p>After execution, the following information will be output on the screen.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">secure:</span> <span class="string">".... encrypted data ...."</span></span><br></pre></td></tr></table></figure></p>
+<p>Now you can add this line <code>.travis.yml</code>.<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">env:</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">secure:</span> <span class="string">".... encrypted data ...."</span></span><br></pre></td></tr></table></figure></p>
+<p>Then, the environment variable can be used in the script <code>$SOMEVAR</code>, and Travis will automatically decrypt it at runtime.</p>
+<p>The <code>--add</code> parameter will automatically write the encrypted text to the <code>.travis.yml</code>, eliminating the need to modify the env fields.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ travis encrypt SOMEVAR=secretvalue --add</span><br></pre></td></tr></table></figure></p>
+<p>See the <a href="https://docs.travis-ci.com/user/encryption-keys/" target="_blank" rel="noopener">official documentation</a> for details .</p>
+<p> Refer: </p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html</a></li>
+<li><a href="https://hexo.io/docs/github-pages" target="_blank" rel="noopener">https://hexo.io/docs/github-pages</a></li>
+<li><a href="https://xirikm.net/2019/826-2" target="_blank" rel="noopener">https://xirikm.net/2019/826-2</a></li>
+</ul>
 
       
     </div>
@@ -284,8 +299,8 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
   
   
-    <a href="/2019/12/05/docker/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">docker</div>
+    <a href="/blog/2019/12/05/docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Getting started with Docker</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -320,7 +335,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="travis-practice" data-title="Travis Practice" data-url="http://dontcry2013.github.io/2019/12/06/travis-practice/"></div>
+	<div class="ds-thread" data-thread-key="travis-practice" data-title="Travis Practice" data-url="http://dontcry2013.github.io/blog/blog/2019/12/06/travis-practice/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -355,7 +370,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -372,7 +387,7 @@ var _hmt = _hmt || [];
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
+<script src="/blog/js/main.js"></script>
 
 
 

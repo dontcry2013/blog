@@ -10,7 +10,7 @@
 <meta name="keywords" content="C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图像识别之灰度，二值化，高斯模糊处理">
-<meta property="og:url" content="http://dontcry2013.github.io/2016/04/26/ocr-gray-binaryzation-blur/index.html">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2016/04/26/ocr-gray-binaryzation-blur/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="在图像处理中，灰度和二值化是其他操作的前提。灰度的方式有多种，比较简单的处理就是取RGB平均值，从而使RGBA8888格式的图片转化为了单色道的灰度图，每个像素存储在一个char中而非四个char。高斯模糊，图像处理软件会提供”模糊”（blur）滤镜，使图片产生模糊的效果。”模糊”的算法有很多种，其中有一种叫做”高斯模糊”（Gaussian Blur）。它将正态分布（又名”高斯分布”）用于图像处理">
 <meta property="og:locale" content="en">
@@ -22,9 +22,9 @@
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/blog/img/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/blog/css/style.css">
   
 <script>
 var _hmt = _hmt || [];
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="/img/litten.png" class="js-avatar">
+			<img lazy-src="/blog/img/litten.png" class="js-avatar">
 			
 		</a>
 
@@ -106,9 +106,9 @@ var _hmt = _hmt || [];
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/">homepage</a></li>
+							<li><a href="/blog/blog/">homepage</a></li>
 				        
-							<li><a href="/archives">archives</a></li>
+							<li><a href="/blog/blog/archives">archives</a></li>
 				        
 						</ul>
 					</nav>
@@ -126,7 +126,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 12px;">Android</a> <a href="/tags/android-studio/" style="font-size: 10px;">Android Studio</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/css/" style="font-size: 10px;">CSS</a> <a href="/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/tags/command/" style="font-size: 12px;">Command</a> <a href="/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/tags/es5/" style="font-size: 16px;">ES5</a> <a href="/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/tags/example/" style="font-size: 10px;">Example</a> <a href="/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/git/" style="font-size: 12px;">Git</a> <a href="/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/tags/html/" style="font-size: 10px;">HTML</a> <a href="/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/tags/java/" style="font-size: 14px;">Java</a> <a href="/tags/javascript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/php/" style="font-size: 10px;">PHP</a> <a href="/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+						<a href="/blog/tags/android/" style="font-size: 14px;">Android</a> <a href="/blog/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/blog/tags/c/" style="font-size: 14px;">C</a> <a href="/blog/tags/css/" style="font-size: 10px;">CSS</a> <a href="/blog/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/blog/tags/command/" style="font-size: 12px;">Command</a> <a href="/blog/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/blog/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/blog/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/blog/tags/example/" style="font-size: 10px;">Example</a> <a href="/blog/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/blog/tags/git/" style="font-size: 12px;">Git</a> <a href="/blog/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/blog/tags/html/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/blog/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/blog/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/blog/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/blog/tags/java/" style="font-size: 14px;">Java</a> <a href="/blog/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/blog/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/blog/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/blog/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/blog/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/blog/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/blog/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/blog/tags/php/" style="font-size: 10px;">PHP</a> <a href="/blog/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/blog/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/blog/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/blog/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/blog/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/blog/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/blog/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/blog/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/blog/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/blog/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/blog/tags/英语/" style="font-size: 10px;">英语</a>
 					</div>
 				</section>
 				
@@ -166,7 +166,7 @@ var _hmt = _hmt || [];
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="/img/litten.png" class="js-avatar">
+				<img lazy-src="/blog/img/litten.png" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -178,9 +178,9 @@ var _hmt = _hmt || [];
 			<nav class="header-menu">
 				<ul>
 				
-					<li><a href="/">homepage</a></li>
+					<li><a href="/blog/blog/">homepage</a></li>
 		        
-					<li><a href="/archives">archives</a></li>
+					<li><a href="/blog/blog/archives">archives</a></li>
 		        
 		        <div class="clearfix"></div>
 				</ul>
@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
       <div class="body-wrap"><article id="post-ocr-gray-binaryzation-blur" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/26/ocr-gray-binaryzation-blur/" class="article-date">
+      <a href="/blog/2016/04/26/ocr-gray-binaryzation-blur/" class="article-date">
   	<time datetime="2016-04-26T01:43:24.000Z" itemprop="datePublished">2016-04-26</time>
 </a>
     </div>
@@ -224,12 +224,12 @@ var _hmt = _hmt || [];
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">C</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/c/">C</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/ocr/">OCR</a>
+	<a class="article-category-link" href="/blog/categories/ocr/">OCR</a>
 	</div>
 
 
@@ -251,17 +251,17 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2016/04/29/pointer/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/04/29/php/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          函数指针和指针函数
+          PHP
         
       </div>
     </a>
   
   
-    <a href="/2016/04/22/ocr-android-bitmap/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2016/04/22/ocr-android-bitmap/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">图像识别之jni返回图片到java</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -297,7 +297,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ocr-gray-binaryzation-blur" data-title="图像识别之灰度，二值化，高斯模糊处理" data-url="http://dontcry2013.github.io/2016/04/26/ocr-gray-binaryzation-blur/"></div>
+	<div class="ds-thread" data-thread-key="ocr-gray-binaryzation-blur" data-title="图像识别之灰度，二值化，高斯模糊处理" data-url="http://dontcry2013.github.io/blog/blog/2016/04/26/ocr-gray-binaryzation-blur/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -332,7 +332,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -349,7 +349,7 @@ var _hmt = _hmt || [];
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
+<script src="/blog/js/main.js"></script>
 
 
 

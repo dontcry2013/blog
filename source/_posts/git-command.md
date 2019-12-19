@@ -1,5 +1,5 @@
 ---
-title: Git操作命令
+title: Git commands
 date: 2016-03-01 14:40:13
 categories: [Tools, Git] #文章文类
 tags: [Git] #文章标签，多于一项时用这种格式

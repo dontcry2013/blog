@@ -63,4 +63,4 @@ Exit error checking and return to the most recent code submission.
 $ git bisect reset
 ```
 
-[bisect]: /img/git-bisect.png
+[bisect]: img/git-bisect.png

@@ -33,10 +33,10 @@ open_in_new: false
 # Miscellaneous
 baidu_tongji: true
 google_analytics: ''
-favicon: /img/favicon.png
+favicon: /blog/img/favicon.png
 
 #你的头像url
-avatar: "/img/litten.png"
+avatar: "/blog/img/litten.png"
 #是否开启分享
 share_jia: true
 share_addthis: false

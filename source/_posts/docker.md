@@ -63,4 +63,4 @@ In short, containers are a bit like lightweight virtual machines which can provi
 
 [Docker]: http://www.docker.com
 [protective layer]: https://opensource.com/article/18/1/history-low-level-container-runtimes
-[Docker Logo]: img/docker-logo.png "Docker Logo"
+[Docker Logo]: /blog/img/docker-logo.png "Docker Logo"

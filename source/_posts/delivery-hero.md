@@ -4,7 +4,7 @@ date: 2016-03-01 21:40:33
 categories: Article
 tags: [碎碎念, Mandarin]
 ---
-![外卖超人](/img/delivery_hero.jpg)
+![外卖超人](/blog/img/delivery_hero.jpg)
 2016年3月1日，外卖超人宣布关停在中国业务，设立办事处继续关注中国O2O业务发展。
 
 ## 外来的和尚经难念

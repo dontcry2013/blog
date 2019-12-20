@@ -7,7 +7,7 @@ tags: [GitHub, Travis]
 Coding is just part of the software development, and more time usually spent on building and testing.
 
 In order to improve the efficiency of software development, automated tools for building and testing are constantly emerging. [Travis CI](https://travis-ci.org) is one of these tools with the largest [market share].
-![travis](/img/travis-logo.png "Travis CI")
+![travis](/blog/img/travis-logo.png "Travis CI")
 
 <!--more-->
 
@@ -126,5 +126,5 @@ See the [official documentation] for details .
 [new token]: https://github.com/settings/tokens
 [official documentation]: https://docs.travis-ci.com/user/encryption-keys/
 
-[TravisCI-GitHub]: /img/travis-github.png "Travis in GitHub"
-[Token-GitHub]: /img/travis-github-token.png "Token in GitHub"
+[TravisCI-GitHub]: /blog/img/travis-github.png "Travis in GitHub"
+[Token-GitHub]: /blog/img/travis-github-token.png "Token in GitHub"

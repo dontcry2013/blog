@@ -7,7 +7,7 @@ tags: [jQuery, Issue] #文章标签，多于一项时用这种格式
 在使用polyv的web上传插件时遇到语言问题，官方插件是中文没有切换英文的借口。想到保存到本地修改后使用。
 幸好提供了jsonp借口，但是在调用上踩了一下坑。
 <!--more-->
-![polyv api](/img/polyvapi.png)
+![polyv api](/blog/img/polyvapi.png)
 # 问题描述
 
 Uncaught ReferenceError: jsonp is not defined

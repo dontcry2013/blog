@@ -6,9 +6,9 @@ tags:
 ---
 
 `git bisect` is a powerful tool for quickly determining when a particular bug was introduced into your project.
-<!--more-->
 
- ![git bisect][bisect]
+![git bisect][bisect]
+<!--more-->
 
 Its principle is very simple, that is, the history of code submission is continuously narrowed down according to the dichotomy. The so-called "dichotomy" is to divide the code history into two, determine whether the problem lies in the first half or the second half, and continue to perform this process until the scope is narrowed to a certain code submission.
 
@@ -63,4 +63,4 @@ Exit error checking and return to the most recent code submission.
 $ git bisect reset
 ```
 
-[bisect]: img/git-bisect.png
+[bisect]: /blog/img/git-bisect.png

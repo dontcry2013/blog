@@ -4,7 +4,7 @@ date: 2017-02-21 16:03:37
 categories: JavaScript #文章文类
 tags: [Prototype] #文章标签，多于一项时用这种格式
 ---
-![JavaScript proto chain](/img/js_proto_chain.png)
+![JavaScript proto chain](/blog/img/js_proto_chain.png)
 There are several answers here how to check if a property exists in an object.
 
 I was always using
@@ -46,23 +46,22 @@ undefined error will be raise
 # next example
 
 ``` js
-//在JavaScript的世界中，所有的函数都能作为构造函数，构造出一个对象
-   //下面我给自己构造一个女神做对象
-   function NvShen () {
-     this.name = "Alice";
-   }
-   //现在我设置NvShen这个函数的prototype属性
-   //一般来说直接用匿名的对象就行，我这里是为了方便理解，
-   //先定义一个hand对象再把hand赋值给NvShen的prototype
-   var hand = {
-     whichOne: "right hand",
-     someFunction: function(){
-       console.log("not safe for work.");
-     }
-   };
-   NvShen.prototype = hand; 
+  //In world of JavaScript, very function can be used as a constructor function.
+  //Let's make a Goddess Object
+  function Goddess () {
+    this.name = "Alice";
+  }
+  
+  var hand = {
+    whichOne: "right hand",
+    someFunction: function(){
+      console.log("not safe for work.");
+    }
+  };
 
-   //这个时候，我们可以用NvShen作为构造函数，构造出myObject对象
-   var myObject = new NvShen();
-   console.log(myObject.__proto__ === NvShen.prototype) //true
+  Goddess.prototype = hand; 
+
+  //then, we can use Goddess as a constructor, construct an Object
+  var myObject = new Goddess();
+  console.log(myObject.__proto__ === Goddess.prototype) //true
 ```

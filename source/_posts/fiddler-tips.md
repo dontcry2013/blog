@@ -14,11 +14,11 @@ Fiddler is coded by C# and it's a free http proxy debugging tool. It has two ver
 your mobile phone and the computer which runs fiddler should in the same ethernet. To validate, run a server on the computer and use the phone to access the server to test if the connection is alright. 
 
 #### Fiddler configuration
-![configuration](/img/fiddler-config.png)
+![configuration](/blog/img/fiddler-config.png)
 set Fiddler->Tools->Fiddler Option like above.
 
 #### Usage
-![configuration](/img/fiddler-panel.png)
+![configuration](/blog/img/fiddler-panel.png)
 * Left panel is the whole records of the access history, we can observe the load process of a webpage.
 * Right click of the record, Filter Now->Hide Url, to avoid some annoying message.
 * TextWizard is a set of handy tools.

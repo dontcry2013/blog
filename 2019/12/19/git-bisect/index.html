@@ -13,17 +13,17 @@
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="git bisect is a powerful tool for quickly determining when a particular bug was introduced into your project.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://dontcry2013.github.io/img/git-bisect.png">
-<meta property="og:updated_time" content="2019-12-19T12:09:58.459Z">
+<meta property="og:image" content="http://dontcry2013.github.io/blog/2019/12/19/git-bisect/img/git-bisect.png">
+<meta property="og:updated_time" content="2019-12-20T12:19:01.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git Bisect">
 <meta name="twitter:description" content="git bisect is a powerful tool for quickly determining when a particular bug was introduced into your project.">
-<meta name="twitter:image" content="http://dontcry2013.github.io/img/git-bisect.png">
+<meta name="twitter:image" content="http://dontcry2013.github.io/blog/2019/12/19/git-bisect/img/git-bisect.png">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/blog/img/favicon.png">
   
   <link rel="stylesheet" href="/blog/css/style.css">
   
@@ -47,7 +47,7 @@ var _hmt = _hmt || [];
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="/img/litten.png" class="js-avatar">
+			<img lazy-src="/blog/img/litten.png" class="js-avatar">
 			
 		</a>
 
@@ -167,7 +167,7 @@ var _hmt = _hmt || [];
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="/img/litten.png" class="js-avatar">
+				<img lazy-src="/blog/img/litten.png" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -237,7 +237,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><code>git bisect</code> is a powerful tool for quickly determining when a particular bug was introduced into your project.<br><a id="more"></a></p>
-<p> <img src="/img/git-bisect.png" alt="git bisect"></p>
+<p> <img src="./img/git-bisect.png" alt="git bisect"></p>
 <p>Its principle is very simple, that is, the history of code submission is continuously narrowed down according to the dichotomy. The so-called “dichotomy” is to divide the code history into two, determine whether the problem lies in the first half or the second half, and continue to perform this process until the scope is narrowed to a certain code submission.</p>
 <p>This article uses an example to explain how to use this command. Here is a <a href="https://github.com/bradleyboy/bisectercise" target="_blank" rel="noopener">code base</a>.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@github.com:bradleyboy/bisectercise.git</span><br><span class="line">$ cd bisectercise</span><br></pre></td></tr></table></figure>

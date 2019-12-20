@@ -14,19 +14,19 @@
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="Coding is just part of the software development, and more time usually spent on building and testing. In order to improve the efficiency of software development, automated tools for building and testi">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://dontcry2013.github.io/blog/2019/12/06/travis-practice/img/travis-logo.png">
-<meta property="og:image" content="http://dontcry2013.github.io/blog/2019/12/06/travis-practice/img/travis-github.png">
-<meta property="og:image" content="http://dontcry2013.github.io/blog/2019/12/06/travis-practice/img/travis-github-token.png">
-<meta property="og:updated_time" content="2019-12-20T12:28:24.435Z">
+<meta property="og:image" content="http://dontcry2013.github.io/blog/img/travis-logo.png">
+<meta property="og:image" content="http://dontcry2013.github.io/blog/img/travis-github.png">
+<meta property="og:image" content="http://dontcry2013.github.io/blog/img/travis-github-token.png">
+<meta property="og:updated_time" content="2019-12-20T13:23:32.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Travis Practice">
 <meta name="twitter:description" content="Coding is just part of the software development, and more time usually spent on building and testing. In order to improve the efficiency of software development, automated tools for building and testi">
-<meta name="twitter:image" content="http://dontcry2013.github.io/blog/2019/12/06/travis-practice/img/travis-logo.png">
+<meta name="twitter:image" content="http://dontcry2013.github.io/blog/img/travis-logo.png">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="/blog/img/favicon.png">
   
   <link rel="stylesheet" href="/blog/css/style.css">
   
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="img/litten.png" class="js-avatar">
+			<img lazy-src="/blog/img/litten.png" class="js-avatar">
 			
 		</a>
 
@@ -170,7 +170,7 @@ var _hmt = _hmt || [];
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="img/litten.png" class="js-avatar">
+				<img lazy-src="/blog/img/litten.png" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -244,7 +244,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>Coding is just part of the software development, and more time usually spent on building and testing.</p>
-<p>In order to improve the efficiency of software development, automated tools for building and testing are constantly emerging. <a href="https://travis-ci.org" target="_blank" rel="noopener">Travis CI</a> is one of these tools with the largest <a href="https://github.com/blog/2463-github-welcomes-all-ci-tools" target="_blank" rel="noopener">market share</a>.<br><img src="img/travis-logo.png" alt="travis" title="Travis CI"></p>
+<p>In order to improve the efficiency of software development, automated tools for building and testing are constantly emerging. <a href="https://travis-ci.org" target="_blank" rel="noopener">Travis CI</a> is one of these tools with the largest <a href="https://github.com/blog/2463-github-welcomes-all-ci-tools" target="_blank" rel="noopener">market share</a>.<br><img src="/blog/img/travis-logo.png" alt="travis" title="Travis CI"></p>
 <a id="more"></a>
 <h1 id="What-is-CI"><a href="#What-is-CI" class="headerlink" title="What is CI?"></a>What is CI?</h1><p>With the first glance of the name, people often ask what is CI? Well, CI stands for continuous integration.</p>
 <p>Continuous integration refers to automatically running builds and tests whenever the code changes, and feeding back the results of the operation. After ensuring that it meet expectations.</p>
@@ -255,11 +255,11 @@ var _hmt = _hmt || [];
 <h1 id="Try-It"><a href="#Try-It" class="headerlink" title="Try It"></a>Try It</h1><ul>
 <li>Add <a href="https://github.com/marketplace/travis-ci" target="_blank" rel="noopener">Travis CI</a> to your account.</li>
 <li><p>Go to <a href="https://github.com/settings/installations" target="_blank" rel="noopener">Applications settings</a>, configure Travis CI to have access to the repo.</p>
-<p><img src="img/travis-github.png" alt="TravisCI in GitHub" title="Travis in GitHub"></p>
+<p><img src="/blog/img/travis-github.png" alt="TravisCI in GitHub" title="Travis in GitHub"></p>
 </li>
 <li>You’ll be redirected to Travis page.</li>
 <li><p>On a new tab, generate a <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">new token</a> with repo scopes. Note down the token value.</p>
-<p><img src="img/travis-github-token.png" alt="Token in GitHub" title="Token in GitHub"></p>
+<p><img src="/blog/img/travis-github-token.png" alt="Token in GitHub" title="Token in GitHub"></p>
 </li>
 <li>On the Travis page, go to your repo’s setting. Under <strong><code>Environment Variables</code></strong>, put <strong><code>GH_TOKEN</code></strong> as name and paste the token onto value. Click Add to save it.</li>
 <li>Add .travis.yml file to your repo, just like below.<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">10</span> <span class="comment"># use nodejs v10 LTS or lts/*</span></span><br><span class="line"><span class="attr">cache:</span> <span class="string">npm</span></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">hexo</span> <span class="comment"># build hexo branch only</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo</span> <span class="string">generate</span> <span class="comment"># generate static files</span></span><br><span class="line"><span class="attr">after_script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">cd</span> <span class="string">./public</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">init</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.name</span> <span class="string">"your name"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.email</span> <span class="string">"your email"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">add</span> <span class="string">.</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">commit</span> <span class="string">-m</span> <span class="string">"Update blog content by Travis CI"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">push</span> <span class="string">--force</span> <span class="string">--quiet</span> <span class="string">"https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;"</span> <span class="string">master:master</span></span><br></pre></td></tr></table></figure>

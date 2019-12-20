@@ -14,17 +14,17 @@
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="在使用polyv的web上传插件时遇到语言问题，官方插件是中文没有切换英文的借口。想到保存到本地修改后使用。幸好提供了jsonp借口，但是在调用上踩了一下坑。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://dontcry2013.github.io/img/polyvapi.png">
-<meta property="og:updated_time" content="2019-12-18T12:38:22.536Z">
+<meta property="og:image" content="http://dontcry2013.github.io/blog/2016/11/28/jsonp-tricky-trap/img/polyvapi.png">
+<meta property="og:updated_time" content="2019-12-20T12:46:58.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jsonp Tricky Trap">
 <meta name="twitter:description" content="在使用polyv的web上传插件时遇到语言问题，官方插件是中文没有切换英文的借口。想到保存到本地修改后使用。幸好提供了jsonp借口，但是在调用上踩了一下坑。">
-<meta name="twitter:image" content="http://dontcry2013.github.io/img/polyvapi.png">
+<meta name="twitter:image" content="http://dontcry2013.github.io/blog/2016/11/28/jsonp-tricky-trap/img/polyvapi.png">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/blog/img/favicon.png">
+    <link rel="icon" href="img/favicon.png">
   
   <link rel="stylesheet" href="/blog/css/style.css">
   
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="/blog/img/litten.png" class="js-avatar">
+			<img lazy-src="img/litten.png" class="js-avatar">
 			
 		</a>
 
@@ -168,7 +168,7 @@ var _hmt = _hmt || [];
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="/blog/img/litten.png" class="js-avatar">
+				<img lazy-src="img/litten.png" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -241,7 +241,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在使用polyv的web上传插件时遇到语言问题，官方插件是中文没有切换英文的借口。想到保存到本地修改后使用。<br>幸好提供了jsonp借口，但是在调用上踩了一下坑。<br><a id="more"></a><br><img src="/img/polyvapi.png" alt="polyv api"></p>
+        <p>在使用polyv的web上传插件时遇到语言问题，官方插件是中文没有切换英文的借口。想到保存到本地修改后使用。<br>幸好提供了jsonp借口，但是在调用上踩了一下坑。<br><a id="more"></a><br><img src="img/polyvapi.png" alt="polyv api"></p>
 <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Uncaught ReferenceError: jsonp is not defined</p>
 <p>网上的解决办法：<a href="http://stackoverflow.com/questions/8673050/jquery-ajax-calls-failing" target="_blank" rel="noopener">jQuery .ajax() calls failing</a><br>然而并没有什么卵用。</p>
 <h1 id="真正的解决办法"><a href="#真正的解决办法" class="headerlink" title="真正的解决办法"></a>真正的解决办法</h1><p>当没有指定jsonpCallback，默认是执行名为callback的函数，然而服务器返回的是形如：jsonp([{}])的命名（其实也是我指定的命名）。<br>所以jsonpCallback字段要对应。</p>
@@ -257,18 +257,18 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/12/28/objective-c/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/11/28/self-executing-anonymous-functions/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          NSNumber And NSDictionary
+          Self-Executing Anonymous Functions
         
       </div>
     </a>
   
   
-    <a href="/blog/2016/11/28/self-executing-anonymous-functions/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Self-Executing Anonymous Functions</div>
+    <a href="/blog/2016/11/24/promise-and-async/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Promise and Async</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

@@ -14,17 +14,17 @@
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="There are several answers here how to check if a property exists in an object. I was always using if(myObj.hasOwnProperty(‘propName’))but I wonder if there is any difference fromif(‘propName’ in myObj">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://dontcry2013.github.io/img/js_proto_chain.png">
-<meta property="og:updated_time" content="2019-12-18T12:38:22.535Z">
+<meta property="og:image" content="http://dontcry2013.github.io/blog/2017/02/21/js-property/img/js_proto_chain.png">
+<meta property="og:updated_time" content="2019-12-20T12:39:53.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Difference Between __proto__ And prototype">
 <meta name="twitter:description" content="There are several answers here how to check if a property exists in an object. I was always using if(myObj.hasOwnProperty(‘propName’))but I wonder if there is any difference fromif(‘propName’ in myObj">
-<meta name="twitter:image" content="http://dontcry2013.github.io/img/js_proto_chain.png">
+<meta name="twitter:image" content="http://dontcry2013.github.io/blog/2017/02/21/js-property/img/js_proto_chain.png">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/blog/img/favicon.png">
+    <link rel="icon" href="img/favicon.png">
   
   <link rel="stylesheet" href="/blog/css/style.css">
   
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="/blog/img/litten.png" class="js-avatar">
+			<img lazy-src="img/litten.png" class="js-avatar">
 			
 		</a>
 
@@ -168,7 +168,7 @@ var _hmt = _hmt || [];
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="/blog/img/litten.png" class="js-avatar">
+				<img lazy-src="img/litten.png" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -241,14 +241,14 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/js_proto_chain.png" alt="JavaScript proto chain"><br>There are several answers here how to check if a property exists in an object.</p>
+        <p><img src="img/js_proto_chain.png" alt="JavaScript proto chain"><br>There are several answers here how to check if a property exists in an object.</p>
 <p>I was always using</p>
 <p>if(myObj.hasOwnProperty(‘propName’))<br>but I wonder if there is any difference from<br>if(‘propName’ in myObj){</p>
 <a id="more"></a>
 <h1 id="An-example"><a href="#An-example" class="headerlink" title="An example"></a>An example</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">test.prototype.newProp = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> test();</span><br><span class="line"></span><br><span class="line">instance.hasOwnProperty(<span class="string">'newProp'</span>); <span class="comment">// false</span></span><br><span class="line"><span class="string">'newProp'</span> <span class="keyword">in</span> instance <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <h1 id="another-example"><a href="#another-example" class="headerlink" title="another example"></a>another example</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o  = &#123;<span class="string">"name"</span>:<span class="string">"sun nan"</span>,<span class="string">"university"</span>:<span class="string">"Deakin"</span>,<span class="string">"course"</span>:<span class="string">"Bachelor of Information Technology (Programming)-Deakin"</span>,<span class="string">"email"</span>:<span class="string">"417757848@qq.com"</span>,<span class="string">"first_name"</span>:<span class="string">"Nan"</span>,<span class="string">"last_name"</span>:<span class="string">"Sun"</span>,<span class="string">"date_of_birth"</span>:<span class="string">"1993-09-13"</span>&#125;</span><br><span class="line"></span><br><span class="line">o.prototype.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> x <span class="keyword">in</span> y)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(x, y[x]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>undefined error will be raise</p>
-<h1 id="next-example"><a href="#next-example" class="headerlink" title="next example"></a>next example</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在JavaScript的世界中，所有的函数都能作为构造函数，构造出一个对象</span></span><br><span class="line">   <span class="comment">//下面我给自己构造一个女神做对象</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">NvShen</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">this</span>.name = <span class="string">"Alice"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//现在我设置NvShen这个函数的prototype属性</span></span><br><span class="line">   <span class="comment">//一般来说直接用匿名的对象就行，我这里是为了方便理解，</span></span><br><span class="line">   <span class="comment">//先定义一个hand对象再把hand赋值给NvShen的prototype</span></span><br><span class="line">   <span class="keyword">var</span> hand = &#123;</span><br><span class="line">     whichOne: <span class="string">"right hand"</span>,</span><br><span class="line">     someFunction: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">"not safe for work."</span>);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">   NvShen.prototype = hand; </span><br><span class="line"></span><br><span class="line">   <span class="comment">//这个时候，我们可以用NvShen作为构造函数，构造出myObject对象</span></span><br><span class="line">   <span class="keyword">var</span> myObject = <span class="keyword">new</span> NvShen();</span><br><span class="line">   <span class="built_in">console</span>.log(myObject.__proto__ === NvShen.prototype) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h1 id="next-example"><a href="#next-example" class="headerlink" title="next example"></a>next example</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//In world of JavaScript, very function can be used as a constructor function.</span></span><br><span class="line"><span class="comment">//Let's make a Goddess Object</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Goddess</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">"Alice"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hand = &#123;</span><br><span class="line">  whichOne: <span class="string">"right hand"</span>,</span><br><span class="line">  someFunction: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"not safe for work."</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Goddess.prototype = hand; </span><br><span class="line"></span><br><span class="line"><span class="comment">//then, we can use Goddess as a constructor, construct an Object</span></span><br><span class="line"><span class="keyword">var</span> myObject = <span class="keyword">new</span> Goddess();</span><br><span class="line"><span class="built_in">console</span>.log(myObject.__proto__ === Goddess.prototype) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
       
     </div>
     

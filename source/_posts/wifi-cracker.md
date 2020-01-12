@@ -7,14 +7,14 @@ tags:
 
 Mac OS X comes with a suite of wireless diagnostic tools. To open them, hold down the option key on your keyboard and click on the Wi-Fi icon in the menu bar. Then click "Open Wireless Diagnostics..." and then click on Window > Scan. Find the target network, note its channel and width.
 
+<!--more-->
+
 # Capture a 4-way Handshake
 With Wireless Diagnostics open, click on Window > Sniffer. Select the channel and width that you found in the previous step.
 Now you'll need to wait for a device to connect to the target network. If you are testing this on your network (which you should be), reconnect a wireless device to capture a handshake.
 Once you think you've got a handshake, click Stop.
 The .wcap capture file will either be saved to your Desktop or /var/tmp/ depending on your operating system version.
 Convert the capture file to .hccapx by uploading it to https://hashcat.net/cap2hccapx/. If you captured any handshakes, the site will start downloading a .hccapx file. No download will be prompted if you did not.
-
-<!--more-->
 
 * With Wireless Diagnostics open, click on Window > Sniffer. Select the channel and width that you found in the previous step.
 * Now you'll need to wait for a device to connect to the target network. If you are testing this on your network (which you should be), reconnect a wireless device to capture a handshake.

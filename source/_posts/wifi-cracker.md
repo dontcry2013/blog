@@ -63,3 +63,9 @@ You can optionally broadcast deauth packets to all connected clients with:
 # not all clients respect broadcast deauths though
 aireplay-ng -0 2 -a 9C:5C:8E:C9:AB:C0 mon0
 ```
+
+
+reference:
+
+https://github.com/brannondorsey/wifi-cracking
+https://louisabraham.github.io/articles/WPA-wifi-cracking-MBP.html

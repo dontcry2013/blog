@@ -31,26 +31,13 @@ http {
 
   server {
     listen 8080;
-    #server_name 192.168.1.108:8080;
-    #include        /etc/nginx/mime.types;
-    #default_type  application/octet-stream;
-    #sendfile        on;
-    keepalive_timeout  65;
-    #location ~ ^/moodle/(.*)$ {
     location /moodle/ {
       proxy_set_header Host $http_host;
       proxy_set_header  X-Real-IP $remote_addr;
       proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_set_header  X-Forwarded-Proto $scheme;
       proxy_set_header  X-Scheme $scheme;
-      #proxy_set_header  Host $host;
-      #proxy_connect_timeout 3;
-      #proxy_read_timeout 60;
-      #proxy_send_timeout 60;
-      #proxy_redirect off;
-      #proxy_max_temp_file_size 0;
       proxy_pass http://myapp1;
-      #proxy_pass http://192.168.1.108;
     }
     #location ~ .*\.(html|htm|png|jpg|gif|jpeg|bmp|ico|txt|js|css)$ {
     #       proxy_pass http://myapp1;
@@ -70,6 +57,24 @@ We can see the differences between **`"$proxy_host"`, `"$http_host"` and `"$host
 
 ## ip_hash
 To implement the sticky session, ip_hash should be the silver bullet, as both round robin and least_conn may access different server in a single request.
+
+## Pit of ip_hash
+
+According to the official documentation, **` The first three octets of the client IPv4 address, or the entire IPv6 address, are used as a hashing key`**, which means not entire IPV4 address would be hashed, only the first three numbers are used as a hash key. It costs a great effort to find this tricky feature.
+
+To achieve the entire IP address hashed as key, we should use another directive in ngx_http_upstream_module called **`hash`**.
+
+The updated upstream directive should be like: 
+``` sh
+  upstream myapp1 {
+    hash $remote_addr;
+    server 192.168.1.105 weight=8;
+    server 192.168.1.108 weight=10;
+  }
+```
+
+ip_hash can cause another problem, if we have a classroom got a lot of students to use our system to attend exam, this will give great burden on our system which can not be solve be ip_hash load balancer.
+
 
 # Moodle wwwroot config
 

@@ -4,20 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>JavaScript Tips And Tricks | Zachary&#39;s blog</title>
+  <title>apache-php-mpm-event | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Little tips and tricks in JavaScript, but often to use">
-<meta name="keywords" content="ES6,ES5,ES2017">
+  <meta name="description" content="CentOS1yum install httpd httpd-tools mod_ssl php-fpm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript Tips And Tricks">
-<meta property="og:url" content="http://dontcry2013.github.io/blog/2017/05/04/js-tips/index.html">
+<meta property="og:title" content="apache-php-mpm-event">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/01/15/apache-php-mpm-event/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="Little tips and tricks in JavaScript, but often to use">
+<meta property="og:description" content="CentOS1yum install httpd httpd-tools mod_ssl php-fpm">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-18T12:38:22.535Z">
+<meta property="og:updated_time" content="2020-01-15T03:26:37.154Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript Tips And Tricks">
-<meta name="twitter:description" content="Little tips and tricks in JavaScript, but often to use">
+<meta name="twitter:title" content="apache-php-mpm-event">
+<meta name="twitter:description" content="CentOS1yum install httpd httpd-tools mod_ssl php-fpm">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -198,11 +197,11 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-js-tips" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-apache-php-mpm-event" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2017/05/04/js-tips/" class="article-date">
-  	<time datetime="2017-05-04T00:03:37.000Z" itemprop="datePublished">2017-05-04</time>
+      <a href="/blog/2020/01/15/apache-php-mpm-event/" class="article-date">
+  	<time datetime="2020-01-15T03:13:43.000Z" itemprop="datePublished">2020-01-15</time>
 </a>
     </div>
   
@@ -215,7 +214,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript Tips And Tricks
+      apache-php-mpm-event
     </h1>
   
 
@@ -223,15 +222,7 @@ var _hmt = _hmt || [];
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2017/">ES2017</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es5/">ES5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es6/">ES6</a></li></ul>
-	</div>
-
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/javascript/">JavaScript</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -239,9 +230,30 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Little tips and tricks in JavaScript, but often to use</p>
+        <h1 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd httpd-tools mod_ssl php-fpm</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>setTimeout(function(param1, param2, param3){<br>  console.log(param1, param2, param3);<br>}, 1000, “hello”, “World”);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/httpd/conf.modules.d/00-mpm.conf </span><br><span class="line"># LoadModule mpm_prefork_module modules/mod_mpm_prefork.so</span><br><span class="line">LoadModule mpm_event_module modules/mod_mpm_event.so</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/httpd/conf.d/php.conf</span><br><span class="line"></span><br><span class="line"># Tell the PHP interpreter to handle files with a .php extension.</span><br><span class="line"></span><br><span class="line"># Proxy declaration</span><br><span class="line">&lt;Proxy &quot;unix:/var/run/php-fpm/default.sock|fcgi://php-fpm&quot;&gt;</span><br><span class="line">	# we must declare a parameter in here (doesn&apos;t matter which) or it&apos;ll not register the proxy ahead of time</span><br><span class="line">    	ProxySet disablereuse=off</span><br><span class="line">&lt;/Proxy&gt;</span><br><span class="line"></span><br><span class="line"># Redirect to the proxy</span><br><span class="line">&lt;FilesMatch \.php$&gt;</span><br><span class="line">	SetHandler proxy:fcgi://php-fpm</span><br><span class="line">&lt;/FilesMatch&gt;</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Allow php to handle Multiviews</span><br><span class="line">#</span><br><span class="line">AddType text/html .php</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Add index.php to the list of files that will be served as directory</span><br><span class="line"># indexes.</span><br><span class="line">#</span><br><span class="line">DirectoryIndex index.php</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Uncomment the following lines to allow PHP to pretty-print .phps</span><br><span class="line"># files as PHP source code:</span><br><span class="line">#</span><br><span class="line">#&lt;FilesMatch \.phps$&gt;</span><br><span class="line">#	SetHandler application/x-httpd-php-source</span><br><span class="line">#&lt;/FilesMatch&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/php-fpm.d/www.conf</span><br><span class="line">; listen = 127.0.0.1:9000</span><br><span class="line">listen = /var/run/php-fpm/default.sock</span><br><span class="line">...</span><br><span class="line">listen.allowed_clients = 127.0.0.1</span><br><span class="line">listen.owner = apache</span><br><span class="line">listen.group = apache</span><br><span class="line">listen.mode = 0660</span><br><span class="line">user = apache</span><br><span class="line">group = apache</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@web01 ~]# systemctl enable php-fpm</span><br><span class="line">[root@web01 ~]# systemctl enable httpd</span><br><span class="line">[root@web01 ~]# systemctl start php-fpm</span><br><span class="line">[root@web01 ~]# systemctl start httpd</span><br><span class="line">[root@web01 ~]# firewall-cmd --zone=public --permanent --add-service=http</span><br><span class="line">[root@web01 ~]# firewall-cmd --zone=public --permanent --add-service=https</span><br><span class="line">[root@web01 ~]# firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<h1 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h1><p>According to official doc of Apache, the Apache 2 web server configuration in Debian is quite different to<br>upstream’s suggested way to configure the web server. This is because Debian’s<br>default Apache2 installation attempts to make adding and removing modules,<br>virtual hosts, and extra configuration directives as flexible as possible, in<br>order to make automating the changes and administering the server as easy as<br>possible.</p>
+<p><code>sudo apachectl -V</code> will show which mod Apache is using.</p>
+<p>In order to use event mode of Apache, we should remove the pre-installed php, because it depends on pre-fork mod.</p>
+<h2 id="1-Remove-or-disable-the-Apache-PHP-module"><a href="#1-Remove-or-disable-the-Apache-PHP-module" class="headerlink" title="1. Remove or disable the Apache PHP module"></a>1. Remove or disable the Apache PHP module</h2><p>Because the Ubuntu packages insist on prefork Apache when installing PHP, we have to separate them. I did this by using apt to uninstall libapache2-mod-php7.0 because I no longer need the package:</p>
+<p><code>sudo apt-get remove libapache2-mod-php7.0</code></p>
+<p>Alternatively, you might disable the php7.0 Apache module instead, but this will not remove the apt package from your system, which leaves behind annoying system cruft.</p>
+<p><code>sudo a2dismod php7.0</code></p>
+<h2 id="2-Switch-Apache-to-event-mode-and-enable-fcgid"><a href="#2-Switch-Apache-to-event-mode-and-enable-fcgid" class="headerlink" title="2. Switch Apache to event mode and enable fcgid"></a>2. Switch Apache to event mode and enable fcgid</h2><p>I believe these commands should do the trick:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo a2dismod mpm_prefork</span><br><span class="line">sudo a2enmod mpm_event</span><br><span class="line">sudo a2enmod proxy_fcgi</span><br></pre></td></tr></table></figure>
+<h2 id="3-Install-PHP-FPM"><a href="#3-Install-PHP-FPM" class="headerlink" title="3. Install PHP-FPM"></a>3. Install PHP-FPM</h2><p>I already have PHP 7 installed with its various modules, so I just install PHP-FPM with this command:</p>
+<p><code>sudo apt-get install php7.0-fpm</code></p>
+<h2 id="4-Edit-your-VirtualHost-configuration-to-handle-PHP-files-with-PHP-FPM"><a href="#4-Edit-your-VirtualHost-configuration-to-handle-PHP-files-with-PHP-FPM" class="headerlink" title="4. Edit your VirtualHost configuration to handle PHP files with PHP-FPM:"></a>4. Edit your VirtualHost configuration to handle PHP files with PHP-FPM:</h2><p>In my case, I edited the default SSL host, /etc/apache2/sites-available/default-ssl.conf, and added this line right near the top:</p>
+<p>ProxyPassMatch ^/(.<em>.php(/.</em>)?)$ unix:/run/php/php7.0-fpm.sock|fcgi://localhost/var/www/html/<br>IMPORTANT This instructs Apache to handle PHP file requests with PHP-FPRM and the the path in this directive (/run/php/php7.0-fpm.sock) must match the path specified by the listen directive in the file /etc/php/7.0/fpm/pool.d/<a href="http://www.conf" target="_blank" rel="noopener">www.conf</a></p>
+<h2 id="5-Restart-Apache"><a href="#5-Restart-Apache" class="headerlink" title="5. Restart Apache"></a>5. Restart Apache</h2><p><code>sudo service apache2 restart</code></p>
+<p>To check if event mode is enabled, use this command:</p>
+<p><code>sudo apachectl -V</code></p>
+<p>In the output, you should see this:</p>
+<p>Server MPM:     event<br>Try creating a phpinfo page and accessing it in your browser. You should see Server API: FPM/FastCGI in the output.</p>
 
       
     </div>
@@ -251,18 +263,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2017/05/20/5-minutes-trivial/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          5 Minutes Trivial
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2017/05/04/js-clone/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript Object Clone</div>
+    <a href="/blog/2020/01/12/wifi-cracker/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Wifi Cracker in Mac OS X</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -297,7 +300,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js-tips" data-title="JavaScript Tips And Tricks" data-url="http://dontcry2013.github.io/blog/blog/2017/05/04/js-tips/"></div>
+	<div class="ds-thread" data-thread-key="apache-php-mpm-event" data-title="apache-php-mpm-event" data-url="http://dontcry2013.github.io/blog/blog/2020/01/15/apache-php-mpm-event/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

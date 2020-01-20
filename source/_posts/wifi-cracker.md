@@ -1,5 +1,5 @@
 ---
-title: Wifi Cracker in Mac OS X
+title: WiFi Cracker in Mac OS X
 date: 2020-01-12 23:04:34
 categories:
 tags:

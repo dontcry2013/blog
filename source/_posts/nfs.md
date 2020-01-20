@@ -84,3 +84,18 @@ vim /etc/fstab
 [...]
 192.168.0.100:/var/nfsshare    /mnt/nfs/var/nfsshare   nfs defaults 0 0
 ```
+
+# Got a Problem?
+
+Sometimes, you may got message like you're denied access to the server, to solve this firstly we should check the log.
+
+
+> **`tail -n100 /var/log/messages`**
+
+In my case, I was working on a KVM which is use it's own IP, but the NFS server got the host IP, but I add the KVM IP to the config file.
+
+## Change /etc/exports
+
+You shouldn't need to restart NFS every time you make a change to /etc/exports. All that's required is to issue the appropriate command after editing the /etc/exports file:
+
+>  **`exportfs -ra`**

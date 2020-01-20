@@ -1,12 +1,12 @@
 ---
-title: apache-config-default-website
+title: Apache Configuration of Default Website
 date: 2020-01-17 12:24:32
 categories:
 tags:
 ---
 # What I Want
 
-To get a page of login, instead of a default apache welcome page when access to a IP address.
+To get a direct access to the website, instead of the apache welcome page when access to a IP address.
 
 To change this :
 
@@ -63,3 +63,6 @@ The default config file - **`000-default.conf `** allows every sub folder of `/v
   DocumentRoot /var/www/html
 ```
 
+
+
+# CentOS

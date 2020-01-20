@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="Network File System (NFS) is a popular distributed filesystem protocol that enables users to mount remote directories on their server. It does not require client to have big disk space to store all fi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-15T23:27:16.015Z">
+<meta property="og:updated_time" content="2020-01-20T11:06:53.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NFS">
 <meta name="twitter:description" content="Network File System (NFS) is a popular distributed filesystem protocol that enables users to mount remote directories on their server. It does not require client to have big disk space to store all fi">
@@ -243,6 +243,16 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@client1 ~]# df -kh</span><br><span class="line">Filesystem                    Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root        39G  1.1G   38G   3% /</span><br><span class="line">devtmpfs                      488M     0  488M   0% /dev</span><br><span class="line">tmpfs                         494M     0  494M   0% /dev/shm</span><br><span class="line">tmpfs                         494M  6.7M  487M   2% /run</span><br><span class="line">tmpfs                         494M     0  494M   0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/centos-home        19G   33M   19G   1% /home</span><br><span class="line">/dev/sda1                     497M  126M  372M  26% /boot</span><br><span class="line">192.168.0.100:/var/nfsshare   39G  980M   38G   3% /mnt/nfs/var/nfsshare</span><br><span class="line">192.168.0.100:/home           19G   33M   19G   1% /mnt/nfs/home</span><br></pre></td></tr></table></figure>
 <h1 id="Permanent-NFS-mounting"><a href="#Permanent-NFS-mounting" class="headerlink" title="Permanent NFS mounting"></a>Permanent NFS mounting</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fstab</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[...]</span><br><span class="line">192.168.0.100:/var/nfsshare    /mnt/nfs/var/nfsshare   nfs defaults 0 0</span><br></pre></td></tr></table></figure>
+<h1 id="Got-a-Problem"><a href="#Got-a-Problem" class="headerlink" title="Got a Problem?"></a>Got a Problem?</h1><p>Sometimes, you may got message like you’re denied access to the server, to solve this firstly we should check the log.</p>
+<blockquote>
+<p><strong><code>tail -n100 /var/log/messages</code></strong></p>
+</blockquote>
+<p>In my case, I was working on a KVM which is use it’s own IP, but the NFS server got the host IP, but I add the KVM IP to the config file.</p>
+<h2 id="Change-etc-exports"><a href="#Change-etc-exports" class="headerlink" title="Change /etc/exports"></a>Change /etc/exports</h2><p>You shouldn’t need to restart NFS every time you make a change to /etc/exports. All that’s required is to issue the appropriate command after editing the /etc/exports file:</p>
+<blockquote>
+<p> <strong><code>exportfs -ra</code></strong></p>
+</blockquote>
+
       
     </div>
     

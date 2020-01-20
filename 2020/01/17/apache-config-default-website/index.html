@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>apache-config-default-website | Zachary&#39;s blog</title>
+  <title>Apache Configuration of Default Website | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="What I WantTo get a page of login, instead of a default apache welcome page when access to a IP address. To change this :">
+  <meta name="description" content="What I WantTo get a direct access to the website, instead of the apache welcome page when access to a IP address. To change this :">
 <meta property="og:type" content="article">
-<meta property="og:title" content="apache-config-default-website">
+<meta property="og:title" content="Apache Configuration of Default Website">
 <meta property="og:url" content="http://dontcry2013.github.io/blog/2020/01/17/apache-config-default-website/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="What I WantTo get a page of login, instead of a default apache welcome page when access to a IP address. To change this :">
+<meta property="og:description" content="What I WantTo get a direct access to the website, instead of the apache welcome page when access to a IP address. To change this :">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://dontcry2013.github.io/blog/img/apache-default.png">
 <meta property="og:image" content="http://dontcry2013.github.io/blog/img/moodle-index.png">
-<meta property="og:updated_time" content="2020-01-17T03:02:20.912Z">
+<meta property="og:updated_time" content="2020-01-17T03:23:53.523Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="apache-config-default-website">
-<meta name="twitter:description" content="What I WantTo get a page of login, instead of a default apache welcome page when access to a IP address. To change this :">
+<meta name="twitter:title" content="Apache Configuration of Default Website">
+<meta name="twitter:description" content="What I WantTo get a direct access to the website, instead of the apache welcome page when access to a IP address. To change this :">
 <meta name="twitter:image" content="http://dontcry2013.github.io/blog/img/apache-default.png">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
@@ -217,7 +217,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      apache-config-default-website
+      Apache Configuration of Default Website
     </h1>
   
 
@@ -233,7 +233,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="What-I-Want"><a href="#What-I-Want" class="headerlink" title="What I Want"></a>What I Want</h1><p>To get a page of login, instead of a default apache welcome page when access to a IP address.</p>
+        <h1 id="What-I-Want"><a href="#What-I-Want" class="headerlink" title="What I Want"></a>What I Want</h1><p>To get a direct access to the website, instead of the apache welcome page when access to a IP address.</p>
 <p>To change this :</p>
 <p><img src="/blog/img/apache-default.png" alt="default"><br><a id="more"></a><br>into this: </p>
 <p><img src="/blog/img/moodle-index.png" alt="page"></p>
@@ -245,7 +245,7 @@ var _hmt = _hmt || [];
 <h2 id="Website-config"><a href="#Website-config" class="headerlink" title="Website config"></a>Website config</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($_SERVER[<span class="string">'HTTP_HOST'</span>] == <span class="string">"192.168.1.105"</span>)&#123;</span><br><span class="line">  $CFG-&gt;wwwroot   = <span class="string">'http://192.168.1.105'</span>;</span><br><span class="line">  $CFG-&gt;dbhost    = <span class="string">'localhost'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Default-Config"><a href="#Default-Config" class="headerlink" title="Default Config"></a>Default Config</h2><p>The default config file - <strong><code>000-default.conf</code></strong> allows every sub folder of <code>/var/www/http</code> can be accessed by using url like <code>IP/{folder-name}</code>.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /var/www/html&gt;</span><br><span class="line">        Options Indexes FollowSymLinks MultiViews</span><br><span class="line">        AllowOverride All</span><br><span class="line">        Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">ServerAdmin webmaster@localhost</span><br><span class="line">DocumentRoot /var/www/html</span><br></pre></td></tr></table></figure>
-
+<h1 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h1>
       
     </div>
     
@@ -291,7 +291,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="apache-config-default-website" data-title="apache-config-default-website" data-url="http://dontcry2013.github.io/blog/blog/2020/01/17/apache-config-default-website/"></div>
+	<div class="ds-thread" data-thread-key="apache-config-default-website" data-title="Apache Configuration of Default Website" data-url="http://dontcry2013.github.io/blog/blog/2020/01/17/apache-config-default-website/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

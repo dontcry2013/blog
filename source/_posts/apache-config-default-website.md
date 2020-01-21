@@ -41,7 +41,7 @@ The **`ServerName`**  directive sets the request scheme, hostname and port that 
 
 Domain name matches IP, to find your server, but the serverName will match the website(sub path in you server) domain name.
 
-## Website config
+## Website Configuration
 
 ``` php
 if($_SERVER['HTTP_HOST'] == "192.168.1.105"){
@@ -49,7 +49,7 @@ if($_SERVER['HTTP_HOST'] == "192.168.1.105"){
   $CFG->dbhost    = 'localhost';
 }
 ```
-## Default Config
+## Default Configuration
 The default config file - **`000-default.conf `** allows every sub folder of `/var/www/http` can be accessed by using url like `IP/{folder-name}`.
 
 ``` sh
@@ -62,7 +62,3 @@ The default config file - **`000-default.conf `** allows every sub folder of `/v
   ServerAdmin webmaster@localhost
   DocumentRoot /var/www/html
 ```
-
-
-
-# CentOS

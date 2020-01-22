@@ -80,7 +80,7 @@ For this part, there are great extensions in official documentation, and used a 
 To my understanding, this part is not mandatory to set, but we'd better to have them if you want to track down some issues related to original IP.
 
 This is apache log, with these header set, a original IP will recorded and in server end there might be requests static modules are working rely on the original IP. Without this, problems are hard to find and some statistic functions could be malfunctioned.
-![apache-log](/blog/img/apache-log.png)
+![apache-log](/blog/img/apache-log.jpg)
 
 
 # Moodle wwwroot config
@@ -99,6 +99,8 @@ systemctl restart nginx
 
 # test configuration file
 nginx -c /etc/nginx/nginx.conf -t
+# or
+service nginx configtest
 ```
 
 

@@ -1,14 +1,9 @@
 ---
-title: linux-passwd-group
+title: Linux passwd and group Mangagement
 date: 2020-01-23 10:14:46
 categories:
 tags:
 ---
-# User and Group Management Files
-
-> **`/etc/passwd`** and **`/etc/group`**
-
-
 # Format
 
 ## /etc/passwd
@@ -26,6 +21,10 @@ Example:
 > sudo:x:27:Lucy,Tom
 
 <!--more-->
+# User and Group Management Files
+
+> **`/etc/passwd`** and **`/etc/group`**
+
 
 # Add
 

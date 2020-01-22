@@ -195,6 +195,70 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-ocr-gray-binaryzation-blur" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/04/26/ocr-gray-binaryzation-blur/" class="article-date">
+  	<time datetime="2016-04-26T01:43:24.000Z" itemprop="datePublished">2016-04-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/04/26/ocr-gray-binaryzation-blur/">图像识别之灰度，二值化，高斯模糊处理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在图像处理中，灰度和二值化是其他操作的前提。灰度的方式有多种，比较简单的处理就是取RGB平均值，从而使RGBA8888格式的图片转化为了单色道的灰度图，每个像素存储在一个char中而非四个char。<br>高斯模糊，图像处理软件会提供”模糊”（blur）滤镜，使图片产生模糊的效果。”模糊”的算法有很多种，其中有一种叫做”高斯模糊”（Gaussian Blur）。它将正态分布（又名”高斯分布”）用于图像处理。<br>二值化，设定某个条件将像素转为黑白两种色，这里设置的条件为：是否大于色素平均值再减去40，即buffer_temp[x]&gt;avage_char-40?255:0。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/c/">C</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/blog/categories/ocr/">OCR</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2016/04/26/ocr-gray-binaryzation-blur/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ocr-android-bitmap" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -753,70 +817,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2016/03/15/fiddler-tips/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-business-model-idea" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2016/03/13/business-model-idea/" class="article-date">
-  	<time datetime="2016-03-13T11:26:32.000Z" itemprop="datePublished">2016-03-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/03/13/business-model-idea/">关于新型职业服务的思考</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/blog/img/51baishi.png" alt="51拜师网"><br>本地生活服务平台可谓寡头当道，但在细分领域仍大有文章可做，一些是巨头们顾及不到的，一些是难以做精做好的。其中，教育就是一块蓝海，有待于发掘开拓。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mandarin/">Mandarin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/碎碎念/">碎碎念</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/article/">Article</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2016/03/13/business-model-idea/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

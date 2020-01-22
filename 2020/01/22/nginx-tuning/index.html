@@ -4,22 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Apache Configuration of Default Website | Zachary&#39;s blog</title>
+  <title>Nginx Tuning | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="What I WantTo get a direct access to the website, instead of the apache welcome page when access to a IP address. To change this :">
+  <meta name="description" content="Handle System Limitation/etc/security/limits.conf lists the limitation of the system. By running Nginx config test command, we got a warning said the config out the limitation of system permitted.1234">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache Configuration of Default Website">
-<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/01/17/apache-config-default-website/index.html">
+<meta property="og:title" content="Nginx Tuning">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/01/22/nginx-tuning/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="What I WantTo get a direct access to the website, instead of the apache welcome page when access to a IP address. To change this :">
+<meta property="og:description" content="Handle System Limitation/etc/security/limits.conf lists the limitation of the system. By running Nginx config test command, we got a warning said the config out the limitation of system permitted.1234">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://dontcry2013.github.io/blog/img/apache-default.png">
-<meta property="og:image" content="http://dontcry2013.github.io/blog/img/moodle-index.png">
-<meta property="og:updated_time" content="2020-01-21T10:45:51.575Z">
+<meta property="og:updated_time" content="2020-01-22T02:33:57.870Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apache Configuration of Default Website">
-<meta name="twitter:description" content="What I WantTo get a direct access to the website, instead of the apache welcome page when access to a IP address. To change this :">
-<meta name="twitter:image" content="http://dontcry2013.github.io/blog/img/apache-default.png">
+<meta name="twitter:title" content="Nginx Tuning">
+<meta name="twitter:description" content="Handle System Limitation/etc/security/limits.conf lists the limitation of the system. By running Nginx config test command, we got a warning said the config out the limitation of system permitted.1234">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -200,11 +197,11 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-apache-config-default-website" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-nginx-tuning" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2020/01/17/apache-config-default-website/" class="article-date">
-  	<time datetime="2020-01-17T01:24:32.000Z" itemprop="datePublished">2020-01-17</time>
+      <a href="/blog/2020/01/22/nginx-tuning/" class="article-date">
+  	<time datetime="2020-01-22T00:59:58.000Z" itemprop="datePublished">2020-01-22</time>
 </a>
     </div>
   
@@ -217,7 +214,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Apache Configuration of Default Website
+      Nginx Tuning
     </h1>
   
 
@@ -233,18 +230,23 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="What-I-Want"><a href="#What-I-Want" class="headerlink" title="What I Want"></a>What I Want</h1><p>To get a direct access to the website, instead of the apache welcome page when access to a IP address.</p>
-<p>To change this :</p>
-<p><img src="/blog/img/apache-default.png" alt="default"><br><a id="more"></a><br>into this: </p>
-<p><img src="/blog/img/moodle-index.png" alt="page"></p>
-<h1 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h1><p>In Ubuntu, the apache server is changed and different from the original one.</p>
-<p><code>vim /etc/apache2/apache2.conf</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Include of directories ignores editors' and dpkg's backup files,</span></span><br><span class="line"><span class="comment"># see README.Debian for details.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Include generic snippets of statements</span></span><br><span class="line">IncludeOptional conf-enabled/*.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># Include the virtual host configurations:</span></span><br><span class="line">IncludeOptional sites-enabled/*.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># vim: syntax=apache ts=4 sw=4 sts=4 sr noet</span></span><br><span class="line">ServerName 192.168.1.105</span><br></pre></td></tr></table></figure>
-<h2 id="ServerName"><a href="#ServerName" class="headerlink" title="ServerName"></a>ServerName</h2><p>The <strong><code>ServerName</code></strong>  directive sets the request scheme, hostname and port that the server uses to identify itself. In the context of virtual hosts, the ServerName specifies what hostname must appear in the request’s Host: header to match this virtual host. For the default virtual host (this file) this value is not decisive as it is used as a last resort host regardless. However, you must set it for any further virtual host explicitly.</p>
-<p>Domain name matches IP, to find your server, but the serverName will match the website(sub path in you server) domain name.</p>
-<h2 id="Website-Configuration"><a href="#Website-Configuration" class="headerlink" title="Website Configuration"></a>Website Configuration</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($_SERVER[<span class="string">'HTTP_HOST'</span>] == <span class="string">"192.168.1.105"</span>)&#123;</span><br><span class="line">  $CFG-&gt;wwwroot   = <span class="string">'http://192.168.1.105'</span>;</span><br><span class="line">  $CFG-&gt;dbhost    = <span class="string">'localhost'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Default-Configuration"><a href="#Default-Configuration" class="headerlink" title="Default Configuration"></a>Default Configuration</h2><p>The default config file - <strong><code>000-default.conf</code></strong> allows every sub folder of <code>/var/www/http</code> can be accessed by using url like <code>IP/{folder-name}</code>.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /var/www/html&gt;</span><br><span class="line">        Options Indexes FollowSymLinks MultiViews</span><br><span class="line">        AllowOverride All</span><br><span class="line">        Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">ServerAdmin webmaster@localhost</span><br><span class="line">DocumentRoot /var/www/html</span><br></pre></td></tr></table></figure>
+        <h1 id="Handle-System-Limitation"><a href="#Handle-System-Limitation" class="headerlink" title="Handle System Limitation"></a>Handle System Limitation</h1><p><strong><code>/etc/security/limits.conf</code></strong> lists the limitation of the system. By running Nginx config test command, we got a warning said the config out the limitation of system permitted.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service nginx configtest</span><br><span class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span><br><span class="line">nginx: [warn] 65535 worker_connections exceed open file resource limit: 1024</span><br><span class="line">nginx: configuration file /etc/nginx/nginx.conf test is successful</span><br></pre></td></tr></table></figure></p>
+<p>Edit and add the following lines.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* hard nofile 94000</span><br><span class="line">* soft nofile 94000</span><br><span class="line">* hard nproc 64000</span><br><span class="line">* soft nproc 64000</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="Do-changes-in-etc-security-limits-conf-require-a-reboot"><a href="#Do-changes-in-etc-security-limits-conf-require-a-reboot" class="headerlink" title="Do changes in /etc/security/limits.conf require a reboot?"></a>Do changes in /etc/security/limits.conf require a reboot?</h2><p>No, but we should close all active sessions windows. They still remember the old values. In other words, log out and back in. Every remote new session or a local secure shell take effect of the limits changes.</p>
+<h1 id="Tuning"><a href="#Tuning" class="headerlink" title="Tuning"></a>Tuning</h1><h2 id="Worker-Processes"><a href="#Worker-Processes" class="headerlink" title="Worker Processes"></a>Worker Processes</h2><ul>
+<li><p><strong><code>worker_processes</code></strong><br>The number of NGINX worker processes (the default is 1). In most cases, running one worker process per CPU core works well, and we recommend setting this directive to auto to achieve that.</p>
+</li>
+<li><p><strong><code>worker_connections</code></strong><br>The maximum number of connections that each worker process can handle simultaneously. The default is 512, but most systems have enough resources to support a larger number.</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  24;</span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  65535;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Access-Logging"><a href="#Access-Logging" class="headerlink" title="Access Logging"></a>Access Logging</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">log_format  main  &apos;$remote_addr $remote_user [$time_local] &apos;</span><br><span class="line">                  &apos;$request status:$status $body_bytes_sent &apos;</span><br><span class="line">                  &apos;$http_referer $remote_addr $proxy_add_x_forwarded_for &apos;</span><br><span class="line">                  &apos;$scheme proxy_host:$proxy_host http_host:$http_host host:$host [$http_user_agent] [$upstream_addr] [$request_body]&apos;;</span><br><span class="line"></span><br><span class="line">access_log  /var/log/nginx/access.log  main buffer=32k flush=5s;</span><br></pre></td></tr></table></figure>
+<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">nproc --all</span><br><span class="line"><span class="comment"># Or</span></span><br><span class="line">lscpu | grep -E <span class="string">'^Thread|^Core|^Socket|^CPU\('</span></span><br><span class="line">CPU(s):                32</span><br><span class="line">Thread(s) per core:    2</span><br><span class="line">Core(s) per socket:    8</span><br><span class="line">Socket(s):             2</span><br><span class="line"></span><br><span class="line"><span class="comment"># List System Limitation</span></span><br><span class="line"><span class="built_in">ulimit</span> -a</span><br><span class="line"></span><br><span class="line"><span class="comment">#To change the nofile to 94000 you can do:</span></span><br><span class="line"><span class="built_in">ulimit</span> -n 94000</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong><code>CPUs = Threads per core X cores per socket X sockets</code></strong></p>
+</blockquote>
+<p>reference: <a href="https://www.nginx.com/blog/tuning-nginx/" target="_blank" rel="noopener">https://www.nginx.com/blog/tuning-nginx/</a></p>
 
       
     </div>
@@ -254,18 +256,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2020/01/22/nginx-tuning/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Nginx Tuning
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2020/01/15/apache-php-mpm-event/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Apache enable mpm-event and PHP Config</div>
+    <a href="/blog/2020/01/17/apache-config-default-website/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Configuration of Default Website</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -300,7 +293,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="apache-config-default-website" data-title="Apache Configuration of Default Website" data-url="http://dontcry2013.github.io/blog/blog/2020/01/17/apache-config-default-website/"></div>
+	<div class="ds-thread" data-thread-key="nginx-tuning" data-title="Nginx Tuning" data-url="http://dontcry2013.github.io/blog/blog/2020/01/22/nginx-tuning/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

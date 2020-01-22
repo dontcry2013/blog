@@ -195,6 +195,63 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-nginx-tuning" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/01/22/nginx-tuning/" class="article-date">
+  	<time datetime="2020-01-22T00:59:58.000Z" itemprop="datePublished">2020-01-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/01/22/nginx-tuning/">Nginx Tuning</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Handle-System-Limitation"><a href="#Handle-System-Limitation" class="headerlink" title="Handle System Limitation"></a>Handle System Limitation</h1><p><strong><code>/etc/security/limits.conf</code></strong> lists the limitation of the system. By running Nginx config test command, we got a warning said the config out the limitation of system permitted.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service nginx configtest</span><br><span class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span><br><span class="line">nginx: [warn] 65535 worker_connections exceed open file resource limit: 1024</span><br><span class="line">nginx: configuration file /etc/nginx/nginx.conf test is successful</span><br></pre></td></tr></table></figure></p>
+<p>Edit and add the following lines.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* hard nofile 94000</span><br><span class="line">* soft nofile 94000</span><br><span class="line">* hard nproc 64000</span><br><span class="line">* soft nproc 64000</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/01/22/nginx-tuning/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-apache-config-default-website" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -708,70 +765,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2019/12/05/jest-practice/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-github-code-block" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2019/12/02/github-code-block/" class="article-date">
-  	<time datetime="2019-12-02T03:39:38.000Z" itemprop="datePublished">2019-12-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2019/12/02/github-code-block/">Languages Supported by Github Flavored Markdown</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Github uses Linguist to perform language detection and syntax highlighting. Here a list of common languages that can be used with the backtick (see full list in <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank" rel="noopener">Linguist - languages.yml</a>).<br>After further investigation, wrapping your code with lines that consist of three backticks, and it supports <a href="https://help.github.com/en/github/writing-on-github" target="_blank" rel="noopener">Github Flavored Markdown</a></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/github/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/markdown/">Markdown</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/git/">Git</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2019/12/02/github-code-block/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

@@ -75,11 +75,11 @@ proxy_set_header  X-Real-IP $remote_addr;
 proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
 proxy_set_header  X-Forwarded-Proto $scheme;
 ```
-For this part, there are great extensions in official documentation, and used a lot of terminology which hard to understand.
+For this part, there are great explanation in official documentation, and used a lot of terminology which hard to understand.
 
 To my understanding, this part is not mandatory to set, but we'd better to have them if you want to track down some issues related to original IP.
 
-This is apache log, with these header set, a original IP will recorded and in server end there might be requests static modules are working rely on the original IP. Without this, problems are hard to find and some statistic functions could be malfunctioned.
+This is apache log, with these header set, a original IP will recorded and in server end there might be requests statistic modules are working rely on the original IP. Without this, problems are hard to find and some statistic functions could be malfunctioned.
 ![apache-log](/blog/img/apache-log.jpg)
 
 

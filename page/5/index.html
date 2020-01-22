@@ -195,6 +195,78 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-php" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/04/29/php/" class="article-date">
+  	<time datetime="2016-04-29T08:34:12.000Z" itemprop="datePublished">2016-04-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/04/29/php/">PHP</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h1><p>Start Apache: <strong><code>sudo apachectl start</code></strong></p>
+<p>Stop Apache: <strong><code>sudo apachectl stop</code></strong></p>
+<p>Restart Apache: <strong><code>sudo apachectl restart</code></strong></p>
+<hr>
+<h1 id="Open-PHP"><a href="#Open-PHP" class="headerlink" title="Open PHP"></a>Open PHP</h1><p>To open PHP, need to modify the following config file</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apache2/httpd.conf</span><br></pre></td></tr></table></figure>
+<p>Find the line <strong><code>#LoadModule php5_module libexec/apache2/libphp5.so</code></strong>, remote the <strong><code>#</code></strong> sign.</p>
+<p>In mac, the default Apache directory is <strong><code>/Library/WebServer/Documents</code></strong>, create a file named <strong><code>index.php</code></strong>, if it’s not exist, write <strong><code>&lt;?php phpinfo(); ?&gt;</code></strong> as the first line. Open browser to access localhost, if the PHP info page displayed, that means PHP is configured to open successfully.</p>
+<h1 id="Change-Apache-Default-Directory"><a href="#Change-Apache-Default-Directory" class="headerlink" title="Change Apache Default Directory"></a>Change Apache Default Directory</h1><p>　　上面说到了mac下Apache的默认文件夹为/Library/WebServer/Documents，该目录默认是隐藏的，操作不是很方便，我们可以将其修改成自定义的目录。</p>
+<p>Open terminal and input: <strong><code>sudo vim /etc/apache2/httpd.conf</code></strong></p>
+<p>Find the following lines<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot &quot;/Library/WebServer/Documents&quot;</span><br><span class="line">&lt;Directory &quot;/Library/WebServer/Documents&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Replace the directory with you preferred one, restart Apache, move the just created <strong><code>index.php</code></strong> to the directory, and then test in the browser to see if the php info page still working.</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/apache/">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/php/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ubuntu/">Ubuntu</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/blog/categories/basic/">Basic</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ocr-gray-binaryzation-blur" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -753,70 +825,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2016/03/20/20-Mar-2016/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-fiddler-tips" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2016/03/15/fiddler-tips/" class="article-date">
-  	<time datetime="2016-03-15T03:57:37.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/03/15/fiddler-tips/">Fiddler Tips</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Fiddler is coded by C# and it’s a free http proxy debugging tool. It has two version which are .net 2 and .net 4. Fiddler can record all the messages that transmitted between your computer and internet. Basically, it’s really easy to use, but it doesn’t means it’s simple designed but, on the contrary, it can set breakpoints, run script before/after a http request to tunning and examine the data which is really powerful.<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/fiddler/">Fiddler</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/proxy/">Proxy</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/tools/">Tools</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2016/03/15/fiddler-tips/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

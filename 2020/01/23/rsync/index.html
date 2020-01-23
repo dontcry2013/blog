@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>rsync | Zachary&#39;s blog</title>
+  <title>rsync and xinetd | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="!(rsync-error)[/blog/img/rsync-error.png] Commands12345/usr/bin/rsync --daemon --config /etc/rsyncd/rsyncd.confps aux | grep rsyncservice --status-all">
+  <meta name="description" content="For rsync daemon, with the first glance of the above picture we would think there is no rsync server running. But the fact is not that simple, it could be managed by xinetd. A xinetd, the eXtended Int">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rsync">
+<meta property="og:title" content="rsync and xinetd">
 <meta property="og:url" content="http://dontcry2013.github.io/blog/2020/01/23/rsync/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="!(rsync-error)[/blog/img/rsync-error.png] Commands12345/usr/bin/rsync --daemon --config /etc/rsyncd/rsyncd.confps aux | grep rsyncservice --status-all">
+<meta property="og:description" content="For rsync daemon, with the first glance of the above picture we would think there is no rsync server running. But the fact is not that simple, it could be managed by xinetd. A xinetd, the eXtended Int">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-23T00:59:14.433Z">
+<meta property="og:image" content="http://dontcry2013.github.io/blog/img/rsync-error.png">
+<meta property="og:updated_time" content="2020-01-23T03:10:48.315Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rsync">
-<meta name="twitter:description" content="!(rsync-error)[/blog/img/rsync-error.png] Commands12345/usr/bin/rsync --daemon --config /etc/rsyncd/rsyncd.confps aux | grep rsyncservice --status-all">
+<meta name="twitter:title" content="rsync and xinetd">
+<meta name="twitter:description" content="For rsync daemon, with the first glance of the above picture we would think there is no rsync server running. But the fact is not that simple, it could be managed by xinetd. A xinetd, the eXtended Int">
+<meta name="twitter:image" content="http://dontcry2013.github.io/blog/img/rsync-error.png">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -214,7 +216,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      rsync
+      rsync and xinetd
     </h1>
   
 
@@ -230,12 +232,20 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>!(rsync-error)[/blog/img/rsync-error.png]</p>
-<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/rsync --daemon --config /etc/rsyncd/rsyncd.conf</span><br><span class="line"></span><br><span class="line">ps aux | grep rsync</span><br><span class="line"></span><br><span class="line">service --status-all</span><br></pre></td></tr></table></figure>
+        <p><img src="/blog/img/rsync-error.png" alt="default"><br>For rsync daemon, with the first glance of the above picture we would think there is no rsync server running. But the fact is not that simple, it could be managed by <strong><code>xinetd</code></strong>.</p>
+<p>A xinetd, the eXtended InterNET Daemon, manages Internet-based connectivity. It offers a more secure extension to or version of inetd, the Internet daemon.</p>
+<p>xinetd starts programs that provide Internet services. Instead of having such servers started at system initialization time, and be dormant until a connection request arrives, xinetd is the only daemon process started and it listens on all service ports for the services listed in its configuration file. When a request comes in, xinetd starts the appropriate server. Because of the way it operates, xinetd (as well as inetd) is also referred to as a super-server.</p>
 <a id="more"></a>
-<h1 id="Problem-Solve"><a href="#Problem-Solve" class="headerlink" title="Problem Solve"></a>Problem Solve</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line">log file = /var/log/rsync.log</span><br><span class="line">port = 873</span><br></pre></td></tr></table></figure>
-<p>After to do any actions to the daemon, you should to check the pid to see if it is running, because even it is failed to startup, no error displayed in the terminal, the error log only recorded in log file.</p>
-<p>Use <code>netstat -anltp</code> to show the ports are using currently.</p>
+<h1 id="xinetd-Configuration-files-location"><a href="#xinetd-Configuration-files-location" class="headerlink" title="xinetd Configuration files location"></a>xinetd Configuration files location</h1><p>Following are important configuration files for xinetd:</p>
+<ul>
+<li>/etc/xinetd.conf – The global xinetd configuration file.</li>
+<li>/etc/xinetd.d/ directory – The directory containing all service-specific files such as ftp</li>
+</ul>
+<h1 id="Problem-Solve"><a href="#Problem-Solve" class="headerlink" title="Problem Solve"></a>Problem Solve</h1><p>Run <code>chkconfig --list</code> to check if rsync is managed by xinted, and check rsync configuration files location: <code>/etc/rsyncd/rsyncd.conf</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line">log file = /var/log/rsync.log</span><br><span class="line">port = 873</span><br></pre></td></tr></table></figure>
+<p><strong><code>Attention</code></strong>: If rsync is failed to startup, no error displayed in the terminal, the error log only be recorded in log file.</p>
+<h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/rsync --daemon --config /etc/rsyncd/rsyncd.conf</span><br><span class="line"></span><br><span class="line">chkconfig --list</span><br><span class="line"></span><br><span class="line">ps aux | grep rsync</span><br><span class="line"></span><br><span class="line">service --status-all</span><br><span class="line"></span><br><span class="line">netstat -anltp</span><br><span class="line"></span><br><span class="line">service xinetd status</span><br><span class="line"># Or</span><br><span class="line">etc/init.d/xinetd status</span><br></pre></td></tr></table></figure>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>xinetd is a really powerful server running in a lot of Linux versions. It is can be used to secure the server, protect the server from <strong><code>Denial of Services</code></strong> attack.</p>
 
       
     </div>
@@ -282,7 +292,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="rsync" data-title="rsync" data-url="http://dontcry2013.github.io/blog/blog/2020/01/23/rsync/"></div>
+	<div class="ds-thread" data-thread-key="rsync" data-title="rsync and xinetd" data-url="http://dontcry2013.github.io/blog/blog/2020/01/23/rsync/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

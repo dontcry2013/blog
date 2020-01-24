@@ -49,3 +49,22 @@ service xinetd status
 # Or
 etc/init.d/xinetd status
 ```
+Edit **`/etc/xinetd.d/rsync`**
+```
+service rsync
+{
+        disable = no
+        flags           = IPv6
+        socket_type     = stream
+        wait            = no
+        user            = root
+        server          = /usr/bin/rsync
+        server_args     = --daemon   --config=/etc/rsyncd/rsyncd.conf
+        log_on_failure  += USERID
+}
+```
+
+
+# Conclusion
+
+xinetd is a really powerful server running in a lot of Linux versions. It is can be used to secure the server, protect the server from **`Denial of Services`** attack.

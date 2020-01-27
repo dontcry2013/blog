@@ -14,6 +14,7 @@ firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=mysql
 firewall-cmd --reload
 firewall-cmd --permanent --list-service
+firewall-cmd --permanent --list-ports
 # Or
 firewall-cmd --list-all
 ```

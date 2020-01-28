@@ -41,6 +41,9 @@ chkconfig --list
 
 ps aux | grep rsync
 
+# CentOS restart rsyncd
+service rsyncd restart
+
 service --status-all
 
 netstat -anltp
@@ -49,7 +52,9 @@ service xinetd status
 # Or
 etc/init.d/xinetd status
 ```
+
 Edit **`/etc/xinetd.d/rsync`**
+
 ```
 service rsync
 {

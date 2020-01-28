@@ -63,3 +63,7 @@ To add a user to the sudo group:
 * `adduser username sudo`
 
 * `usermod -aG sudo username`
+
+To change the Group setting for a directory
+
+* `chown {-R} [user]{:group} [file|directory]`

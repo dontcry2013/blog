@@ -49,6 +49,8 @@ The log output is like:
 ```
 We can see the differences between **`"$proxy_host"`, `"$http_host"` and `"$host"`**.
 
+Another thing needs to mention is that location and proxy_pass should be set exactly like above, missing or adding slash, will result in totally different behavior. Set proxy_pass to **`http://myapp1/`**, every requests to `192.168.1.105/moodle`, path is omitted.
+
 ## ip_hash
 To implement the sticky session, ip_hash should be the silver bullet, as both round robin and least_conn may access different server in a single request.
 

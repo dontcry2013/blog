@@ -6,7 +6,7 @@ tags:
 ---
 # Config Nginx as Load Balancer
 
-The entrance url is `http://192.168.1.108:8080/moodle`, with two servers behind, both open port 80 to accept incoming requests.
+The entrance url is `http://192.168.1.108:8080/moodle`, with two servers behind, both open port 80 to accept incoming requests. This is an test environment, do not worry about the path behind the IP and port, because in production environment, DNS and **`server_name`**  will solve the domain name and path.
 
 Nginx config script lists below:
 

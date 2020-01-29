@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>iptables and firewalld | Zachary&#39;s blog</title>
+  <title>inotify | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Commands12345678910firewall-cmd --permanent --zone=public --add-source=192.168.86.0/24firewall-cmd --permanent --zone=public --add-source=210.10.220.42/32firewall-cmd --permanent --add-port=8080/tcpfi">
+  <meta name="description" content="#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iptables and firewalld">
-<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/01/22/iptables-firewalld/index.html">
+<meta property="og:title" content="inotify">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/01/24/inotify/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="Commands12345678910firewall-cmd --permanent --zone=public --add-source=192.168.86.0/24firewall-cmd --permanent --zone=public --add-source=210.10.220.42/32firewall-cmd --permanent --add-port=8080/tcpfi">
+<meta property="og:description" content="#">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-24T04:33:25.160Z">
+<meta property="og:updated_time" content="2020-01-29T00:38:53.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iptables and firewalld">
-<meta name="twitter:description" content="Commands12345678910firewall-cmd --permanent --zone=public --add-source=192.168.86.0/24firewall-cmd --permanent --zone=public --add-source=210.10.220.42/32firewall-cmd --permanent --add-port=8080/tcpfi">
+<meta name="twitter:title" content="inotify">
+<meta name="twitter:description" content="#">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -197,11 +197,11 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-iptables-firewalld" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-inotify" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2020/01/22/iptables-firewalld/" class="article-date">
-  	<time datetime="2020-01-22T05:17:58.000Z" itemprop="datePublished">2020-01-22</time>
+      <a href="/blog/2020/01/24/inotify/" class="article-date">
+  	<time datetime="2020-01-23T23:18:39.000Z" itemprop="datePublished">2020-01-24</time>
 </a>
     </div>
   
@@ -214,7 +214,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      iptables and firewalld
+      inotify
     </h1>
   
 
@@ -230,9 +230,16 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-source=192.168.86.0/24</span><br><span class="line">firewall-cmd --permanent --zone=public --add-source=210.10.220.42/32</span><br><span class="line">firewall-cmd --permanent --add-port=8080/tcp</span><br><span class="line">firewall-cmd --permanent --add-service=http</span><br><span class="line">firewall-cmd --permanent --add-service=mysql</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">firewall-cmd --permanent --list-service</span><br><span class="line">firewall-cmd --permanent --list-ports</span><br><span class="line"># Or</span><br><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+        <p># </p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables --line -vnL # To check Chain IN_public_allow</span><br></pre></td></tr></table></figure>
+<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><h2 id="Install-from-Source"><a href="#Install-from-Source" class="headerlink" title="Install from Source"></a>Install from Source</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Check core version, must latter than 2.6.13</span></span><br><span class="line">uname -r</span><br><span class="line"></span><br><span class="line">rpm -qa | grep gcc</span><br><span class="line">rpm -qa | grep make</span><br><span class="line"><span class="comment"># Or</span></span><br><span class="line">yum list installed gcc </span><br><span class="line">yum list installed make</span><br><span class="line"><span class="comment"># Or</span></span><br><span class="line">yum install gcc make</span><br><span class="line"></span><br><span class="line">wget -c https://github.com/rvoicilas/inotify-tools/archive/3.20.1.tar.gz</span><br><span class="line"></span><br><span class="line">tar xvzf 3.20.1.tar.gz </span><br><span class="line"></span><br><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h2 id="Install-from-Repo"><a href="#Install-from-Repo" class="headerlink" title="Install from Repo"></a>Install from Repo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y inotify-tools</span><br></pre></td></tr></table></figure>
+<h1 id="inotifywait-Example"><a href="#inotifywait-Example" class="headerlink" title="inotifywait Example"></a>inotifywait Example</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">inotifywait -mrq  /tmp/test --timefmt &quot;%d-%m-%y %H:%M&quot; --format &quot;%T %w%f EVENT: %e&quot; -e create</span><br><span class="line"></span><br><span class="line">inotifywait -mrq  /tmp/test --timefmt &quot;%d-%m-%y %H:%M&quot; --format &quot;%T %w%f EVENT: %e&quot; -e delete</span><br><span class="line"></span><br><span class="line">inotifywait -mrq  /tmp/test --timefmt &quot;%d-%m-%y %H:%M&quot; --format &quot;%T %w%f EVENT: %e&quot; -e close_write</span><br><span class="line"></span><br><span class="line">inotifywait -mrq  /tmp/test --timefmt &quot;%d-%m-%y %H:%M&quot; --format &quot;%T %w%f EVENT: %e&quot; -e move</span><br><span class="line"></span><br><span class="line">inotifywait -mrq  /tmp/test --timefmt &quot;%d-%m-%y %H:%M&quot; --format &apos;[%T]%w%f[%e]&apos; -e create,close_write,delete,move</span><br></pre></td></tr></table></figure>
+<h1 id="Complete-Shell-Script"><a href="#Complete-Shell-Script" class="headerlink" title="Complete Shell Script"></a>Complete Shell Script</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">Path=/home/zac/inotify-test</span><br><span class="line"></span><br><span class="line">/usr/bin/inotifywait -mrq --timefmt &quot;%d-%m-%y %H:%M&quot; --format &apos;[%T]%w%f[%e]&apos; -e create,close_write,delete,move $Path  | while read -r line</span><br><span class="line">do</span><br><span class="line">	if [ &quot;$line&quot; ];then</span><br><span class="line">    	echo &quot;$&#123;line&#125;&quot;</span><br><span class="line">      rsync -avzp --password-file=&quot;/home/zac/rsync_pass&quot; --log-file=&quot;/var/log/rsync&quot; /aemg/cloudclassroom/moodle zac@192.168.1.6::moodle --delete</span><br><span class="line">        rsync -azvp --password-file=&quot;/home/zac/rsync_pass&quot; --log-file=&quot;/var/log/rsync&quot; /aemg/cloudclassroom/moodle zac@192.168.1.23::moodle --delete</span><br><span class="line">	fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h1 id="Useful-sites"><a href="#Useful-sites" class="headerlink" title="Useful sites"></a>Useful sites</h1><h2 id="GitHub-repo-wiki-of-inotify-tools"><a href="#GitHub-repo-wiki-of-inotify-tools" class="headerlink" title="GitHub repo wiki of inotify-tools"></a>GitHub repo wiki of inotify-tools</h2><p><a href="https://github.com/inotify-tools/inotify-tools/wiki" target="_blank" rel="noopener">https://github.com/inotify-tools/inotify-tools/wiki</a></p>
+<h2 id="inofitywait-Introduction"><a href="#inofitywait-Introduction" class="headerlink" title="inofitywait Introduction"></a>inofitywait Introduction</h2><p><a href="https://linux.die.net/man/1/inotifywait" target="_blank" rel="noopener">https://linux.die.net/man/1/inotifywait</a></p>
+<h2 id="A-Tool-for-Syntax-Check-of-Shell"><a href="#A-Tool-for-Syntax-Check-of-Shell" class="headerlink" title="A Tool for Syntax Check of Shell"></a>A Tool for Syntax Check of Shell</h2><p><a href="https://www.shellcheck.net/" target="_blank" rel="noopener">https://www.shellcheck.net/</a></p>
+
       
     </div>
     
@@ -241,18 +248,18 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2020/01/23/linux-passwd-group/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2020/01/28/anti-virus/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Linux passwd and group Mangagement
+          Anti Virus
         
       </div>
     </a>
   
   
-    <a href="/blog/2020/01/22/nginx-tuning/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Nginx Tuning</div>
+    <a href="/blog/2020/01/23/rsync/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">rsync and xinetd</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -287,7 +294,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iptables-firewalld" data-title="iptables and firewalld" data-url="http://dontcry2013.github.io/blog/blog/2020/01/22/iptables-firewalld/"></div>
+	<div class="ds-thread" data-thread-key="inotify" data-title="inotify" data-url="http://dontcry2013.github.io/blog/blog/2020/01/24/inotify/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

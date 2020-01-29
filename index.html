@@ -195,6 +195,118 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-anti-virus" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/01/28/anti-virus/" class="article-date">
+  	<time datetime="2020-01-27T23:37:11.000Z" itemprop="datePublished">2020-01-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/01/28/anti-virus/">Anti Virus</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Check-the-Cron-jobs"><a href="#Check-the-Cron-jobs" class="headerlink" title="Check the Cron jobs"></a>Check the Cron jobs</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /var/spool/cron</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/01/28/anti-virus/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-inotify" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/01/24/inotify/" class="article-date">
+  	<time datetime="2020-01-23T23:18:39.000Z" itemprop="datePublished">2020-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/01/24/inotify/">inotify</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p># </p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/01/24/inotify/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-rsync" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -348,7 +460,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-source=192.168.86.0/24</span><br><span class="line">firewall-cmd --permanent --zone=public --add-source=210.10.220.42/32</span><br><span class="line">firewall-cmd --permanent --add-port=8080/tcp</span><br><span class="line">firewall-cmd --permanent --add-service=http</span><br><span class="line">firewall-cmd --permanent --add-service=mysql</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">firewall-cmd --permanent --list-service</span><br><span class="line"># Or</span><br><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+        <h1 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-source=192.168.86.0/24</span><br><span class="line">firewall-cmd --permanent --zone=public --add-source=210.10.220.42/32</span><br><span class="line">firewall-cmd --permanent --add-port=8080/tcp</span><br><span class="line">firewall-cmd --permanent --add-service=http</span><br><span class="line">firewall-cmd --permanent --add-service=mysql</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">firewall-cmd --permanent --list-service</span><br><span class="line">firewall-cmd --permanent --list-ports</span><br><span class="line"># Or</span><br><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -647,123 +759,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/01/09/nginx/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-nfs" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/01/08/nfs/" class="article-date">
-  	<time datetime="2020-01-08T10:52:32.000Z" itemprop="datePublished">2020-01-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/01/08/nfs/">NFS</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Network File System (NFS) is a popular distributed filesystem protocol that enables users to mount remote directories on their server. It does not require client to have big disk space to store all files. NFS lets you leverage storage space in a different location and allows you to write onto the same space from multiple servers or clients in an effortless manner. Following commands are used to config CentOS 7.6 server.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/01/08/nfs/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-git-bisect" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2019/12/19/git-bisect/" class="article-date">
-  	<time datetime="2019-12-19T11:38:36.000Z" itemprop="datePublished">2019-12-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2019/12/19/git-bisect/">Git Bisect</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>git bisect</code> is a powerful tool for quickly determining when a particular bug was introduced into your project.</p>
-<p><img src="/blog/img/git-bisect.png" alt="git bisect"><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/tools/">Tools</a><a class="article-category-link" href="/blog/categories/tools/git/">Git</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2019/12/19/git-bisect/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

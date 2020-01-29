@@ -4,11 +4,14 @@ date: 2020-01-24 10:18:39
 categories:
 tags:
 ---
-# 
+# Real-time Data Synchronization
+In production, there is a need to back up data to a backup server when the file data in the directory changes. The realization of such requirements requires the following two points:
+
+Use the monitoring service (inotify) to monitor changes to the directory files of the server to be synchronized
+When the directory data is changed, use the rsync service to send the data to the backup server
+Therefore, real-time data synchronization can be achieved by using rsync + inotify.
 
 <!--more-->
-
-
 # Install 
 
 ## Install from Source

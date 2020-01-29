@@ -14,32 +14,41 @@ A xinetd, the eXtended InterNET Daemon, manages Internet-based connectivity. It 
 xinetd starts programs that provide Internet services. Instead of having such servers started at system initialization time, and be dormant until a connection request arrives, xinetd is the only daemon process started and it listens on all service ports for the services listed in its configuration file. When a request comes in, xinetd starts the appropriate server. Because of the way it operates, xinetd (as well as inetd) is also referred to as a super-server.
 
 <!--more-->
-# xinetd Configuration files location
+# Configuration Files' Location of xinetd
 Following are important configuration files for xinetd:
 
 * /etc/xinetd.conf – The global xinetd configuration file.
-* /etc/xinetd.d/ directory – The directory containing all service-specific files such as ftp
+* /etc/xinetd.d/ directory – The directory containing all service-specific files such as ftp and rsync
 
 # Problem Solve
 
 Run `chkconfig --list` to check if rsync is managed by xinted, and check rsync configuration files location: `/etc/rsyncd/rsyncd.conf`.
 
 ```
+address = 192.168.1.100
 pid file = /var/run/rsyncd.pid
-lock file = /var/run/rsync.lock
 log file = /var/log/rsync.log
 port = 873
 ```
+## Explanation of Configuration
 
-**`Attention`**: If rsync is failed to startup, no error displayed in the terminal, the error log only be recorded in log file.
+* pid file - process id file of the daemon
+* port - port will be listening by the daemon, can be ignored when use xinetd
+* address - IP address of the daemon, can be ignored when use xinetd
+
+**`Attention`**
+
+> Sometime IP address could be an issue when you got internal and external addresses, if connections come from external use external address, internal works like the same.
+
+> If rsync is failed to startup, no error log might be displayed on the terminal, the error log could  be recorded in log file.
 
 ## Password File Permission
-Another thing should be noticed is: in Linux, every secret file should be only readable, so change the file permissions after create one.
+Another thing should be noticed is: in Linux, every secret file should be only readable by the user itself, so change the file permissions after create one.
 ```
 chmod 600 rsyncd.secrets
 ```
 
-# Check auto-start on Boot
+# Check auto-start Programs on Boot
 ```
 # CentOS 6
 chkconfig –-list xinetd
@@ -53,16 +62,18 @@ service xinetd restart
 
 
 # Commands
-```
-# CentOS restart rsyncd
-service rsyncd restart
 
+Both CentOS 6 and 7 can use **`service`** command
+
+```
+service xinetd status
+service rsyncd restart
 service --status-all
 
+# Check All Listening Ports
 netstat -anltp
 
-service xinetd status
-# Or CentOS 6
+# CentOS 6 Check xinetd Status
 /etc/init.d/xinetd status
 ```
 

@@ -58,6 +58,7 @@ inotifywait -mrq  /tmp/test --timefmt "%d-%m-%y %H:%M" --format '[%T]%w%f[%e]' -
 
 ## Explanation
 
+### Options
 > -m, --monitor
 
 Instead of exiting after receiving a single event, execute indefinitely. The default behaviour is to exit after the first event occurs.
@@ -78,20 +79,16 @@ If specified once, the program will be less verbose. Specifically, it will not s
 
 Output in a user-specified format, using printf-like syntax. The event strings output are limited to around 4000 characters and will be truncated to this length. The following conversions are supported:
 
-%w
-This will be replaced with the name of the Watched file on which an event occurred.
+* %w - This will be replaced with the name of the Watched file on which an event occurred.
+* %f - When an event occurs within a directory, this will be replaced with the name of the File which caused the event to occur. Otherwise, this will be replaced with an empty string.
+* %e - Replaced with the Event(s) which occurred, comma-separated.
+* %Xe - Replaced with the Event(s) which occurred, separated by whichever character is in the place of 'X'.
+* %T - Replaced with the current Time in the format specified by the --timefmt option, which should be a format string suitable for passing to strftime(3).
 
-%f
-When an event occurs within a directory, this will be replaced with the name of the File which caused the event to occur. Otherwise, this will be replaced with an empty string.
+### Events
+> move
 
-%e
-Replaced with the Event(s) which occurred, comma-separated.
-
-%Xe
-Replaced with the Event(s) which occurred, separated by whichever character is in the place of 'X'.
-
-%T
-Replaced with the current Time in the format specified by the --timefmt option, which should be a format string suitable for passing to strftime(3).
+A file or directory was moved from or to a watched directory. Note that this is actually implemented simply by listening for both moved_to and moved_from, hence all close events received will be output as one or both of these, not MOVE.
 
 # Complete Shell Script
 ``` bash

@@ -92,10 +92,10 @@ Sometimes, you may got message like you're denied access to the server, to solve
 
 > **`tail -n100 /var/log/messages`**
 
-In my case, I was working on a KVM which is use it's own IP, but the NFS server got the host IP, but I add the KVM IP to the config file.
+In my case, I was working on a KVM(Kernel-based Virtual Machine) which is use it's own IP, but the NFS server got its host IP, in the configuration file of the NFS server, I added the KVM IP, so the miss-match of IP address caused a denial of access.
 
 ## Change /etc/exports
 
-You shouldn't need to restart NFS every time you make a change to /etc/exports. All that's required is to issue the appropriate command after editing the /etc/exports file:
+It is not required to restart NFS every time you make a change to /etc/exports. What we need is to issue the appropriate command after editing the /etc/exports file:
 
 >  **`exportfs -ra`**

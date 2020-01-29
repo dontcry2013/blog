@@ -277,7 +277,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p># </p>
+        <h1 id="Real-time-Data-Synchronization"><a href="#Real-time-Data-Synchronization" class="headerlink" title="Real-time Data Synchronization"></a>Real-time Data Synchronization</h1><p>In production, there is a need to back up data to a backup server when the file data in the directory changes. The realization of such requirements requires the following two points:</p>
+<p>Use the monitoring service (inotify) to monitor changes to the directory files of the server to be synchronized<br>When the directory data is changed, use the rsync service to send the data to the backup server<br>Therefore, real-time data synchronization can be achieved by using rsync + inotify.</p>
       
     </div>
     

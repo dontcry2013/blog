@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>inotify | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#">
+  <meta name="description" content="Real-time Data SynchronizationIn production, there is a need to back up data to a backup server when the file data in the directory changes. The realization of such requirements requires the following">
 <meta property="og:type" content="article">
 <meta property="og:title" content="inotify">
 <meta property="og:url" content="http://dontcry2013.github.io/blog/2020/01/24/inotify/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="#">
+<meta property="og:description" content="Real-time Data SynchronizationIn production, there is a need to back up data to a backup server when the file data in the directory changes. The realization of such requirements requires the following">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-29T00:38:53.475Z">
+<meta property="og:updated_time" content="2020-01-29T00:51:26.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="inotify">
-<meta name="twitter:description" content="#">
+<meta name="twitter:description" content="Real-time Data SynchronizationIn production, there is a need to back up data to a backup server when the file data in the directory changes. The realization of such requirements requires the following">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -230,7 +230,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p># </p>
+        <h1 id="Real-time-Data-Synchronization"><a href="#Real-time-Data-Synchronization" class="headerlink" title="Real-time Data Synchronization"></a>Real-time Data Synchronization</h1><p>In production, there is a need to back up data to a backup server when the file data in the directory changes. The realization of such requirements requires the following two points:</p>
+<p>Use the monitoring service (inotify) to monitor changes to the directory files of the server to be synchronized<br>When the directory data is changed, use the rsync service to send the data to the backup server<br>Therefore, real-time data synchronization can be achieved by using rsync + inotify.</p>
 <a id="more"></a>
 <h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><h2 id="Install-from-Source"><a href="#Install-from-Source" class="headerlink" title="Install from Source"></a>Install from Source</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Check core version, must latter than 2.6.13</span></span><br><span class="line">uname -r</span><br><span class="line"></span><br><span class="line">rpm -qa | grep gcc</span><br><span class="line">rpm -qa | grep make</span><br><span class="line"><span class="comment"># Or</span></span><br><span class="line">yum list installed gcc </span><br><span class="line">yum list installed make</span><br><span class="line"><span class="comment"># Or</span></span><br><span class="line">yum install gcc make</span><br><span class="line"></span><br><span class="line">wget -c https://github.com/rvoicilas/inotify-tools/archive/3.20.1.tar.gz</span><br><span class="line"></span><br><span class="line">tar xvzf 3.20.1.tar.gz </span><br><span class="line"></span><br><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 <h2 id="Install-from-Repo"><a href="#Install-from-Repo" class="headerlink" title="Install from Repo"></a>Install from Repo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y inotify-tools</span><br></pre></td></tr></table></figure>

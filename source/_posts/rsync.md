@@ -33,6 +33,11 @@ port = 873
 
 **`Attention`**: If rsync is failed to startup, no error displayed in the terminal, the error log only be recorded in log file.
 
+## Password File Permission
+Another thing should be noticed is: in Linux, every secret file should be only readable, so change the file permissions after create one.
+```
+chmod 600 rsyncd.secrets
+```
 # Commands
 ```
 /usr/bin/rsync --daemon --config /etc/rsyncd/rsyncd.conf

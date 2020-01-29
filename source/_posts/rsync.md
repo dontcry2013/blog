@@ -38,14 +38,22 @@ Another thing should be noticed is: in Linux, every secret file should be only r
 ```
 chmod 600 rsyncd.secrets
 ```
+
+# Check auto-start on Boot
+```
+# CentOS 6
+chkconfig –-list xinetd
+
+# CentOS 7
+systemctl list-unit-files | grep xinetd
+
+# Restart xinetd
+service xinetd restart
+```
+
+
 # Commands
 ```
-/usr/bin/rsync --daemon --config /etc/rsyncd/rsyncd.conf
-
-chkconfig --list
-
-ps aux | grep rsync
-
 # CentOS restart rsyncd
 service rsyncd restart
 
@@ -54,8 +62,8 @@ service --status-all
 netstat -anltp
 
 service xinetd status
-# Or
-etc/init.d/xinetd status
+# Or CentOS 6
+/etc/init.d/xinetd status
 ```
 
 Edit **`/etc/xinetd.d/rsync`**

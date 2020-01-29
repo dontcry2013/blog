@@ -8,7 +8,6 @@ tags:
 ![default](/blog/img/rsync-error.png)
 For rsync daemon, with the first glance of the above picture we would think there is no rsync server running. But the fact is not that simple, it could be managed by **`xinetd`**.
 
-
 A xinetd, the eXtended InterNET Daemon, manages Internet-based connectivity. It offers a more secure extension to or version of inetd, the Internet daemon.
 
 xinetd starts programs that provide Internet services. Instead of having such servers started at system initialization time, and be dormant until a connection request arrives, xinetd is the only daemon process started and it listens on all service ports for the services listed in its configuration file. When a request comes in, xinetd starts the appropriate server. Because of the way it operates, xinetd (as well as inetd) is also referred to as a super-server.
@@ -34,7 +33,7 @@ port = 873
 
 * pid file - process id file of the daemon
 * port - port will be listening by the daemon, can be ignored when use xinetd
-* address - IP address of the daemon, can be ignored when use xinetd
+* address - address on which the rsync daemon listens, can be ignored when use xinetd
 
 **`Attention`**
 

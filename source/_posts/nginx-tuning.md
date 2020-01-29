@@ -54,12 +54,23 @@ log_format  main  '$remote_addr $remote_user [$time_local] '
 
 access_log  /var/log/nginx/access.log  main buffer=32k flush=5s;
 ```
+## Check System Resources
 
-# Commands
+By tuning a software, the first thing is to figure out how many resources are there available and then check if system got limitation to refrain you from using them.
+
+CPUs provides main resources for how many processes can be running simultaneously, it means a lot for web server as http connections really depend on it.
+
+> **`CPUs = Threads per core * cores per socket * sockets`**
+
+Two commands to check:
+* nproc - print the number of processing units available
+* lscpu - display information about the CPU architecture
+* ulimit - get and set user limits
 
 ``` bash
 nproc --all
-# Or
+2
+
 lscpu | grep -E '^Thread|^Core|^Socket|^CPU\('
 CPU(s):                32
 Thread(s) per core:    2
@@ -72,7 +83,7 @@ ulimit -a
 #To change the nofile to 94000 you can do:
 ulimit -n 94000
 ```
-> **`CPUs = Threads per core X cores per socket X sockets`**
+
 
 
 

@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="Network File System (NFS) is a popular distributed filesystem protocol that enables users to mount remote directories on their server. It does not require client to have big disk space to store all fi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-20T11:06:53.311Z">
+<meta property="og:updated_time" content="2020-01-29T23:33:02.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NFS">
 <meta name="twitter:description" content="Network File System (NFS) is a popular distributed filesystem protocol that enables users to mount remote directories on their server. It does not require client to have big disk space to store all fi">
@@ -247,8 +247,8 @@ var _hmt = _hmt || [];
 <blockquote>
 <p><strong><code>tail -n100 /var/log/messages</code></strong></p>
 </blockquote>
-<p>In my case, I was working on a KVM which is use it’s own IP, but the NFS server got the host IP, but I add the KVM IP to the config file.</p>
-<h2 id="Change-etc-exports"><a href="#Change-etc-exports" class="headerlink" title="Change /etc/exports"></a>Change /etc/exports</h2><p>You shouldn’t need to restart NFS every time you make a change to /etc/exports. All that’s required is to issue the appropriate command after editing the /etc/exports file:</p>
+<p>In my case, I was working on a KVM(Kernel-based Virtual Machine) which is use it’s own IP, but the NFS server got its host IP, in the configuration file of the NFS server, I added the KVM IP, so the miss-match of IP address caused a denial of access.</p>
+<h2 id="Change-etc-exports"><a href="#Change-etc-exports" class="headerlink" title="Change /etc/exports"></a>Change /etc/exports</h2><p>It is not required to restart NFS every time you make a change to /etc/exports. What we need is to issue the appropriate command after editing the /etc/exports file:</p>
 <blockquote>
 <p> <strong><code>exportfs -ra</code></strong></p>
 </blockquote>

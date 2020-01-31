@@ -1,5 +1,5 @@
 ---
-title: jest-practice
+title: Jest Practice
 date: 2019-12-05 11:27:47
 categories:
 tags:

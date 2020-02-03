@@ -9,6 +9,8 @@ A command expects the first three **`file descriptors`** to be available. The fi
 
 There is a stdin, stdout, and a stderr associated with each command. **`ls 2>&1`** means temporarily connecting the stderr of the ls command to the same "resource" as the shell's stdout.
 
+By convention, a command reads its input from fd 0 (stdin), prints normal output to fd 1 (stdout), and error ouput to fd 2 (stderr). If one of those three fd's is not open, you may encounter problems.
+
 # Redirection
 
 Multiple output streams may be redirected to one file.

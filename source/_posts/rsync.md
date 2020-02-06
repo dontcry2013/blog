@@ -13,6 +13,26 @@ A xinetd, the eXtended InterNET Daemon, manages Internet-based connectivity. It 
 xinetd starts programs that provide Internet services. Instead of having such servers started at system initialization time, and be dormant until a connection request arrives, xinetd is the only daemon process started and it listens on all service ports for the services listed in its configuration file. When a request comes in, xinetd starts the appropriate server. Because of the way it operates, xinetd (as well as inetd) is also referred to as a super-server.
 
 <!--more-->
+# rsync Configuration
+
+### Server Configuration
+
+```
+[moodleData]
+path = /aemg/moodledata/filedir
+list=no
+auth users = zac
+```
+
+### Client 
+
+```
+rsync -azp --password-file="/home/zac/pass" --log-file="/var/log/rsync" /aemg/moodledata/filedir/ zac@192.168.86.200::moodleData --delete
+```
+
+**`/aemg/moodledata/filedir/`** should be exactly like this. This means to push all files under `filedir` to the server. Without **`/`**, rsync will create another filedir under **`/aemg/moodledata/filedir`**.
+
+
 # Configuration Files' Location of xinetd
 Following are important configuration files for xinetd:
 

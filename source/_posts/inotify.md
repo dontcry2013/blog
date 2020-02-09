@@ -1,7 +1,7 @@
 ---
 title: inotify
 date: 2020-01-24 10:18:39
-categories:
+categories: [Linux, Tools]
 tags:
 ---
 # Real-time Data Synchronization

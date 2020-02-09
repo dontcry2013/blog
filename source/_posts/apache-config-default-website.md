@@ -1,7 +1,7 @@
 ---
 title: Apache Configuration of Default Website
 date: 2020-01-17 12:24:32
-categories:
+categories: [Tools]
 tags:
 ---
 # What I Want

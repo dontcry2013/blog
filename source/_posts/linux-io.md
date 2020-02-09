@@ -1,7 +1,7 @@
 ---
 title: Linux I/O
 date: 2020-01-31 15:50:50
-categories:
+categories: [Linux]
 tags:
 ---
 

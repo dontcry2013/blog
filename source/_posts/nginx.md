@@ -1,8 +1,8 @@
 ---
 title: Nginx
 date: 2020-01-09 23:00:06
-categories:
-tags:
+categories: [Tools]
+tags: [Nginx]
 ---
 # Config Nginx as Load Balancer
 

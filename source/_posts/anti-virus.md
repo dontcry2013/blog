@@ -1,7 +1,7 @@
 ---
 title: Anti Virus
 date: 2020-01-28 10:37:11
-categories:
+categories: [Security, Linux]
 tags:
 ---
 ![default](/blog/img/rsync-unknow.png)

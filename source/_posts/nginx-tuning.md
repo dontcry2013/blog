@@ -1,8 +1,8 @@
 ---
 title: Nginx Tuning
 date: 2020-01-22 11:59:58
-categories:
-tags:
+categories: [Tools]
+tags: [Tuning]
 ---
 # Check System Resources
 

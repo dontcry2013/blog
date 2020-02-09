@@ -1,7 +1,7 @@
 ---
 title: WiFi Cracker in Mac OS X
 date: 2020-01-12 23:04:34
-categories:
+categories: [Basic, Security, Tools]
 tags:
 ---
 

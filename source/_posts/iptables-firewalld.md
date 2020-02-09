@@ -1,8 +1,8 @@
 ---
 title: iptables and firewalld
 date: 2020-01-22 16:17:58
-categories:
-tags:
+categories: [Linux]
+tags: [CentOS]
 ---
 
 # Commands

@@ -1,7 +1,7 @@
 ---
 title: Start Linux Command in Background and Detach Process in Terminal
 date: 2020-02-03 15:37:17
-categories:
+categories: [Linux]
 tags:
 ---
 # How to Start a Linux Process or Command in Background

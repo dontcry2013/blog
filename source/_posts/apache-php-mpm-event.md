@@ -1,8 +1,8 @@
 ---
 title: Apache enable mpm-event and PHP Config
 date: 2020-01-15 14:13:43
-categories:
-tags:
+categories: [Tools]
+tags: [Tuning]
 ---
 # CentOS
 

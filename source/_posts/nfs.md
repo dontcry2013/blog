@@ -1,7 +1,7 @@
 ---
 title: NFS
 date: 2020-01-08 21:52:32
-categories:
+categories: [Tools, Linux]
 tags:
 ---
 Network File System (NFS) is a popular distributed filesystem protocol that enables users to mount remote directories on their server. It does not require client to have big disk space to store all files. NFS lets you leverage storage space in a different location and allows you to write onto the same space from multiple servers or clients in an effortless manner. Following commands are used to config CentOS 7.6 server.

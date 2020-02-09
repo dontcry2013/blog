@@ -1,8 +1,8 @@
 ---
 title: rsync and xinetd
 date: 2020-01-23 11:50:52
-categories:
-tags:
+categories: [Tools]
+tags: [CentOS]
 ---
 
 ![default](/blog/img/rsync-error.png)

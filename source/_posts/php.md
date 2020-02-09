@@ -11,8 +11,9 @@ Stop Apache: **`sudo apachectl stop`**
 
 Restart Apache: **`sudo apachectl restart`**
 
-***
 <!--more-->
+
+***
 
 # Open PHP
 To open PHP, need to modify the following config file

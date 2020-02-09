@@ -10,7 +10,9 @@ Start Apache: **`sudo apachectl start`**
 Stop Apache: **`sudo apachectl stop`**
 
 Restart Apache: **`sudo apachectl restart`**
+
 ***
+<!--more-->
 
 # Open PHP
 To open PHP, need to modify the following config file
@@ -18,12 +20,14 @@ To open PHP, need to modify the following config file
 ```sh
 sudo vim /etc/apache2/httpd.conf
 ```
-Find the line **`#LoadModule php5_module libexec/apache2/libphp5.so`**, remote the **`#`** sign.
+
+Find the line **`#LoadModule php5_module libexec/apache2/libphp5.so`**, remove the **`#`** sign.
 
 In mac, the default Apache directory is **`/Library/WebServer/Documents`**, create a file named **`index.php`**, if it's not exist, write **`<?php phpinfo(); ?>`** as the first line. Open browser to access localhost, if the PHP info page displayed, that means PHP is configured to open successfully.
 
 # Change Apache Default Directory
-　　上面说到了mac下Apache的默认文件夹为/Library/WebServer/Documents，该目录默认是隐藏的，操作不是很方便，我们可以将其修改成自定义的目录。
+
+In mac, the directory of **`/Library/WebServer/Documents`** is hidden by default, it is inconvenient to access, so we can change it to someone we'd like to access.
 
 Open terminal and input: **`sudo vim /etc/apache2/httpd.conf`**
 

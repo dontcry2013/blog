@@ -1,5 +1,5 @@
 ---
-title: Linux Commands
+title: Linux Common Commands
 date: 2016-04-12 09:47:11
 categories: [Linux]
 tags: [Command]

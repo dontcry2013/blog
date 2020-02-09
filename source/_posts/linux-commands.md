@@ -7,10 +7,9 @@ tags: [Command]
 
 Some commands that are commonly used in practice.
 
-
 <!--more-->
 
-# grep选项
+# grep Options
 
 * -c 只输出匹配行的计数
 * -i 不区分大小写（用于单字符）

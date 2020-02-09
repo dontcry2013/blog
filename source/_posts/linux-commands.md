@@ -1,18 +1,25 @@
 ---
 title: Linux Commands
 date: 2016-04-12 09:47:11
-categories: Linux
+categories: [Linux]
 tags: [Command]
 ---
-一些常用的Linux命令
+
+Some commands that are commonly used in practice.
+
+
 <!--more-->
-grep选项
-	-c 只输出匹配行的计数
-    -i 不区分大小写（用于单字符）
-    -n 显示匹配的行号
-    -v 不显示不包含匹配文本的所以有行
-    -s 不显示错误信息
-    -E 使用扩展正则表达式
+
+# grep选项
+
+* -c 只输出匹配行的计数
+* -i 不区分大小写（用于单字符）
+* -n 显示匹配的行号
+* -v 不显示不包含匹配文本的所以有行
+* -s 不显示错误信息
+* -E 使用扩展正则表达式
+
+# Commands
 ``` bash
 top    
 ps -ef    
@@ -106,44 +113,45 @@ vi /etc/sysctl.conf
 
 iptables -I INPUT -s 42.62.37.0/24 -j DROP
 
-＃ 常用解压缩命令
-.tar
-解包：tar xvf FileName.tar
-打包：tar cvf FileName.tar DirName
-（注：tar是打包，不是压缩！）
-———————————————
-.gz
-解压1：gunzip FileName.gz
-解压2：gzip -d FileName.gz
-压缩：gzip FileName
+# 常用解压缩命令
 
-.tar.gz 和 .tgz
-解压：tar zxvf FileName.tar.gz
-压缩：tar zcvf FileName.tar.gz DirName
-———————————————
-.bz2
-解压1：bzip2 -d FileName.bz2
-解压2：bunzip2 FileName.bz2
-压缩： bzip2 -z FileName
+## .tar
+* 解包：tar xvf FileName.tar
+* 打包：tar cvf FileName.tar DirName
+>（注：tar是打包，不是压缩！）
 
-.tar.bz2
-解压：tar jxvf FileName.tar.bz2
-压缩：tar jcvf FileName.tar.bz2 DirName
-———————————————
-.bz
-解压1：bzip2 -d FileName.bz
-解压2：bunzip2 FileName.bz
-压缩：未知
+## .gz
+* 解压1：gunzip FileName.gz
+* 解压2：gzip -d FileName.gz
+* 压缩：gzip FileName
 
-.tar.bz
-解压：tar jxvf FileName.tar.bz
-压缩：未知
-———————————————
-.zip
-解压：unzip FileName.zip
-压缩：zip FileName.zip DirName
-———————————————
-.rar
-解压：rar x FileName.rar
-压缩：rar a FileName.rar DirName
-安装：sudo brew install unrar
+## .tar.gz and .tgz
+* 解压：tar zxvf FileName.tar.gz
+* 压缩：tar zcvf FileName.tar.gz DirName
+
+## .bz2
+* 解压1：bzip2 -d FileName.bz2
+* 解压2：bunzip2 FileName.bz2
+* 压缩： bzip2 -z FileName
+
+## .tar.bz2
+* 解压：tar jxvf FileName.tar.bz2
+* 压缩：tar jcvf FileName.tar.bz2 DirName
+
+## .bz
+* 解压1：bzip2 -d FileName.bz
+* 解压2：bunzip2 FileName.bz
+* 压缩：未知
+
+## .tar.bz
+* 解压：tar jxvf FileName.tar.bz
+* 压缩：未知
+
+## .zip
+* 解压：unzip FileName.zip
+* 压缩：zip FileName.zip DirName
+
+## .rar
+* 解压：rar x FileName.rar
+* 压缩：rar a FileName.rar DirName
+* 安装：sudo brew install unrar

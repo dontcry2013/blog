@@ -6,18 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>PHP | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ApacheStart Apache: sudo apachectl start Stop Apache: sudo apachectl stop Restart Apache: sudo apachectl restart  Open PHPTo open PHP, need to modify the following config file 1sudo vim /etc/apache2/h">
+  <meta name="description" content="ApacheStart Apache: sudo apachectl start Stop Apache: sudo apachectl stop Restart Apache: sudo apachectl restart">
 <meta name="keywords" content="Apache,PHP,Ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP">
 <meta property="og:url" content="http://dontcry2013.github.io/blog/2016/04/29/php/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="ApacheStart Apache: sudo apachectl start Stop Apache: sudo apachectl stop Restart Apache: sudo apachectl restart  Open PHPTo open PHP, need to modify the following config file 1sudo vim /etc/apache2/h">
+<meta property="og:description" content="ApacheStart Apache: sudo apachectl start Stop Apache: sudo apachectl stop Restart Apache: sudo apachectl restart">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-18T12:38:22.542Z">
+<meta property="og:updated_time" content="2020-02-09T13:12:05.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP">
-<meta name="twitter:description" content="ApacheStart Apache: sudo apachectl start Stop Apache: sudo apachectl stop Restart Apache: sudo apachectl restart  Open PHPTo open PHP, need to modify the following config file 1sudo vim /etc/apache2/h">
+<meta name="twitter:description" content="ApacheStart Apache: sudo apachectl start Stop Apache: sudo apachectl stop Restart Apache: sudo apachectl restart">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -243,11 +243,12 @@ var _hmt = _hmt || [];
 <p>Stop Apache: <strong><code>sudo apachectl stop</code></strong></p>
 <p>Restart Apache: <strong><code>sudo apachectl restart</code></strong></p>
 <hr>
+<a id="more"></a>
 <h1 id="Open-PHP"><a href="#Open-PHP" class="headerlink" title="Open PHP"></a>Open PHP</h1><p>To open PHP, need to modify the following config file</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apache2/httpd.conf</span><br></pre></td></tr></table></figure>
-<p>Find the line <strong><code>#LoadModule php5_module libexec/apache2/libphp5.so</code></strong>, remote the <strong><code>#</code></strong> sign.</p>
+<p>Find the line <strong><code>#LoadModule php5_module libexec/apache2/libphp5.so</code></strong>, remove the <strong><code>#</code></strong> sign.</p>
 <p>In mac, the default Apache directory is <strong><code>/Library/WebServer/Documents</code></strong>, create a file named <strong><code>index.php</code></strong>, if it’s not exist, write <strong><code>&lt;?php phpinfo(); ?&gt;</code></strong> as the first line. Open browser to access localhost, if the PHP info page displayed, that means PHP is configured to open successfully.</p>
-<h1 id="Change-Apache-Default-Directory"><a href="#Change-Apache-Default-Directory" class="headerlink" title="Change Apache Default Directory"></a>Change Apache Default Directory</h1><p>　　上面说到了mac下Apache的默认文件夹为/Library/WebServer/Documents，该目录默认是隐藏的，操作不是很方便，我们可以将其修改成自定义的目录。</p>
+<h1 id="Change-Apache-Default-Directory"><a href="#Change-Apache-Default-Directory" class="headerlink" title="Change Apache Default Directory"></a>Change Apache Default Directory</h1><p>In mac, the directory of <strong><code>/Library/WebServer/Documents</code></strong> is hidden by default, it is inconvenient to access, so we can change it to someone we’d like to access.</p>
 <p>Open terminal and input: <strong><code>sudo vim /etc/apache2/httpd.conf</code></strong></p>
 <p>Find the following lines<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot &quot;/Library/WebServer/Documents&quot;</span><br><span class="line">&lt;Directory &quot;/Library/WebServer/Documents&quot;&gt;</span><br></pre></td></tr></table></figure></p>
 <p>Replace the directory with you preferred one, restart Apache, move the just created <strong><code>index.php</code></strong> to the directory, and then test in the browser to see if the php info page still working.</p>
@@ -260,18 +261,18 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/04/29/pointer/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/05/18/ocr-application-mk/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          函数指针和指针函数
+          application-mk
         
       </div>
     </a>
   
   
-    <a href="/blog/2016/04/26/ocr-gray-binaryzation-blur/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">图像识别之灰度，二值化，高斯模糊处理</div>
+    <a href="/blog/2016/04/29/pointer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">函数指针和指针函数</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

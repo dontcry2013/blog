@@ -4,15 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Archives: 2020/2 | Zachary&#39;s blog</title>
+  <title>new-node-nfs-rsync | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zachary&#39;s blog">
-<meta property="og:url" content="http://dontcry2013.github.io/blog/archives/2020/02/index.html">
+  <meta name="description" content="Working on 204, inet is 26 Prerequisitesudo sucat centos-releaselscpuifconfigsestatussudo setenforce 0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="new-node-nfs-rsync">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/02/11/new-node-nfs-rsync/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="Working on 204, inet is 26 Prerequisitesudo sucat centos-releaselscpuifconfigsestatussudo setenforce 0">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-11T05:07:48.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zachary&#39;s blog">
+<meta name="twitter:title" content="new-node-nfs-rsync">
+<meta name="twitter:description" content="Working on 204, inet is 26 Prerequisitesudo sucat centos-releaselscpuifconfigsestatussudo setenforce 0">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -193,107 +197,117 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-new-node-nfs-rsync" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/blog/2020/02/11/new-node-nfs-rsync/" class="article-date">
+  	<time datetime="2020-02-11T05:07:01.000Z" itemprop="datePublished">2020-02-11</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      new-node-nfs-rsync
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2020/02/11/new-node-nfs-rsync/" class="archive-article-date">
-  	<time datetime="2020-02-11T05:07:01.000Z" itemprop="datePublished">Feb 11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/02/11/new-node-nfs-rsync/">new-node-nfs-rsync</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Working on 204, inet is 26</p>
+<h1 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h1><p>sudo su<br>cat centos-release<br>lscpu<br>ifconfig<br>sestatus<br>sudo setenforce 0</p>
+<a id="more"></a>
+<h1 id="NFS-Server"><a href="#NFS-Server" class="headerlink" title="NFS Server"></a>NFS Server</h1><p>vim /etc/exports<br>add<br>/aemg/moodledata        192.168.86.26(rw,async)<br>exportfs -ra</p>
+<h1 id="NFS-Client"><a href="#NFS-Client" class="headerlink" title="NFS Client"></a>NFS Client</h1><p>df -a<br>yum list installed nfs-utils<br>yum install nfs-utils<br>mkdir -p /aemg/moodledata<br>chmod 777 /aemg/moodledata/<br>mount -t nfs 192.168.86.199:/aemg/moodledata /aemg/moodledata<br>vim /etc/fstab<br>append<br>192.168.86.199:/aemg/moodledata /aemg/moodledata        nfs rw</p>
+<h1 id="xinetd"><a href="#xinetd" class="headerlink" title="xinetd"></a>xinetd</h1><p>yum list installed xinetd<br>yum install xinetd<br>vim xinetd.d/rsync<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">service rsync</span><br><span class="line"> &#123;</span><br><span class="line">     port            = 873</span><br><span class="line">     disable         = no</span><br><span class="line">     socket_type     = stream</span><br><span class="line">     protocol        = tcp</span><br><span class="line">     wait            = no</span><br><span class="line">     user            = root</span><br><span class="line">     group           = root</span><br><span class="line">     groups          = yes</span><br><span class="line">     server          = /usr/bin/rsync</span><br><span class="line">     server_args = --daemon --config /etc/rsyncd.conf</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Rsync"><a href="#Rsync" class="headerlink" title="Rsync"></a>Rsync</h1><p>yum list installed rsync<br>yum install rsync<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line">log file = /var/log/rsync.log</span><br><span class="line">address = 192.168.86.26</span><br><span class="line">port = 873</span><br><span class="line">secrets file=/etc/rsyncd.secrets</span><br><span class="line">uid = 0</span><br><span class="line">gid = 0</span><br><span class="line">use chroot = yes</span><br><span class="line">read only = no</span><br><span class="line">write only = no</span><br><span class="line">hosts allow = 192.168.86.0/24</span><br><span class="line">hosts deny = *</span><br><span class="line">max connections = 5</span><br><span class="line">transfer logging = yes</span><br><span class="line">log format = %t %a %m %f %b</span><br><span class="line">syslog facility = local3</span><br><span class="line">timeout = 300</span><br><span class="line"></span><br><span class="line">[moodle]</span><br><span class="line">path = /aemg</span><br><span class="line">list=no</span><br><span class="line">auth users = zac</span><br><span class="line">exclude = moodle/config.php</span><br></pre></td></tr></table></figure></p>
+<p>touch rsyncd.secrets<br>chmod 600 rsyncd.secrets</p>
+<p>service xinetd start</p>
+<h2 id="Sync-code"><a href="#Sync-code" class="headerlink" title="Sync code"></a>Sync code</h2><p>rsync -azp –password-file=”/home/zac/rsync_pass” –log-file=”/var/log/rsync” /aemg/cloudclassroom/moodle <a href="mailto:zac@192.168.86.26" target="_blank" rel="noopener">zac@192.168.86.26</a>::moodle –delete</p>
+<h2 id="Add-User-to-Sudo-group"><a href="#Add-User-to-Sudo-group" class="headerlink" title="Add User to Sudo group"></a>Add User to Sudo group</h2><p>adduser zac<br>passwd zac<br>usermod -aG wheel zac<br>chown zac:zac /aemg/moodle</p>
+<h2 id="In-server-end-add-this-to-iwait-sh"><a href="#In-server-end-add-this-to-iwait-sh" class="headerlink" title="In server end add this to iwait.sh:"></a>In server end add this to iwait.sh:</h2><p>rsync -azvp –password-file=”/home/zac/rsync_pass” –log-file=”/var/log/rsync” –exclude “/aemg/cloudclassroom/moodle/config.php” /aemg/cloudclassroom/moodle <a href="mailto:zac@192.168.86.26" target="_blank" rel="noopener">zac@192.168.86.26</a>::moodle –delete</p>
+<p>nohup /bin/bash /home/zac/iwait.sh &amp;</p>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2020/02/11/selinux/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SELinux</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2020/02/11/selinux/" class="archive-article-date">
-  	<time datetime="2020-02-11T04:23:21.000Z" itemprop="datePublished">Feb 11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/02/11/selinux/">SELinux</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2020/02/03/detach-process-in-terminal/" class="archive-article-date">
-  	<time datetime="2020-02-03T04:37:17.000Z" itemprop="datePublished">Feb 3</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/02/03/detach-process-in-terminal/">Start Linux Command in Background and Detach Process in Terminal</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/linux/">Linux</a>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="new-node-nfs-rsync" data-title="new-node-nfs-rsync" data-url="http://dontcry2013.github.io/blog/blog/2020/02/11/new-node-nfs-rsync/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -319,8 +333,8 @@ var _hmt = _hmt || [];
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

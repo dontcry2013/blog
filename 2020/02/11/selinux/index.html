@@ -4,15 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Archives: 2020/2 | Zachary&#39;s blog</title>
+  <title>SELinux | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Zachary&#39;s blog">
-<meta property="og:url" content="http://dontcry2013.github.io/blog/archives/2020/02/index.html">
+  <meta name="description" content="IntroductionSELinux is a security mechanism built into the Linux kernel. Linux distributions such as CentOS, RHEL, and Fedora are equipped with SELinux by default. SELinux improves server security by">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SELinux">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/02/11/selinux/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="IntroductionSELinux is a security mechanism built into the Linux kernel. Linux distributions such as CentOS, RHEL, and Fedora are equipped with SELinux by default. SELinux improves server security by">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-11T04:32:58.150Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zachary&#39;s blog">
+<meta name="twitter:title" content="SELinux">
+<meta name="twitter:description" content="IntroductionSELinux is a security mechanism built into the Linux kernel. Linux distributions such as CentOS, RHEL, and Fedora are equipped with SELinux by default. SELinux improves server security by">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -193,107 +197,127 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-selinux" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/blog/2020/02/11/selinux/" class="article-date">
+  	<time datetime="2020-02-11T04:23:21.000Z" itemprop="datePublished">2020-02-11</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SELinux
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2020/02/11/new-node-nfs-rsync/" class="archive-article-date">
-  	<time datetime="2020-02-11T05:07:01.000Z" itemprop="datePublished">Feb 11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/02/11/new-node-nfs-rsync/">new-node-nfs-rsync</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>SELinux is a security mechanism built into the Linux kernel. Linux distributions such as CentOS, RHEL, and Fedora are equipped with SELinux by default.</p>
+<p>SELinux improves server security by restricting and defining how a server processes requests and users interact with sockets, network ports, and essential directories.</p>
+<p>For example, if an unauthorized user gains access, server access is restricted to a specified section, limiting the damage caused by the breach. SELinux can also obstruct the installation of software packages or terminate processes during regular use.</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sestatus</span><br><span class="line"></span><br><span class="line">SELinux status:                 enabled</span><br><span class="line">SELinuxfs mount:                /sys/fs/selinux</span><br><span class="line">SELinux root directory:         /etc/selinux</span><br><span class="line">Loaded policy name:             targeted</span><br><span class="line">Current mode:                   enforcing</span><br><span class="line">Mode from config file:          permissive</span><br><span class="line">Policy MLS status:              enabled</span><br><span class="line">Policy deny_unknown status:     allowed</span><br><span class="line">Max kernel policy version:      28</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>vim /etc/selinux/config</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># This file controls the state of SELinux on the system.</span><br><span class="line"># SELINUX= can take one of these three values:</span><br><span class="line">#     enforcing - SELinux security policy is enforced.</span><br><span class="line">#     permissive - SELinux prints warnings instead of enforcing.</span><br><span class="line">#     disabled - No SELinux policy is loaded.</span><br><span class="line">SELINUX=enforcing</span><br><span class="line"># SELINUXTYPE= can take one of three two values:</span><br><span class="line">#     targeted - Targeted processes are protected,</span><br><span class="line">#     minimum - Modification of targeted policy. Only selected processes are protected. </span><br><span class="line">#     mls - Multi Level Security protection.</span><br><span class="line">SELINUXTYPE=targeted</span><br></pre></td></tr></table></figure>
+<h1 id="Change-SELinux-Mode"><a href="#Change-SELinux-Mode" class="headerlink" title="Change SELinux Mode"></a>Change SELinux Mode</h1><p>To change the mode from enforcing to permissive type:</p>
+<p><code>sudo setenforce 0</code></p>
+<p>To turn the enforcing mode back on, enter:</p>
+<p><code>sudo setenforce 1</code></p>
+<h1 id="Disable-SELinux"><a href="#Disable-SELinux" class="headerlink" title="Disable SELinux"></a>Disable SELinux</h1><p>Open the /etc/selinux/config file and set the SELINUX mod to disabled:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -r now</span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/02/11/new-node-nfs-rsync/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          new-node-nfs-rsync
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2020/02/03/detach-process-in-terminal/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Start Linux Command in Background and Detach Process in Terminal</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2020/02/11/selinux/" class="archive-article-date">
-  	<time datetime="2020-02-11T04:23:21.000Z" itemprop="datePublished">Feb 11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/02/11/selinux/">SELinux</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2020/02/03/detach-process-in-terminal/" class="archive-article-date">
-  	<time datetime="2020-02-03T04:37:17.000Z" itemprop="datePublished">Feb 3</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/02/03/detach-process-in-terminal/">Start Linux Command in Background and Detach Process in Terminal</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/linux/">Linux</a>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="selinux" data-title="SELinux" data-url="http://dontcry2013.github.io/blog/blog/2020/02/11/selinux/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -319,8 +343,8 @@ var _hmt = _hmt || [];
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

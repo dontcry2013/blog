@@ -59,10 +59,13 @@ To change the details for a user (for example real name):
 `sudo chfn username`
 
 To add a user to the sudo group:
+``
+adduser username sudo
 
-* `adduser username sudo`
-
-* `usermod -aG sudo username`
+usermod -aG sudo username
+# Or in CentOS, members of the wheel group have sudo privileges.
+usermod -aG wheel username
+```
 
 To change the Group setting for a directory
 

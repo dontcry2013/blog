@@ -1,7 +1,7 @@
 ---
-title: new-node-nfs-rsync
+title: New Load Balance Node Configuration of NFS & Rsync
 date: 2020-02-11 16:07:01
-categories:
+categories: [Linux]
 tags:
 ---
 Working on 204, inet is 26

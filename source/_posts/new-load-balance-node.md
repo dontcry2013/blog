@@ -1,5 +1,5 @@
 ---
-title: New Load Balance Node Configuration of NFS & Rsync
+title: New Load Balance Node Configuration
 date: 2020-02-11 16:07:01
 categories: [Linux]
 tags:
@@ -100,3 +100,53 @@ chown zac:zac /aemg/moodle
 rsync -azvp --password-file="/home/zac/rsync_pass" --log-file="/var/log/rsync" --exclude "/aemg/cloudclassroom/moodle/config.php" /aemg/cloudclassroom/moodle zac@192.168.86.26::moodle --delete
 
 nohup /bin/bash /home/zac/iwait.sh &
+
+
+# Httpd & PHP
+## Httpd
+``` sh
+yum --enablerepo=epel,remi install httpd
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --reload
+```
+## VirtualHost
+```
+ln -s /aemg/moodle /var/www/moodle
+vim httpd/conf.d/cloudcampus.conf
+```
+``` yml
+<VirtualHost *:80>
+    DocumentRoot /var/www/moodle
+    ServerName www4.cloudcampus.com.au
+    ErrorLog logs/cloudcampus.com.au-error_log
+    CustomLog logs/cloudcampus.com.au-access_log common
+    #    Alias /moodle/ "/var/www/moodle/"
+        <Directory "/var/www/moodle">
+                AllowOverride All
+        </Directory>
+</VirtualHost>
+```
+
+## PHP
+``` sh
+yum install -y epel-release
+yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum install yum-utils
+yum-config-manager --enable remi-php72
+yum update
+php -v
+yum search php72 | more
+yum install php php-fpm php-gd php-json php-mbstring php-mysqlnd php-xml php-xmlrpc php-opcache php-memcached php-zip php-curl php-mcrypt php-soap
+# Or
+yum -y --enablerepo=remi-php72 install php php-fpm php-gd php-json php-mbstring php-mysqlnd php-xml php-xmlrpc php-opcache php-memcached php-zip php-curl php-mcrypt php-soap
+php --modules
+php72 --modules
+service httpd restart
+service httpd reload
+
+scp zac@192.168.86.65:/etc/php.ini /etc/php.ini.new
+mv /etc/php.ini /etc/php.ini.bak
+mv /etc/php.ini.new /etc/php.ini
+systemctl restart httpd
+```

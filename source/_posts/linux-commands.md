@@ -17,6 +17,9 @@ Some commands that are commonly used in practice.
 * -v 不显示不包含匹配文本的所以有行
 * -s 不显示错误信息
 * -E 使用扩展正则表达式
+* -C 输出前后几行
+* -A 输出前面几行
+* -B 输出后面几行
 
 # Commands
 ``` bash
@@ -38,6 +41,9 @@ cat pushcourier.log.2015-04-20|grep DIANHUA|wc -l
 
 cat api.log | grep -inE --color=auto "优速速递|doMessage"
 cat catalina.out | grep -C 5 method_saveavatar  #前后五行
+# Or
+cat catalina.out | grep -A 5 -B 5 method_saveavatar  #前后五行
+
 
 cat /etc/passwd | sort -t':' -k 7 -u  #第七个域进行排序，然后去重
 cat logsn_2015-11-22.txt | grep saveCookie |awk -F'>' '{print $4}' | sort -u | wc -l
@@ -75,6 +81,11 @@ dd     	#删除行
 u  		#撤销改变
 w   	#向后移动一个单词
 /abc<Enter>      #查找abc, 输入n字符查找下一个。
+yy p #复制一行
+:w !sudo tee % #用root保存
+:1,$d #清空文件	
+# Or
+ggdG
 ```
 
 # java调试过程

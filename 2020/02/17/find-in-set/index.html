@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="MySQL FIND_IN_SET FunctionMySQL FIND_IN_SET() function to return the position of a string in a comma-separated list of strings.  FIND_IN_SET(needle,haystack);  12SELECT FIND_IN_SET(&apos;y&apos;,&apos;x,y,z&apos;); -- 2S">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-17T11:06:03.191Z">
+<meta property="og:updated_time" content="2020-02-17T11:15:15.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="find_in_set">
 <meta name="twitter:description" content="MySQL FIND_IN_SET FunctionMySQL FIND_IN_SET() function to return the position of a string in a comma-separated list of strings.  FIND_IN_SET(needle,haystack);  12SELECT FIND_IN_SET(&apos;y&apos;,&apos;x,y,z&apos;); -- 2S">
@@ -236,8 +236,31 @@ var _hmt = _hmt || [];
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FIND_IN_SET(<span class="string">'y'</span>,<span class="string">'x,y,z'</span>); <span class="comment">-- 2</span></span><br><span class="line"><span class="keyword">SELECT</span> FIND_IN_SET(<span class="string">'a'</span>,<span class="string">''</span>); <span class="comment">-- 0</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> divisions (</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">25</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    belts <span class="built_in">VARCHAR</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> divisions(<span class="keyword">name</span>,belts)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">'O-1'</span>,<span class="string">'white,yellow,orange'</span>),</span><br><span class="line">    (<span class="string">'O-2'</span>,<span class="string">'purple,green,blue'</span>),</span><br><span class="line">    (<span class="string">'O-3'</span>,<span class="string">'brown,red,black'</span>),</span><br><span class="line">    (<span class="string">'O-4'</span>,<span class="string">'white,yellow,orange'</span>),</span><br><span class="line">    (<span class="string">'O-5'</span>,<span class="string">'purple,green,blue'</span>),</span><br><span class="line">    (<span class="string">'O-6'</span>,<span class="string">'brown,red'</span>),</span><br><span class="line">    (<span class="string">'O-7'</span>,<span class="string">'black'</span>),</span><br><span class="line">    (<span class="string">'O-8'</span>,<span class="string">'white,yellow,orange'</span>),</span><br><span class="line">    (<span class="string">'O-9'</span>,<span class="string">'purple,green,blue'</span>),</span><br><span class="line">    (<span class="string">'O-10'</span>,<span class="string">'brown,red'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, belts <span class="keyword">FROM</span> divisions <span class="keyword">WHERE</span> FIND_IN_SET(<span class="string">'red'</span>, belts);</span><br><span class="line"></span><br><span class="line"><span class="comment"># it will return</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 'O-3','brown,red,black'</span></span><br><span class="line"><span class="comment"># 'O-6','brown,red'</span></span><br><span class="line"><span class="comment"># 'O-10','brown,red'</span></span><br></pre></td></tr></table></figure>
-<p><code>SELECT name, belts FROM divisions WHERE NOT FIND_IN_SET(&#39;red&#39;, belts);</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> divisions (</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">25</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    belts <span class="built_in">VARCHAR</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> divisions(<span class="keyword">name</span>,belts)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">'O-1'</span>,<span class="string">'white,yellow,orange'</span>),</span><br><span class="line">    (<span class="string">'O-2'</span>,<span class="string">'purple,green,blue'</span>),</span><br><span class="line">    (<span class="string">'O-3'</span>,<span class="string">'brown,red,black'</span>),</span><br><span class="line">    (<span class="string">'O-4'</span>,<span class="string">'white,yellow,orange'</span>),</span><br><span class="line">    (<span class="string">'O-5'</span>,<span class="string">'purple,green,blue'</span>),</span><br><span class="line">    (<span class="string">'O-6'</span>,<span class="string">'brown,red'</span>),</span><br><span class="line">    (<span class="string">'O-7'</span>,<span class="string">'black'</span>),</span><br><span class="line">    (<span class="string">'O-8'</span>,<span class="string">'white,yellow,orange'</span>),</span><br><span class="line">    (<span class="string">'O-9'</span>,<span class="string">'purple,green,blue'</span>),</span><br><span class="line">    (<span class="string">'O-10'</span>,<span class="string">'brown,red'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, belts <span class="keyword">FROM</span> divisions <span class="keyword">WHERE</span> FIND_IN_SET(<span class="string">'red'</span>, belts);</span><br></pre></td></tr></table></figure>
+<p><code>SELECT</code> will return</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>belts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O-3</td>
+<td>brown,red,black</td>
+</tr>
+<tr>
+<td>O-6</td>
+<td>brown,red</td>
+</tr>
+<tr>
+<td>O-10</td>
+<td>brown,red</td>
+</tr>
+</tbody>
+</table>
+<h2 id="NOT-operator"><a href="#NOT-operator" class="headerlink" title="NOT operator"></a>NOT operator</h2><p><code>SELECT name, belts FROM divisions WHERE NOT FIND_IN_SET(&#39;red&#39;, belts);</code></p>
 <p>NOT operator with the FIND_IN_SET() function to find the divisions that do not belong the red belt:</p>
 <h1 id="My-Example"><a href="#My-Example" class="headerlink" title="My Example"></a>My Example</h1><p>Tabel <code>teaching_arrangements</code> has a column called <code>teaching_branch_session_time_id</code><br>which formed with <code>teaching_branch_session_times</code>‘s primary key, and joined by <code>&#39;,&#39;</code>.</p>
 <table>
@@ -284,6 +307,61 @@ var _hmt = _hmt || [];
 <p>In order to get the start time and end time of each session, <code>find_in_set</code> is required to introduce in.</p>
 <p>Another thing is we should not <code>join</code> tables, use the so called <code>implicit join</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">  _origin.id, _origin.cohort_id, _origin.teaching_branch_session_time_id, <span class="keyword">min</span>(start_time), <span class="keyword">max</span>(end_time) </span><br><span class="line"><span class="keyword">FROM</span> ( </span><br><span class="line">  <span class="keyword">SELECT</span> </span><br><span class="line">    ta.id, cohort_id, ta.teaching_branch_session_time_id, tbst.id <span class="keyword">AS</span> session_id, tbst.start_time, tbst.end_time </span><br><span class="line">  <span class="keyword">FROM</span> </span><br><span class="line">    teaching_arrangements ta, teaching_branch_session_times tbst </span><br><span class="line">  <span class="keyword">WHERE</span> </span><br><span class="line">    ta.date = <span class="string">'2020-02-18'</span> <span class="keyword">AND</span> find_in_set(tbst.id, ta.teaching_branch_session_time_id) </span><br><span class="line">) _origin <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">id</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>cohort_id</th>
+<th>teaching_branch_session_time_id</th>
+<th>min(start_time)</th>
+<th>max(end_time)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>59706</td>
+<td>377</td>
+<td>1490,1491</td>
+<td>08:00:00</td>
+<td>09:45:00</td>
+</tr>
+<tr>
+<td>59720</td>
+<td>378</td>
+<td>1490,1491</td>
+<td>08:00:00</td>
+<td>09:45:00</td>
+</tr>
+<tr>
+<td>59734</td>
+<td>376</td>
+<td>1490,1491</td>
+<td>08:00:00</td>
+<td>09:45:00</td>
+</tr>
+<tr>
+<td>59748</td>
+<td>369</td>
+<td>1494,1495</td>
+<td>14:00:00</td>
+<td>15:45:00</td>
+</tr>
+<tr>
+<td>59764</td>
+<td>368</td>
+<td>1494,1495</td>
+<td>14:00:00</td>
+<td>15:45:00</td>
+</tr>
+<tr>
+<td>59780</td>
+<td>367</td>
+<td>1494,1495</td>
+<td>14:00:00</td>
+<td>15:45:00</td>
+</tr>
+</tbody>
+</table>
 <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>Why the first used more time to get results?</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">  _arrangements.*, tbst.id <span class="keyword">AS</span> session_id, tbst.start_time, tbst.end_time </span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">  (</span><br><span class="line">    <span class="keyword">SELECT</span> </span><br><span class="line">      ta.id, cohort_id, ta.teaching_branch_session_time_id </span><br><span class="line">    <span class="keyword">FROM</span> </span><br><span class="line">      teaching_arrangements ta </span><br><span class="line">    <span class="keyword">WHERE</span> </span><br><span class="line">      ta.date = <span class="string">'2020-02-18'</span>) <span class="keyword">AS</span> _arrangements</span><br><span class="line">  ), teaching_branch_session_times tbst</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    ta.id, cohort_id, ta.teaching_branch_session_time_id, tbst.id <span class="keyword">AS</span> session_id, tbst.start_time, tbst.end_time </span><br><span class="line">  <span class="keyword">FROM</span> </span><br><span class="line">    teaching_arrangements ta, teaching_branch_session_times tbst </span><br><span class="line">  <span class="keyword">WHERE</span> </span><br><span class="line">    ta.date = <span class="string">'2020-02-18'</span></span><br></pre></td></tr></table></figure>

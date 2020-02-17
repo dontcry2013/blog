@@ -37,14 +37,17 @@ VALUES ('O-1','white,yellow,orange'),
     ('O-10','brown,red');
 
 SELECT name, belts FROM divisions WHERE FIND_IN_SET('red', belts);
-
-# it will return
-
-# 'O-3','brown,red,black'
-# 'O-6','brown,red'
-# 'O-10','brown,red'
 ```
 
+`SELECT` will return
+
+name|belts
+---|---
+O-3|brown,red,black
+O-6|brown,red
+O-10|brown,red
+
+## NOT operator
 `SELECT name, belts FROM divisions WHERE NOT FIND_IN_SET('red', belts);`
 
 NOT operator with the FIND_IN_SET() function to find the divisions that do not belong the red belt:
@@ -81,6 +84,15 @@ FROM (
     ta.date = '2020-02-18' AND find_in_set(tbst.id, ta.teaching_branch_session_time_id) 
 ) _origin GROUP BY id
 ```
+
+id|cohort_id|teaching_branch_session_time_id|min(start_time)|max(end_time)
+---|---|---|---|---
+59706|377|1490,1491|08:00:00|09:45:00
+59720|378|1490,1491|08:00:00|09:45:00
+59734|376|1490,1491|08:00:00|09:45:00
+59748|369|1494,1495|14:00:00|15:45:00
+59764|368|1494,1495|14:00:00|15:45:00
+59780|367|1494,1495|14:00:00|15:45:00
 
 # Question
 

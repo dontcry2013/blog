@@ -64,6 +64,83 @@ You can optionally broadcast deauth packets to all connected clients with:
 aireplay-ng -0 2 -a 9C:5C:8E:C9:AB:C0 mon0
 ```
 
+# Spoof MAC address
+
+Whenever you are doing anything remotely nefarious with Wi-Fi, it is a good idea to spoof your MAC address of your Wi-Fi device so that any network traffic that gets recorded can't be tied to serial assigned by your device manufacturer.
+
+For CentOS or Debian based systems, `macchanger` could do the trick, however, for Mac OSX catalina, [SpoofMAC](https://github.com/feross/SpoofMAC) should be the best choice, since new version Mac OSX implemented new file access and secure methodology.
+
+## macchanger
+
+```
+This is trivial with macchanger:
+
+# download MAC changer
+sudo apt-get install macchanger
+
+# bring the device down
+sudo ifconfig wlan0 down
+
+# change the mac
+# -A pics a random MAC w/ a valid vendor
+# -r makes it truly random
+# -p restores it to the original hardware MAC
+sudo macchanger -A wlan0
+
+# bring the device back up
+sudo ifconfig wlan0 up
+
+```
+
+## SpoofMAC
+
+```
+pip install SpoofMAC
+spoof-mac.py list
+spoof-mac.py randomize wi-fi
+spoof-mac.py set 00:00:00:00:00:00 en0
+```
+
+### Run automatically at startup
+
+```
+# Download the startup file for launchd
+curl https://raw.githubusercontent.com/feross/SpoofMAC/master/misc/local.macspoof.plist > local.macspoof.plist
+
+# Customize location of `spoof-mac.py` to match your system
+cat local.macspoof.plist | sed "s|/usr/local/bin/spoof-mac.py|`which spoof-mac.py`|" | tee local.macspoof.plist
+
+# Copy file to the OS X launchd folder
+sudo cp local.macspoof.plist /Library/LaunchDaemons
+
+# Set file permissions
+cd /Library/LaunchDaemons
+sudo chown root:wheel local.macspoof.plist
+sudo chmod 0644 local.macspoof.plist
+```
+
+The plist file should be like this:
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+	    <key>Label</key>
+	    <string>MacSpoof</string>
+
+	    <key>ProgramArguments</key>
+	    <array>
+            <string>/Library/Frameworks/Python.framework/Versions/3.8/bin/spoof-mac.py</string>
+	        <string>randomize</string>
+	        <string>en0</string>
+	    </array>
+
+	    <key>RunAtLoad</key>
+	    <true/>
+</dict>
+</plist>
+```
 
 reference:
 

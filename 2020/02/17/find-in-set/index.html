@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>find_in_set | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MySQL FIND_IN_SET FunctionMySQL FIND_IN_SET() function to return the position of a string in a comma-separated list of strings.  FIND_IN_SET(needle,haystack);  12SELECT FIND_IN_SET(&apos;y&apos;,&apos;x,y,z&apos;); -- 2S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="find_in_set">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/02/17/find-in-set/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="MySQL FIND_IN_SET FunctionMySQL FIND_IN_SET() function to return the position of a string in a comma-separated list of strings.  FIND_IN_SET(needle,haystack);  12SELECT FIND_IN_SET(&apos;y&apos;,&apos;x,y,z&apos;); -- 2S">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-17T11:06:03.191Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="find_in_set">
+<meta name="twitter:description" content="MySQL FIND_IN_SET FunctionMySQL FIND_IN_SET() function to return the position of a string in a comma-separated list of strings.  FIND_IN_SET(needle,haystack);  12SELECT FIND_IN_SET(&apos;y&apos;,&apos;x,y,z&apos;); -- 2S">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/img/favicon.png">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/blog/">homepage</a></li>
+				        
+							<li><a href="/blog/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/blog/tags/android/" style="font-size: 14px;">Android</a> <a href="/blog/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/blog/tags/c/" style="font-size: 14px;">C</a> <a href="/blog/tags/css/" style="font-size: 10px;">CSS</a> <a href="/blog/tags/centos/" style="font-size: 12px;">CentOS</a> <a href="/blog/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/blog/tags/command/" style="font-size: 12px;">Command</a> <a href="/blog/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/blog/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/blog/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/blog/tags/example/" style="font-size: 10px;">Example</a> <a href="/blog/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/blog/tags/git/" style="font-size: 12px;">Git</a> <a href="/blog/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/blog/tags/html/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/blog/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/blog/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/blog/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/blog/tags/java/" style="font-size: 14px;">Java</a> <a href="/blog/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/blog/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/blog/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/blog/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/blog/tags/nginx/" style="font-size: 10px;">Nginx</a> <a href="/blog/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/blog/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/blog/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/blog/tags/php/" style="font-size: 10px;">PHP</a> <a href="/blog/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/blog/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/blog/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/blog/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/blog/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/blog/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/blog/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/blog/tags/tuning/" style="font-size: 12px;">Tuning</a> <a href="/blog/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/blog/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/blog/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/blog/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/blog/">homepage</a></li>
+		        
+					<li><a href="/blog/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-find-in-set" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/02/17/find-in-set/" class="article-date">
+  	<time datetime="2020-02-17T10:21:33.000Z" itemprop="datePublished">2020-02-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      find_in_set
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL-FIND-IN-SET-Function"><a href="#MySQL-FIND-IN-SET-Function" class="headerlink" title="MySQL FIND_IN_SET Function"></a>MySQL FIND_IN_SET Function</h1><p>MySQL FIND_IN_SET() function to return the position of a string in a comma-separated list of strings.</p>
+<blockquote>
+<p>FIND_IN_SET(needle,haystack);</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FIND_IN_SET(<span class="string">'y'</span>,<span class="string">'x,y,z'</span>); <span class="comment">-- 2</span></span><br><span class="line"><span class="keyword">SELECT</span> FIND_IN_SET(<span class="string">'a'</span>,<span class="string">''</span>); <span class="comment">-- 0</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> divisions (</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">25</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">    belts <span class="built_in">VARCHAR</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> divisions(<span class="keyword">name</span>,belts)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">'O-1'</span>,<span class="string">'white,yellow,orange'</span>),</span><br><span class="line">    (<span class="string">'O-2'</span>,<span class="string">'purple,green,blue'</span>),</span><br><span class="line">    (<span class="string">'O-3'</span>,<span class="string">'brown,red,black'</span>),</span><br><span class="line">    (<span class="string">'O-4'</span>,<span class="string">'white,yellow,orange'</span>),</span><br><span class="line">    (<span class="string">'O-5'</span>,<span class="string">'purple,green,blue'</span>),</span><br><span class="line">    (<span class="string">'O-6'</span>,<span class="string">'brown,red'</span>),</span><br><span class="line">    (<span class="string">'O-7'</span>,<span class="string">'black'</span>),</span><br><span class="line">    (<span class="string">'O-8'</span>,<span class="string">'white,yellow,orange'</span>),</span><br><span class="line">    (<span class="string">'O-9'</span>,<span class="string">'purple,green,blue'</span>),</span><br><span class="line">    (<span class="string">'O-10'</span>,<span class="string">'brown,red'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, belts <span class="keyword">FROM</span> divisions <span class="keyword">WHERE</span> FIND_IN_SET(<span class="string">'red'</span>, belts);</span><br><span class="line"></span><br><span class="line"><span class="comment"># it will return</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 'O-3','brown,red,black'</span></span><br><span class="line"><span class="comment"># 'O-6','brown,red'</span></span><br><span class="line"><span class="comment"># 'O-10','brown,red'</span></span><br></pre></td></tr></table></figure>
+<p><code>SELECT name, belts FROM divisions WHERE NOT FIND_IN_SET(&#39;red&#39;, belts);</code></p>
+<p>NOT operator with the FIND_IN_SET() function to find the divisions that do not belong the red belt:</p>
+<h1 id="My-Example"><a href="#My-Example" class="headerlink" title="My Example"></a>My Example</h1><p>Tabel <code>teaching_arrangements</code> has a column called <code>teaching_branch_session_time_id</code><br>which formed with <code>teaching_branch_session_times</code>‘s primary key, and joined by <code>&#39;,&#39;</code>.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>cohort_id</th>
+<th>teaching_branch_session_time_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>59706</td>
+<td>377</td>
+<td>1490,1491</td>
+</tr>
+<tr>
+<td>59720</td>
+<td>378</td>
+<td>1490,1491</td>
+</tr>
+<tr>
+<td>59734</td>
+<td>376</td>
+<td>1490,1491</td>
+</tr>
+<tr>
+<td>59748</td>
+<td>369</td>
+<td>1494,1495</td>
+</tr>
+<tr>
+<td>59764</td>
+<td>368</td>
+<td>1494,1495</td>
+</tr>
+<tr>
+<td>59780</td>
+<td>367</td>
+<td>1494,1495</td>
+</tr>
+</tbody>
+</table>
+<p>In order to get the start time and end time of each session, <code>find_in_set</code> is required to introduce in.</p>
+<p>Another thing is we should not <code>join</code> tables, use the so called <code>implicit join</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">  _origin.id, _origin.cohort_id, _origin.teaching_branch_session_time_id, <span class="keyword">min</span>(start_time), <span class="keyword">max</span>(end_time) </span><br><span class="line"><span class="keyword">FROM</span> ( </span><br><span class="line">  <span class="keyword">SELECT</span> </span><br><span class="line">    ta.id, cohort_id, ta.teaching_branch_session_time_id, tbst.id <span class="keyword">AS</span> session_id, tbst.start_time, tbst.end_time </span><br><span class="line">  <span class="keyword">FROM</span> </span><br><span class="line">    teaching_arrangements ta, teaching_branch_session_times tbst </span><br><span class="line">  <span class="keyword">WHERE</span> </span><br><span class="line">    ta.date = <span class="string">'2020-02-18'</span> <span class="keyword">AND</span> find_in_set(tbst.id, ta.teaching_branch_session_time_id) </span><br><span class="line">) _origin <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">id</span></span><br></pre></td></tr></table></figure>
+<h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>Why the first used more time to get results?</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">  _arrangements.*, tbst.id <span class="keyword">AS</span> session_id, tbst.start_time, tbst.end_time </span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">  (</span><br><span class="line">    <span class="keyword">SELECT</span> </span><br><span class="line">      ta.id, cohort_id, ta.teaching_branch_session_time_id </span><br><span class="line">    <span class="keyword">FROM</span> </span><br><span class="line">      teaching_arrangements ta </span><br><span class="line">    <span class="keyword">WHERE</span> </span><br><span class="line">      ta.date = <span class="string">'2020-02-18'</span>) <span class="keyword">AS</span> _arrangements</span><br><span class="line">  ), teaching_branch_session_times tbst</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    ta.id, cohort_id, ta.teaching_branch_session_time_id, tbst.id <span class="keyword">AS</span> session_id, tbst.start_time, tbst.end_time </span><br><span class="line">  <span class="keyword">FROM</span> </span><br><span class="line">    teaching_arrangements ta, teaching_branch_session_times tbst </span><br><span class="line">  <span class="keyword">WHERE</span> </span><br><span class="line">    ta.date = <span class="string">'2020-02-18'</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2020/02/11/new-load-balance-node/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">New Load Balance Node Configuration</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="find-in-set" data-title="find_in_set" data-url="http://dontcry2013.github.io/blog/blog/2020/02/17/find-in-set/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2020 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/blog/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

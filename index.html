@@ -195,6 +195,66 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-find-in-set" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/02/17/find-in-set/" class="article-date">
+  	<time datetime="2020-02-17T10:21:33.000Z" itemprop="datePublished">2020-02-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/02/17/find-in-set/">find_in_set</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL-FIND-IN-SET-Function"><a href="#MySQL-FIND-IN-SET-Function" class="headerlink" title="MySQL FIND_IN_SET Function"></a>MySQL FIND_IN_SET Function</h1><p>MySQL FIND_IN_SET() function to return the position of a string in a comma-separated list of strings.</p>
+<blockquote>
+<p>FIND_IN_SET(needle,haystack);</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FIND_IN_SET(<span class="string">'y'</span>,<span class="string">'x,y,z'</span>); <span class="comment">-- 2</span></span><br><span class="line"><span class="keyword">SELECT</span> FIND_IN_SET(<span class="string">'a'</span>,<span class="string">''</span>); <span class="comment">-- 0</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/02/17/find-in-set/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-new-load-balance-node" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -748,80 +808,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/01/22/iptables-firewalld/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-nginx-tuning" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/01/22/nginx-tuning/" class="article-date">
-  	<time datetime="2020-01-22T00:59:58.000Z" itemprop="datePublished">2020-01-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/01/22/nginx-tuning/">Nginx Tuning</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Check-System-Resources"><a href="#Check-System-Resources" class="headerlink" title="Check System Resources"></a>Check System Resources</h1><p>By tuning a software, the first thing is to figure out how many resources are there available and then check if system have limitation to restrict you from using them.</p>
-<p>CPUs provides main resources for how many processes can be running simultaneously, it means a lot for web server as http connections really depend on it.</p>
-<blockquote>
-<p><strong><code>CPUs = Threads per core * cores per socket * sockets</code></strong></p>
-</blockquote>
-<p>Two commands to check:</p>
-<ul>
-<li>nproc - print the number of processing units available</li>
-<li>lscpu - display information about the CPU architecture</li>
-<li>ulimit - get and set user limits</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/tuning/">Tuning</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/tools/">Tools</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/01/22/nginx-tuning/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

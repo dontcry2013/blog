@@ -7,13 +7,14 @@ tags:
 Working on 204, inet is 26
 
 # Prerequisite
+```
 sudo su
 cat centos-release
 lscpu
 ifconfig
 sestatus
 sudo setenforce 0
-
+```
 <!--more-->
 
 # NFS Server
@@ -23,6 +24,7 @@ add
 exportfs -ra
 
 # NFS Client
+```
 df -a
 yum list installed nfs-utils
 yum install nfs-utils
@@ -32,6 +34,7 @@ mount -t nfs 192.168.86.199:/aemg/moodledata /aemg/moodledata
 vim /etc/fstab
 append
 192.168.86.199:/aemg/moodledata /aemg/moodledata        nfs rw
+```
 
 # xinetd
 yum list installed xinetd
@@ -150,3 +153,8 @@ mv /etc/php.ini /etc/php.ini.bak
 mv /etc/php.ini.new /etc/php.ini
 systemctl restart httpd
 ```
+
+# Configuration of Nginx
+
+1. add node to upstream chain
+2. add 192.168.86.26 www4.cloudcampus.com.au to /etc/hosts

@@ -152,6 +152,10 @@ scp zac@192.168.86.65:/etc/php.ini /etc/php.ini.new
 mv /etc/php.ini /etc/php.ini.bak
 mv /etc/php.ini.new /etc/php.ini
 systemctl restart httpd
+
+vim /var/www/html/index.php
+# Write and Test
+<?php phpinfo(); ?>
 ```
 
 # Configuration of Nginx

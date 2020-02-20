@@ -17,13 +17,23 @@ sudo setenforce 0
 ```
 <!--more-->
 
-# NFS Server
+## User Configuration
+You may need to add user to sudo group
+```
+adduser zac
+passwd zac
+usermod -aG wheel zac
+chown zac:zac /aemg/moodle
+```
+# NFS
+## NFS Server
+```
 vim /etc/exports
 add
 /aemg/moodledata        192.168.86.26(rw,async)
 exportfs -ra
-
-# NFS Client
+```
+## NFS Client
 ```
 df -a
 yum list installed nfs-utils
@@ -36,29 +46,19 @@ append
 192.168.86.199:/aemg/moodledata /aemg/moodledata        nfs rw
 ```
 
-# xinetd
-yum list installed xinetd
-yum install xinetd
-vim xinetd.d/rsync
-```
-service rsync
- {
-     port            = 873
-     disable         = no
-     socket_type     = stream
-     protocol        = tcp
-     wait            = no
-     user            = root
-     group           = root
-     groups          = yes
-     server          = /usr/bin/rsync
-     server_args = --daemon --config /etc/rsyncd.conf
- }
-```
-
 # Rsync
+
+``` sh
 yum list installed rsync
 yum install rsync
+
+# Check the firewall to see if it is listed(IMPORTANT)
+firewall-cmd --list-services
+firewall-cmd --permanent --zone=public --add-service=rsyncd
+firewall-cmd --reload
+```
+Configuration of /etc/rsyncd.conf looks like below
+
 ```
 pid file = /var/run/rsyncd.pid
 lock file = /var/run/rsync.lock
@@ -85,19 +85,18 @@ list=no
 auth users = zac
 exclude = moodle/config.php
 ```
+```
+# Create Secrets File
 touch rsyncd.secrets
 chmod 600 rsyncd.secrets
 
 service xinetd start
+```
 
 ## Sync code
+```
 rsync -azp --password-file="/home/zac/rsync_pass" --log-file="/var/log/rsync" /aemg/cloudclassroom/moodle zac@192.168.86.26::moodle --delete
-
-## Add User to Sudo group
-adduser zac
-passwd zac
-usermod -aG wheel zac
-chown zac:zac /aemg/moodle
+```
 
 ## In server end add this to iwait.sh:
 rsync -azvp --password-file="/home/zac/rsync_pass" --log-file="/var/log/rsync" --exclude "/aemg/cloudclassroom/moodle/config.php" /aemg/cloudclassroom/moodle zac@192.168.86.26::moodle --delete
@@ -105,7 +104,31 @@ rsync -azvp --password-file="/home/zac/rsync_pass" --log-file="/var/log/rsync" -
 nohup /bin/bash /home/zac/iwait.sh &
 
 
+## xinetd
+```
+yum list installed xinetd
+yum install xinetd
+vim /etc/xinetd.d/rsync
+```
+add below code to `/etc/xinetd.d/rsync`
+```
+service rsync
+{
+    port            = 873
+    disable         = no
+    socket_type     = stream
+    protocol        = tcp
+    wait            = no
+    user            = root
+    group           = root
+    groups          = yes
+    server          = /usr/bin/rsync
+    server_args = --daemon --config /etc/rsyncd.conf
+}
+```
+
 # Httpd & PHP
+
 ## Httpd
 ``` sh
 yum --enablerepo=epel,remi install httpd
@@ -158,7 +181,9 @@ vim /var/www/html/index.php
 <?php phpinfo(); ?>
 ```
 
-# Configuration of Nginx
+# Add Node to Load Balancer
+
+Configuration of Nginx
 
 1. add node to upstream chain
-2. add 192.168.86.26 www4.cloudcampus.com.au to /etc/hosts
+2. add 192.168.86.26 www4.cloudcampus.com.au to `/etc/hosts`

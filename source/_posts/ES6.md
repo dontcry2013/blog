@@ -4,28 +4,30 @@ date: 2016-11-24 14:40:02
 categories: JavaScript #文章文类
 tags: [ES6] #文章标签，多于一项时用这种格式
 ---
-# 函数参数的默认值 
-在ES6之前，不能直接为函数的参数指定默认值，只能采用变通的方法。
+# Default Parameter of Function
+
+Prior to ES6, you could not directly specify default values ​​for function parameters, only workarounds could be used.
+
 ``` js
 function log(x, y) {
   y = y || 'World';
   console.log(x, y);
 }
-
 log('Hello') // Hello World
 log('Hello', 'China') // Hello China
 log('Hello', '') // Hello World
 ```
 <!--more-->
-缺点在于，如果参数y为false，则该赋值不起作用。
-为了避免这个问题，通常需要先判断一下参数y是否被赋值，如果没有，再等于默认值。
+The disadvantage is that if the parameter y is false, the assignment has no effect.
+In order to avoid this problem, it is usually necessary to first determine whether the parameter y is assigned, and if not, it is equal to the default value.
 ``` js
 if (typeof y === 'undefined') {
   y = 'World';
 }
 ```
 
-ES6允许为函数的参数设置默认值，即直接写在参数定义的后面。
+ES6 allows you to set default values ​​for function parameters, that is, write directly after the parameter definition.
+
 ``` js
 function log(x, y = 'World') {
   console.log(x, y);
@@ -36,8 +38,10 @@ log('Hello', 'China') // Hello China
 log('Hello', '') // Hello
 ```
 
-# rest参数
-rest参数中的变量代表一个数组，所以数组特有的方法都可以用于这个变量。下面是一个利用rest参数改写数组push方法的例子。
+# rest parameter
+
+The variable in the rest parameter represents an array, so array-specific methods can be used for this variable. The following is an example of rewriting the array push method using the rest parameter.
+
 ``` js
 function push(array, ...items) {
   items.forEach(function(item) {
@@ -49,17 +53,20 @@ function push(array, ...items) {
 var a = [];
 push(a, 1, 2, 3)
 ```
-注意，rest参数之后不能再有其他参数（即只能是最后一个参数），否则会报错。
-函数的length属性，不包括rest参数。
+
+Note that there can be no other parameters after the rest parameter (that is, only the last parameter), otherwise an error will be reported.
+The length property of the function, excluding the rest parameter.
+
 ``` js
 (function(a) {}).length  // 1
 (function(...a) {}).length  // 0
 (function(a, ...b) {}).length  // 1
 ```
 
+# Extension operator
 
-# 扩展运算符
-扩展运算符（spread）是三个点（...）。它好比rest参数的逆运算，将一个数组转为用逗号分隔的参数序列。
+The spread operator is three dots (...). It is like the inverse of the rest parameter, turning an array into a sequence of parameters separated by commas.
+
 ``` js
 function add(x, y) {
   return x + y;
@@ -69,15 +76,16 @@ var numbers = [4, 38];
 add(...numbers) // 42
 ```
 
-# 替代数组的apply方法 
+# Replace array's apply method
+
 ``` js
-// ES5的写法
+// ES5 notation
 Math.max.apply(null, [14, 3, 77])
 
-// ES6的写法
+// ES6 notation
 Math.max(...[14, 3, 77])
 
-// 等同于
+// equivalent to
 Math.max(14, 3, 77);
 ```
 
@@ -96,18 +104,20 @@ undefined
 [ 1, 2, [ 3, 4 ], 3, 4 ]
 
 
-// ES5的写法
+// ES5 notation
 var arr1 = [0, 1, 2];
 var arr2 = [3, 4, 5];
 Array.prototype.push.apply(arr1, arr2);
 
-// ES6的写法
+// ES6 notation
 var arr1 = [0, 1, 2];
 var arr2 = [3, 4, 5];
 arr1.push(...arr2);
 ```
-# 扩展运算符的应用
-##（1）合并数组
+
+# Application of extended operators
+
+## (1)Merge array
 ``` js
 // ES5
 [1, 2].concat(more)
@@ -115,16 +125,18 @@ arr1.push(...arr2);
 [1, 2, ...more]
 ```
 
-##（2）字符串
-扩展运算符还可以将字符串转为真正的数组。
+## (1)String
+
+Expansion operator can also turn strings into real arrays.
+
 ``` js
 [...'hello']
 // [ "h", "e", "l", "l", "o" ]
 ```
 
-# 其他
+# Other
 ```js
 foo::bar;
-// 等同于
+// equivalent to
 bar.bind(foo);
 ```

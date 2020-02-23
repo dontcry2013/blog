@@ -9,7 +9,7 @@ Working on 204, inet is 26
 # Prerequisite
 ```
 sudo su
-cat centos-release
+cat /etc/centos-release
 lscpu
 ifconfig
 sestatus

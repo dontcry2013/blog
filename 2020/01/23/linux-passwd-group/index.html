@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="Format/etc/passwd Username, Password, User ID, Group ID, User ID Info, Home directory, Command/shell  Example:  tom:x:1001:1001:Tom Cruise:/home/zac:/bin/bash  /etc/group Group name, Password, Group I">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-11T03:14:04.840Z">
+<meta property="og:updated_time" content="2020-02-23T22:21:53.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux passwd and group Mangagement">
 <meta name="twitter:description" content="Format/etc/passwd Username, Password, User ID, Group ID, User ID Info, Home directory, Command/shell  Example:  tom:x:1001:1001:Tom Cruise:/home/zac:/bin/bash  /etc/group Group name, Password, Group I">
@@ -262,9 +262,7 @@ var _hmt = _hmt || [];
 <p><code>sudo chsh username</code></p>
 <p>To change the details for a user (for example real name):</p>
 <p><code>sudo chfn username</code></p>
-<p>To add a user to the sudo group:<br><code></code><br>adduser username sudo</p>
-<p>usermod -aG sudo username</p>
-<h1 id="Or-in-CentOS-members-of-the-wheel-group-have-sudo-privileges"><a href="#Or-in-CentOS-members-of-the-wheel-group-have-sudo-privileges" class="headerlink" title="Or in CentOS, members of the wheel group have sudo privileges."></a>Or in CentOS, members of the wheel group have sudo privileges.</h1><p>usermod -aG wheel username<br><code>`</code></p>
+<p>To add a user to the sudo group:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adduser username sudo</span><br><span class="line"></span><br><span class="line">usermod -aG sudo username</span><br><span class="line"><span class="comment"># Or in CentOS, members of the wheel group have sudo privileges.</span></span><br><span class="line">usermod -aG wheel username</span><br></pre></td></tr></table></figure></p>
 <p>To change the Group setting for a directory</p>
 <ul>
 <li><code>chown {-R} [user]{:group} [file|directory]</code></li>

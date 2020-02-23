@@ -7,11 +7,15 @@ tags:
 Working on 204, inet is 26
 
 # Prerequisite
-```
+``` sh
 sudo su
 cat /etc/centos-release
 lscpu
 ifconfig
+nmcli d #list network card
+ls /etc/sysconfig/network-scripts/ #network card scripts
+cat /etc/resolv.conf #DNS
+cat /etc/sysconfig/network #Gateway
 sestatus
 sudo setenforce 0
 ```

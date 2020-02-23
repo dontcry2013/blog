@@ -59,7 +59,7 @@ To change the details for a user (for example real name):
 `sudo chfn username`
 
 To add a user to the sudo group:
-``
+``` sh
 adduser username sudo
 
 usermod -aG sudo username

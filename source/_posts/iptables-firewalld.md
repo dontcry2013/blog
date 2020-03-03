@@ -104,6 +104,23 @@ iptables --line -vnL # To check Chain IN_public_allow
 ```
 
 
+# Issues
+
+mysql can not connect to ip and port.
+
+Got error: `no route to host`
+
+```
+> telnet 192.168.1.108 4006
+Trying 192.168.1.108...
+telnet: Unable to connect to remote host: No route to host
+```
+Shutdown Firewalld, still no good.
+Issue this works:
+```
+iptables -F 
+```
+
 [Firewall stack]: /blog/img/firewall_stack.png "Firewall stack"
 
 

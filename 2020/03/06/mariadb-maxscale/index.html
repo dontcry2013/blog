@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MariaDB MaxScale | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="IntroThis blog is supposed to be used when someone else intends to have a simple MaxScale 2.4.7++ setupconsidering a replication cluster. By replication cluster I mean one master and X slaves; in thec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MariaDB MaxScale">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/03/06/mariadb-maxscale/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="IntroThis blog is supposed to be used when someone else intends to have a simple MaxScale 2.4.7++ setupconsidering a replication cluster. By replication cluster I mean one master and X slaves; in thec">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-03-06T05:37:46.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MariaDB MaxScale">
+<meta name="twitter:description" content="IntroThis blog is supposed to be used when someone else intends to have a simple MaxScale 2.4.7++ setupconsidering a replication cluster. By replication cluster I mean one master and X slaves; in thec">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/img/favicon.png">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/blog/">homepage</a></li>
+				        
+							<li><a href="/blog/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/blog/tags/android/" style="font-size: 14px;">Android</a> <a href="/blog/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/blog/tags/c/" style="font-size: 14px;">C</a> <a href="/blog/tags/css/" style="font-size: 10px;">CSS</a> <a href="/blog/tags/centos/" style="font-size: 12px;">CentOS</a> <a href="/blog/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/blog/tags/command/" style="font-size: 12px;">Command</a> <a href="/blog/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/blog/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/blog/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/blog/tags/example/" style="font-size: 10px;">Example</a> <a href="/blog/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/blog/tags/git/" style="font-size: 12px;">Git</a> <a href="/blog/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/blog/tags/html/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/blog/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/blog/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/blog/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/blog/tags/java/" style="font-size: 14px;">Java</a> <a href="/blog/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/blog/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/blog/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/blog/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/blog/tags/nginx/" style="font-size: 10px;">Nginx</a> <a href="/blog/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/blog/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/blog/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/blog/tags/php/" style="font-size: 10px;">PHP</a> <a href="/blog/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/blog/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/blog/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/blog/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/blog/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/blog/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/blog/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/blog/tags/tuning/" style="font-size: 12px;">Tuning</a> <a href="/blog/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/blog/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/blog/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/blog/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/blog/">homepage</a></li>
+		        
+					<li><a href="/blog/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-mariadb-maxscale" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/03/06/mariadb-maxscale/" class="article-date">
+  	<time datetime="2020-03-06T04:29:58.000Z" itemprop="datePublished">2020-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MariaDB MaxScale
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>This blog is supposed to be used when someone else intends to have a simple MaxScale 2.4.7++ setup<br>considering a replication cluster. By replication cluster I mean one master and X slaves; in the<br>case of this blog, I’m using just one slave, but, you can add as many as you want. </p>
+<p>There only 2 machines,</p>
+<ul>
+<li>192.168.1.105, worked as master.</li>
+<li>192.168.1.108, worked as slave, MaxScale also running on it.</li>
+</ul>
+<a id="more"></a>
+<h1 id="Split-Read-and-Write"><a href="#Split-Read-and-Write" class="headerlink" title="Split Read and Write"></a>Split Read and Write</h1><p>Copy the configuration file to maxscale.cnf.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/maxscale.cnf</span><br><span class="line">mkdir -p /tmp/maxscale</span><br><span class="line">chown -R maxscale. /tmp/maxscale</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">[maxscale]</span><br><span class="line">threads=auto</span><br><span class="line"></span><br><span class="line">[Splitter-Service]</span><br><span class="line"><span class="built_in">type</span>=service</span><br><span class="line">router=readwritesplit</span><br><span class="line">servers=node01, node02</span><br><span class="line">user=maxscale</span><br><span class="line">password=8CB15DD53FAE735F2A845BF73D563BE7</span><br><span class="line"></span><br><span class="line">[Splitter-Listener]</span><br><span class="line"><span class="built_in">type</span>=listener</span><br><span class="line">service=Splitter-Service</span><br><span class="line">protocol=MariaDBClient</span><br><span class="line">port=4006</span><br><span class="line">address=192.168.1.108</span><br><span class="line"></span><br><span class="line">[node01]</span><br><span class="line"><span class="built_in">type</span>=server</span><br><span class="line">address=192.168.1.105</span><br><span class="line">port=3306</span><br><span class="line">protocol=MariaDBBackend</span><br><span class="line"></span><br><span class="line">[node02]</span><br><span class="line"><span class="built_in">type</span>=server</span><br><span class="line">address=192.168.1.108</span><br><span class="line">port=3306</span><br><span class="line">protocol=MariaDBBackend</span><br><span class="line"></span><br><span class="line">[MyMonitor]</span><br><span class="line"><span class="built_in">type</span>=monitor</span><br><span class="line">module=mariadbmon</span><br><span class="line">servers=node01,node02</span><br><span class="line">user=maxscale</span><br><span class="line">password=8CB15DD53FAE735F2A845BF73D563BE7</span><br><span class="line"></span><br><span class="line">[CLI]</span><br><span class="line"><span class="built_in">type</span>=service</span><br><span class="line">router=cli</span><br><span class="line"></span><br><span class="line">[CLI-Listener]</span><br><span class="line"><span class="built_in">type</span>=listener</span><br><span class="line">service=CLI</span><br><span class="line">protocol=maxscaled</span><br><span class="line">address=localhost</span><br><span class="line">port=6603</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost binlog]# systemctl start maxscale.service </span><br><span class="line">[root@localhost binlog]# maxctrl list servers</span><br><span class="line">┌────────┬───────────────┬──────┬─────────────┬─────────────────┬──────┐</span><br><span class="line">│ Server │ Address       │ Port │ Connections │ State           │ GTID │</span><br><span class="line">├────────┼───────────────┼──────┼─────────────┼─────────────────┼──────┤</span><br><span class="line">│ node01 │ 192.168.1.105 │ 3306 │ 0           │ Master, Running │      │</span><br><span class="line">├────────┼───────────────┼──────┼─────────────┼─────────────────┼──────┤</span><br><span class="line">│ node02 │ 192.168.1.108 │ 3306 │ 0           │ Running         │      │</span><br><span class="line">└────────┴───────────────┴──────┴─────────────┴─────────────────┴──────┘</span><br></pre></td></tr></table></figure>
+<h2 id="Configure-Replication-in-Mysql"><a href="#Configure-Replication-in-Mysql" class="headerlink" title="Configure Replication in Mysql"></a>Configure Replication in Mysql</h2><h3 id="In-Master-Run-SQL"><a href="#In-Master-Run-SQL" class="headerlink" title="In Master Run SQL"></a>In Master Run SQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">master</span> <span class="keyword">status</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Position</th>
+<th>Binlog_Do_DB</th>
+<th>Binlog_Ignore_DB</th>
+<th>Executed_Gtid_Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mysql-bin.000006</td>
+<td>346682</td>
+<td>replication_test,moodle_exclude</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="In-Slave-Run-SQL"><a href="#In-Slave-Run-SQL" class="headerlink" title="In Slave Run SQL"></a>In Slave Run SQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reset</span> <span class="keyword">slave</span>;</span><br><span class="line"><span class="keyword">CHANGE</span> <span class="keyword">MASTER</span> <span class="keyword">TO</span> MASTER_HOST=<span class="string">'192.168.1.108'</span>,MASTER_PORT=<span class="number">5006</span>,MASTER_USER=<span class="string">'maxscale'</span>,MASTER_PASSWORD=<span class="string">'maxscalepass'</span>,MASTER_LOG_FILE=<span class="string">'mysql-bin.000006'</span>,MASTER_LOG_POS=<span class="number">346682</span>;</span><br><span class="line"><span class="keyword">start</span> <span class="keyword">slave</span>;</span><br></pre></td></tr></table></figure>
+<p>and then check the servers in MaxScale.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost binlog]# maxctrl list servers</span><br><span class="line">┌────────┬───────────────┬──────┬─────────────┬─────────────────┬──────┐</span><br><span class="line">│ Server │ Address       │ Port │ Connections │ State           │ GTID │</span><br><span class="line">├────────┼───────────────┼──────┼─────────────┼─────────────────┼──────┤</span><br><span class="line">│ node01 │ 192.168.1.105 │ 3306 │ 0           │ Master, Running │      │</span><br><span class="line">├────────┼───────────────┼──────┼─────────────┼─────────────────┼──────┤</span><br><span class="line">│ node02 │ 192.168.1.108 │ 3306 │ 0           │ Slave, Running  │      │</span><br><span class="line">└────────┴───────────────┴──────┴─────────────┴─────────────────┴──────┘</span><br></pre></td></tr></table></figure></p>
+<h2 id="Log-Output-of-MaxScale-is-Valuable"><a href="#Log-Output-of-MaxScale-is-Valuable" class="headerlink" title="Log Output of MaxScale is Valuable"></a>Log Output of MaxScale is Valuable</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost etc]# tail -f /tmp/maxscale/maxscale.log </span><br><span class="line">2020-03-06 15:52:17   info   : [MariaDBAuth] Added user: maxscale@% db: &apos;mysql&apos; global: no</span><br><span class="line">2020-03-06 15:52:17   notice : Listening for connections at [192.168.1.108]:4006</span><br><span class="line">2020-03-06 15:52:17   notice : Service &apos;Splitter-Service&apos; started (1/2)</span><br><span class="line">2020-03-06 15:52:17   notice : Listening for connections at [localhost]:6603</span><br><span class="line">2020-03-06 15:52:17   notice : Service &apos;CLI&apos; started (2/2)</span><br><span class="line">2020-03-06 15:52:17   notice : Loaded server states from journal file: /var/lib/maxscale/MyMonitor/monitor.dat</span><br><span class="line">2020-03-06 15:52:17   notice : [mariadbmon] Selecting new master server.</span><br><span class="line">2020-03-06 15:52:17   warning: [mariadbmon] &apos;node02&apos; is not a valid master candidate because it is in read_only mode.</span><br><span class="line">2020-03-06 15:52:17   notice : [mariadbmon] Setting &apos;node01&apos; as master.</span><br><span class="line">2020-03-06 15:52:17   notice : Server changed state: node01[192.168.1.105:3306]: new_master. [Running] -&gt; [Master, Running]</span><br><span class="line"></span><br><span class="line">2020-03-06 15:53:13   info   : Accept authentication from &apos;admin&apos;, using password. Request: /v1/servers</span><br><span class="line">2020-03-06 15:53:13   info   : Accept authentication from &apos;admin&apos;, using password. Request: /v1/monitors/MyMonitor</span><br><span class="line">2020-03-06 15:55:13   notice : Server changed state: node02[192.168.1.108:3306]: new_slave. [Running] -&gt; [Slave, Running]</span><br><span class="line">2020-03-06 15:56:01   info   : Accept authentication from &apos;admin&apos;, using password. Request: /v1/servers</span><br><span class="line">2020-03-06 15:56:01   info   : Accept authentication from &apos;admin&apos;, using password. Request: /v1/monitors/MyMonitor</span><br></pre></td></tr></table></figure>
+<p>From the above log, we can see the slave server is read only, and it can only be slave.</p>
+<h2 id="Login-MaxScale-from-Mysql-Command-Line"><a href="#Login-MaxScale-from-Mysql-Command-Line" class="headerlink" title="Login MaxScale from Mysql Command Line"></a>Login MaxScale from Mysql Command Line</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -umaxscale -pmaxscalepass -h192.168.1.108 -P4006</span><br></pre></td></tr></table></figure>
+<p><strong>IMPORTANT NOTES</strong></p>
+<p>Both master and slave should have this maxscale and identified by maxscalepass.</p>
+<p>From the output log file, we can get the error if node2 doesn’t have that account.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2020-03-06 16:11:00   info   : (1) [readwritesplit] Selected Slave: node02</span><br><span class="line">2020-03-06 16:11:00   info   : (1) Started Splitter-Service client session [1] for &apos;zach&apos; from 192.168.1.107</span><br><span class="line">2020-03-06 16:11:00   info   : (1) Connected to &apos;node01&apos; with thread id 15241</span><br><span class="line">2020-03-06 16:11:00   info   : (1) Connected to &apos;node02&apos; with thread id 455</span><br><span class="line">2020-03-06 16:11:00   error  : (1) [mariadbbackend] Invalid authentication message from backend &apos;node02&apos;. Error code: 1045, Msg : #28000Access denied for user &apos;zach&apos;@&apos;192.168.1.108&apos; (using password: YES)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Verify"><a href="#Verify" class="headerlink" title="Verify"></a>Verify</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select @@hostname;</span><br><span class="line">+<span class="comment">-----------------------+</span></span><br><span class="line">| @@hostname            |</span><br><span class="line">+<span class="comment">-----------------------+</span></span><br><span class="line">| localhost.localdomain |</span><br><span class="line">+<span class="comment">-----------------------+</span></span><br><span class="line">1 row in <span class="keyword">set</span> (<span class="number">0.02</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; <span class="keyword">start</span> <span class="keyword">transaction</span>;</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @@hostname;</span><br><span class="line">+<span class="comment">-----------------+</span></span><br><span class="line">| @@hostname      |</span><br><span class="line">+<span class="comment">-----------------+</span></span><br><span class="line">| aemg-mel-server |</span><br><span class="line">+<span class="comment">-----------------+</span></span><br><span class="line">1 row in <span class="keyword">set</span> (<span class="number">0.01</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; <span class="keyword">rollback</span>;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @@hostname;</span><br><span class="line">+<span class="comment">-----------------------+</span></span><br><span class="line">| @@hostname            |</span><br><span class="line">+<span class="comment">-----------------------+</span></span><br><span class="line">| localhost.localdomain |</span><br><span class="line">+<span class="comment">-----------------------+</span></span><br><span class="line">1 row in <span class="keyword">set</span> (<span class="number">0.01</span> sec)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2020-03-06 16:14:17   info   : (3) [MariaDBAuth] Client &apos;maxscale&apos;@[192.168.1.107] is using an unsupported authenticator plugin &apos;caching_sha2_password&apos;. Trying to switch to &apos;mysql_native_password&apos;.</span><br><span class="line">2020-03-06 16:14:17   info   : (3) [readwritesplit] Servers and router connection counts:</span><br><span class="line">2020-03-06 16:14:17   info   : (3) [readwritesplit] current operations : 0 in 	[192.168.1.105]:3306 Master, Running</span><br><span class="line">2020-03-06 16:14:17   info   : (3) [readwritesplit] current operations : 0 in 	[192.168.1.108]:3306 Slave, Running</span><br><span class="line">2020-03-06 16:14:17   info   : (3) [readwritesplit] Connected to &apos;node01&apos;</span><br><span class="line">2020-03-06 16:14:17   info   : (3) [readwritesplit] Selected Master: node01</span><br><span class="line">2020-03-06 16:14:17   info   : (3) [readwritesplit] Connected to &apos;node02&apos;</span><br><span class="line">2020-03-06 16:14:17   info   : (3) [readwritesplit] Selected Slave: node02</span><br><span class="line">2020-03-06 16:14:17   info   : (3) Started Splitter-Service client session [3] for &apos;maxscale&apos; from 192.168.1.107</span><br><span class="line">2020-03-06 16:14:17   info   : (3) Connected to &apos;node01&apos; with thread id 15297</span><br><span class="line">2020-03-06 16:14:17   info   : (3) Connected to &apos;node02&apos; with thread id 467</span><br><span class="line">2020-03-06 16:14:17   info   : (3) &gt; Autocommit: [enabled], trx is [not open], cmd: (0x03) COM_QUERY, plen: 37, type: QUERY_TYPE_READ|QUERY_TYPE_SYSVAR_READ, stmt: select @@version_comment limit 1 </span><br><span class="line">2020-03-06 16:14:17   info   : (3) [readwritesplit] Route query to slave: node02 	[192.168.1.108]:3306 &lt;</span><br><span class="line">2020-03-06 16:14:17   info   : (3) [readwritesplit] Reply complete, last reply from node02</span><br><span class="line"></span><br><span class="line">2020-03-06 16:23:08   info   : (3) &gt; Autocommit: [enabled], trx is [not open], cmd: (0x03) COM_QUERY, plen: 23, type: QUERY_TYPE_READ|QUERY_TYPE_SYSVAR_READ, stmt: select @@host_name </span><br><span class="line">2020-03-06 16:23:08   info   : (3) [readwritesplit] Route query to slave: node02 	[192.168.1.108]:3306 &lt;</span><br><span class="line">2020-03-06 16:23:08   info   : (3) [readwritesplit] Pinging node01, idle for 530 seconds</span><br><span class="line">2020-03-06 16:23:08   info   : (3) [readwritesplit] Reply complete, last reply from node02</span><br><span class="line">2020-03-06 16:23:08   info   : (3) [mariadbbackend] Response to COM_CHANGE_USER is OK, writing stored query</span><br><span class="line">2020-03-06 16:23:12   info   : (3) &gt; Autocommit: [enabled], trx is [not open], cmd: (0x03) COM_QUERY, plen: 22, type: QUERY_TYPE_READ|QUERY_TYPE_SYSVAR_READ, stmt: select @@hostname </span><br><span class="line">2020-03-06 16:23:12   info   : (3) [readwritesplit] Route query to slave: node02 	[192.168.1.108]:3306 &lt;</span><br><span class="line">2020-03-06 16:23:12   info   : (3) [readwritesplit] Reply complete, last reply from node02</span><br><span class="line"></span><br><span class="line">2020-03-06 16:23:51   info   : (3) &gt; Autocommit: [enabled], trx is [open], cmd: (0x03) COM_QUERY, plen: 22, type: QUERY_TYPE_BEGIN_TRX, stmt: start transaction </span><br><span class="line">2020-03-06 16:23:51   info   : (3) [readwritesplit] Route query to master: node01 	[192.168.1.105]:3306 &lt;</span><br><span class="line">2020-03-06 16:23:51   info   : (3) [readwritesplit] Reply complete, last reply from node01</span><br><span class="line"></span><br><span class="line">2020-03-06 16:24:13   info   : (3) &gt; Autocommit: [enabled], trx is [open], cmd: (0x03) COM_QUERY, plen: 23, type: QUERY_TYPE_READ|QUERY_TYPE_SYSVAR_READ, stmt: select @@host_name </span><br><span class="line">2020-03-06 16:24:13   info   : (3) [readwritesplit] Route query to master: node01 	[192.168.1.105]:3306 &lt;</span><br><span class="line">2020-03-06 16:24:13   info   : (3) [readwritesplit] Reply complete, last reply from node01</span><br><span class="line">2020-03-06 16:24:27   info   : (3) &gt; Autocommit: [enabled], trx is [open], cmd: (0x03) COM_QUERY, plen: 22, type: QUERY_TYPE_READ|QUERY_TYPE_SYSVAR_READ, stmt: select @@hostname </span><br><span class="line">2020-03-06 16:24:27   info   : (3) [readwritesplit] Route query to master: node01 	[192.168.1.105]:3306 &lt;</span><br><span class="line">2020-03-06 16:24:27   info   : (3) [readwritesplit] Reply complete, last reply from node01</span><br><span class="line"></span><br><span class="line">2020-03-06 16:25:06   info   : (3) &gt; Autocommit: [enabled], trx is [open], cmd: (0x03) COM_QUERY, plen: 13, type: QUERY_TYPE_ROLLBACK, stmt: rollback </span><br><span class="line">2020-03-06 16:25:06   info   : (3) [readwritesplit] Route query to master: node01 	[192.168.1.105]:3306 &lt;</span><br><span class="line">2020-03-06 16:25:06   info   : (3) [readwritesplit] Reply complete, last reply from node01</span><br><span class="line"></span><br><span class="line">2020-03-06 16:25:19   info   : (3) &gt; Autocommit: [enabled], trx is [not open], cmd: (0x03) COM_QUERY, plen: 22, type: QUERY_TYPE_READ|QUERY_TYPE_SYSVAR_READ, stmt: select @@hostname </span><br><span class="line">2020-03-06 16:25:19   info   : (3) [readwritesplit] Route query to slave: node02 	[192.168.1.108]:3306 &lt;</span><br><span class="line">2020-03-06 16:25:19   info   : (3) [readwritesplit] Reply complete, last reply from node02</span><br></pre></td></tr></table></figure>
+<h1 id="MaxScale-Works-As-Binlog-Server"><a href="#MaxScale-Works-As-Binlog-Server" class="headerlink" title="MaxScale Works As Binlog Server"></a>MaxScale Works As Binlog Server</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/binlog </span><br><span class="line">chown -R maxscale. /data/binlog</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">[maxscale]</span><br><span class="line">threads=4</span><br><span class="line">log_info=1</span><br><span class="line">logdir=/tmp/maxscale/</span><br><span class="line"></span><br><span class="line">[Replication]</span><br><span class="line"><span class="built_in">type</span>=service</span><br><span class="line">router=binlogrouter</span><br><span class="line">user=maxscale</span><br><span class="line">password=maxscalepass</span><br><span class="line"><span class="comment">#server_id=1251</span></span><br><span class="line"><span class="comment">#mariadb10-compatibility=1</span></span><br><span class="line"><span class="comment">#binlogdir=/var/lib/maxscale/</span></span><br><span class="line">router_options=server_id=1251,heartbeat=30,binlogdir=/data/binlog,transaction_safety=1,mariadb10-compatibility=0,send_slave_heartbeat=1</span><br><span class="line"></span><br><span class="line">[Replication-Listener]</span><br><span class="line"><span class="built_in">type</span>=listener</span><br><span class="line">service=Replication</span><br><span class="line">protocol=MariaDBClient</span><br><span class="line">port=5006</span><br><span class="line">address=192.168.1.108</span><br><span class="line"></span><br><span class="line">[Splitter-Service]</span><br><span class="line"><span class="built_in">type</span>=service</span><br><span class="line">router=readwritesplit</span><br><span class="line">servers=node01, node02</span><br><span class="line">user=maxscale</span><br><span class="line">password=8CB15DD53FAE735F2A845BF73D563BE7</span><br><span class="line"></span><br><span class="line">[Splitter-Listener]</span><br><span class="line"><span class="built_in">type</span>=listener</span><br><span class="line">service=Splitter-Service</span><br><span class="line">protocol=MariaDBClient</span><br><span class="line">port=4006</span><br><span class="line">address=192.168.1.108</span><br><span class="line"></span><br><span class="line">[node01]</span><br><span class="line"><span class="built_in">type</span>=server</span><br><span class="line">address=192.168.1.105</span><br><span class="line">port=3306</span><br><span class="line">protocol=MariaDBBackend</span><br><span class="line"></span><br><span class="line">[node02]</span><br><span class="line"><span class="built_in">type</span>=server</span><br><span class="line">address=192.168.1.108</span><br><span class="line">port=3306</span><br><span class="line">protocol=MariaDBBackend</span><br><span class="line"></span><br><span class="line">[MyMonitor]</span><br><span class="line"><span class="built_in">type</span>=monitor</span><br><span class="line">module=mariadbmon</span><br><span class="line">servers=node01,node02</span><br><span class="line">user=maxscale</span><br><span class="line">password=8CB15DD53FAE735F2A845BF73D563BE7</span><br><span class="line"></span><br><span class="line">[CLI]</span><br><span class="line"><span class="built_in">type</span>=service</span><br><span class="line">router=cli</span><br><span class="line"></span><br><span class="line">[CLI-Listener]</span><br><span class="line"><span class="built_in">type</span>=listener</span><br><span class="line">service=CLI</span><br><span class="line">protocol=maxscaled</span><br><span class="line">address=localhost</span><br><span class="line">port=6603</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2020/02/26/mysql-replication/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql replication</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="mariadb-maxscale" data-title="MariaDB MaxScale" data-url="http://dontcry2013.github.io/blog/blog/2020/03/06/mariadb-maxscale/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2020 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/blog/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

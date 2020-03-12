@@ -49,7 +49,9 @@ From the above log, we can see it is no good to install libev.
 
 Check with `yum repolist` we got:
 
-![repolist][repolist]
+
+* ![repolist][repolist]
+* ![repolist][repolist]
 
 After compared with existing worked server, I found epel repo is missing. Copy the repo base url from the working server which called CS, add it to the server CC. Everyhing works fine!
 
@@ -105,3 +107,4 @@ Complete!
 
 
 [repolist]: /blog/img/repolist.jpg "repolist"
+[cs-repolist]: /blog/img/cs-repolist.jpg "cs-repolist"

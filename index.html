@@ -195,6 +195,62 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-yum-repo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/03/12/yum-repo/" class="article-date">
+  	<time datetime="2020-03-12T05:40:09.000Z" itemprop="datePublished">2020-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/03/12/yum-repo/">yum repo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A problem happened when I try to install percona-xtrabackup-24, according to the official <a href="https://www.percona.com/doc/percona-xtrabackup/2.4/installation/yum_repo.html" target="_blank" rel="noopener">document</a>, in order to sucessfully install Percona XtraBackup on CentOS prior to version 7, the libev package needs to be installed first. This package libev package can be installed from the EPEL repositories.</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/03/12/yum-repo/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-mariadb-maxscale" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -717,70 +773,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/01/28/anti-virus/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-inotify" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/01/24/inotify/" class="article-date">
-  	<time datetime="2020-01-23T23:18:39.000Z" itemprop="datePublished">2020-01-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/01/24/inotify/">inotify</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Real-time-Data-Synchronization"><a href="#Real-time-Data-Synchronization" class="headerlink" title="Real-time Data Synchronization"></a>Real-time Data Synchronization</h1><p>In production, there is a need to back up data to a backup server when the file data in the directory changes. The realization of such requirements requires the following two points:</p>
-<ul>
-<li>Use the monitoring service (inotify) to monitor changes to the directory files of the server to be synchronized<br>When the directory data is changed.</li>
-<li>Use the rsync service to send the data to the backup server. Therefore, real-time data synchronization can be achieved by using rsync + inotify.</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/linux/">Linux</a><a class="article-category-link" href="/blog/categories/linux/tools/">Tools</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/01/24/inotify/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

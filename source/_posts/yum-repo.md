@@ -103,7 +103,61 @@ Complete!
 [root@AEMG-CC zac]# which innobackupex
 /usr/bin/innobackupex
 ```
+# Check Version
 
+## Check if Package Exists
+```
+[root@localhost ~]# yum search maxscale
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirror.as24220.net
+ * epel: mirror.as24220.net
+ * extras: mirror.as24220.net
+ * remi-php72: remi.mirror.digitalpacific.com.au
+ * remi-safe: remi.mirror.digitalpacific.com.au
+ * updates: mirror.intergrid.com.au
+============================================================================================ N/S matched: maxscale =============================================================================================
+maxscale.x86_64 : MaxScale - An intelligent database proxy
+```
+
+## Check the Version Will be Installed
+```
+[root@localhost ~]# yum info maxscale
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirror.as24220.net
+ * epel: mirror.as24220.net
+ * extras: mirror.as24220.net
+ * remi-php72: remi.mirror.digitalpacific.com.au
+ * remi-safe: remi.mirror.digitalpacific.com.au
+ * updates: mirror.intergrid.com.au
+Installed Packages
+Name        : maxscale
+Arch        : x86_64
+Version     : 2.4.7
+Release     : 1
+Size        : 119 M
+Repo        : installed
+Summary     : MaxScale - An intelligent database proxy
+License     : MariaDB BSL 1.1
+Description : 
+            : The MariaDB Corporation MaxScale is an intelligent proxy that allows forwarding of
+            : database statements to one or more database servers using complex rules,
+            : a semantic understanding of the database statements and the roles of
+            : the various servers within the backend cluster of databases.
+            : 
+            : MaxScale is designed to provide load balancing and high availability
+            : functionality transparently to the applications. In addition it provides
+            : a highly scalable and flexible architecture, with plugin components to
+            : support different protocols and routing decisions.
+```
+
+## Check Local Installed Version
+
+```
+[root@localhost ~]# rpm -q maxscale
+maxscale-2.4.7-1.x86_64
+```
 
 
 [repolist]: /blog/img/repolist.jpg "repolist"

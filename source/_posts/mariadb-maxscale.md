@@ -34,8 +34,31 @@ maxscale-2.4.7-1.x86_64
 [root@AEMG-CS zac]# maxscale -V
 MaxScale 2.4.7 - f576680ed9062222f23ec9e6a3f0b23174ed0535
 ```
+
+# Create MySQL Users
+
+```sql
+CREATE USER 'msadmin'@'%' IDENTIFIED BY 'password';
+GRANT SELECT ON mysql.user TO 'msadmin'@'%';
+GRANT SELECT ON mysql.db TO 'msadmin'@'%';
+GRANT SELECT ON mysql.tables_priv TO 'msadmin'@'%';
+GRANT SHOW DATABASES ON *.* TO 'msadmin'@'%';
+SHOW GRANTS FOR msadmin;
+
+
+CREATE USER 'msuser'@'192.168.86.%' IDENTIFIED BY 'password';
+# For Slave
+GRANT SELECT ON moodle.* TO 'msuser'@'192.168.86.%';
+# For Master
+GRANT SELECT, ON moodle.* TO 'msuser'@'192.168.86.%';
+
+SHOW GRANTS FOR 'msuser'@'192.168.86.%';
+
+```
+
 # Split Read and Write
 
+## maxscale.cnf
 Copy the configuration file to maxscale.cnf.
 ```
 vim /etc/maxscale.cnf
@@ -52,7 +75,7 @@ type=service
 router=readwritesplit
 servers=node01, node02
 user=maxscale
-password=8CB15DD53FAE735F2A845BF73D563BE7
+password=maxscale
 
 [Splitter-Listener]
 type=listener
@@ -78,7 +101,7 @@ type=monitor
 module=mariadbmon
 servers=node01,node02
 user=maxscale
-password=8CB15DD53FAE735F2A845BF73D563BE7
+password=maxscale
 
 [CLI]
 type=service
@@ -104,6 +127,7 @@ port=6603
 └────────┴───────────────┴──────┴─────────────┴─────────────────┴──────┘
 ```
 ## Configure Replication in Mysql
+
 ### In Master Run SQL
 ``` sql
 show master status
@@ -210,7 +234,6 @@ mysql> select @@hostname;
 ```
 
 ```
-
 2020-03-06 16:14:17   info   : (3) [MariaDBAuth] Client 'maxscale'@[192.168.1.107] is using an unsupported authenticator plugin 'caching_sha2_password'. Trying to switch to 'mysql_native_password'.
 2020-03-06 16:14:17   info   : (3) [readwritesplit] Servers and router connection counts:
 2020-03-06 16:14:17   info   : (3) [readwritesplit] current operations : 0 in 	[192.168.1.105]:3306 Master, Running
@@ -255,6 +278,9 @@ mysql> select @@hostname;
 2020-03-06 16:25:19   info   : (3) [readwritesplit] Reply complete, last reply from node02
 ```
 
+## Set Slave to READ-ONLY
+
+To play save, avoid someone use command line accidentally update data in slave server, we'd better set slave to READ-ONLY.
 
 # MaxScale Works As Binlog Server
 ``` bash
@@ -290,7 +316,7 @@ type=service
 router=readwritesplit
 servers=node01, node02
 user=maxscale
-password=8CB15DD53FAE735F2A845BF73D563BE7
+password=maxscale
 
 [Splitter-Listener]
 type=listener
@@ -316,7 +342,7 @@ type=monitor
 module=mariadbmon
 servers=node01,node02
 user=maxscale
-password=8CB15DD53FAE735F2A845BF73D563BE7
+password=maxscale
 
 [CLI]
 type=service

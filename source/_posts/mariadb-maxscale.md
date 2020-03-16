@@ -15,7 +15,25 @@ There only 2 machines,
 * 192.168.1.108, worked as slave, MaxScale also running on it.
 
 <!--more-->
+# Installation
 
+Check the [official website](https://mariadb.com/downloads/#mariadb_platform-mariadb_maxscale) to get the rpm package in according with your system version.
+
+```
+[root@AEMG-CS zac]# wget https://dlm.mariadb.com/975790/MaxScale/2.4.7/centos/6/x86_64/maxscale-2.4.7-1.centos.6.x86_64.rpm
+--2020-03-16 07:48:44--  https://dlm.mariadb.com/975790/MaxScale/2.4.7/centos/6/x86_64/maxscale-2.4.7-1.centos.6.x86_64.rpm
+Resolving dlm.mariadb.com... 104.20.159.76, 104.20.158.76, 2606:4700:10::6814:9f4c, ...
+
+[root@AEMG-CS zac]# rpm -ivh maxscale-2.4.7-1.centos.6.x86_64.rpm 
+warning: maxscale-2.4.7-1.centos.6.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 28c12247: NOKEY
+Preparing...                ########################################### [100%]
+   1:maxscale               ########################################### [100%]
+
+[root@AEMG-CS zac]# rpm -q maxscale
+maxscale-2.4.7-1.x86_64
+[root@AEMG-CS zac]# maxscale -V
+MaxScale 2.4.7 - f576680ed9062222f23ec9e6a3f0b23174ed0535
+```
 # Split Read and Write
 
 Copy the configuration file to maxscale.cnf.

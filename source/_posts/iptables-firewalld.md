@@ -60,7 +60,7 @@ firewall-cmd --zone=public  --permanent --remove-service=ssh
 
 # Rich Rules
 
-![firewalld.richlanguage(5)](https://jpopelka.fedorapeople.org/firewalld/doc/firewalld.richlanguage.html)
+[firewalld.richlanguage(5)](https://jpopelka.fedorapeople.org/firewalld/doc/firewalld.richlanguage.html)
 
 ```
 man firewalld.richlanguage
@@ -124,5 +124,6 @@ iptables -F
 [Firewall stack]: /blog/img/firewall_stack.png "Firewall stack"
 
 
-![FirewallD Official Websites](http://www.firewalld.org/)
-![RHEL 7 USING FIREWALLS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls#sec-Introduction_to_firewalld)
+[FirewallD Official Websites](http://www.firewalld.org/)
+
+[RHEL 7 USING FIREWALLS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls#sec-Introduction_to_firewalld)

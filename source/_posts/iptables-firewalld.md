@@ -93,6 +93,17 @@ firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" sourc
 firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="0.0.0.0/0" port port="22" protocol="tcp" reject'
 ```
 
+## Let internal access freely, but refuse public access of ssh
+
+```
+firewall-cmd --permanent --zone=trusted --change-interface=em4
+firewall-cmd --zone=trusted --list-all
+firewall-cmd --zone=public --list-all
+firewall-cmd --permanent --zone=trusted --add-service=ssh
+firewall-cmd --permanent --zone=public --remove-service=ssh
+firewall-cmd --list-all-zones
+```
+
 # iptables
 
 ```

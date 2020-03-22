@@ -5,7 +5,7 @@ categories: [Linux]
 tags: [CentOS]
 ---
 
-A problem happened when I try to install percona-xtrabackup-24, according to the official [document](https://www.percona.com/doc/percona-xtrabackup/2.4/installation/yum_repo.html), in order to sucessfully install Percona XtraBackup on CentOS prior to version 7, the libev package needs to be installed first. This package libev package can be installed from the EPEL repositories.
+A problem happened when I try to install percona-xtrabackup-24, according to the official [document](https://www.percona.com/doc/percona-xtrabackup/2.4/installation/yum_repo.html), in order to sucessfully install Percona XtraBackup on CentOS prior to version 7, the libev package needs to be installed first. This libev package can be installed from the EPEL repositories.
 
 <!--more-->
 
@@ -47,13 +47,17 @@ Error: Nothing to do
 ```
 From the above log, we can see it is no good to install libev.
 
-Check with `yum repolist` we got:
+Check with `yum repolist` respectively to see if there are differences in two servers, we get:
 
+* The one we're currently working on:
 
-* ![repolist][repolist]
-* ![repolist][repolist]
+![repolist][repolist]
+  
+* The one which previously setup: 
 
-After compared with existing worked server, I found epel repo is missing. Copy the repo base url from the working server which called CS, add it to the server CC. Everyhing works fine!
+![repolist][cs-repolist]
+
+After the comparison, I can find easily that epel repo is missing. Copy the repo base url from the working server which called CS, add it to the server CC. Everyhing works fine!
 
 ```
 [root@AEMG-CS zac]# yum -v repolist

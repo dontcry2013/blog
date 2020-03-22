@@ -1,8 +1,8 @@
 ---
 title: yum repo
 date: 2020-03-12 16:40:09
-categories:
-tags:
+categories: [Linux]
+tags: [CentOS]
 ---
 
 A problem happened when I try to install percona-xtrabackup-24, according to the official [document](https://www.percona.com/doc/percona-xtrabackup/2.4/installation/yum_repo.html), in order to sucessfully install Percona XtraBackup on CentOS prior to version 7, the libev package needs to be installed first. This package libev package can be installed from the EPEL repositories.

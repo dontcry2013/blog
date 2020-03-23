@@ -12,6 +12,7 @@ sudo su
 cat /etc/centos-release
 uname -a # Linux Core Version
 lscpu
+lsof -i # To display active TCP and UDP endpoints
 ifconfig
 nmcli device status #list network card
 ls /etc/sysconfig/network-scripts/ #network card scripts
@@ -19,6 +20,7 @@ cat /etc/resolv.conf #DNS
 cat /etc/sysconfig/network #Gateway
 sestatus
 sudo setenforce 0
+which telnet
 ```
 <!--more-->
 
@@ -192,3 +194,36 @@ Configuration of Nginx
 
 1. add node to upstream chain
 2. add 192.168.86.26 www4.cloudcampus.com.au to `/etc/hosts`
+
+# Optional
+
+## Monitor
+``` sh
+scp root@192.168.86.65:/aemg/monitor.sh /aemg/monitor.sh
+crontab -e
+*/5 * * * * /aemg/monitor.sh > /dev/null 2>&1
+```
+
+## Verify
+
+### Verify ports if Opened
+
+``` sh
+# memcached
+telnet 192.168.86.199 22122
+# mysql
+telnet 192.168.86.200 3306
+# maxscale
+telnet 192.168.86.200 4006
+# httpd
+telnet 192.168.86.199 80
+lsof -i :80
+```
+if Telnet does not come with the system, install it.
+
+``` sh
+yum install telnet
+# or
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/telnet-0.17-64.el7.x86_64.rpm
+rpm -ivh telnet-0.17-64.el7.x86_64.rpm 
+```

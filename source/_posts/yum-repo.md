@@ -165,4 +165,4 @@ maxscale-2.4.7-1.x86_64
 
 
 [repolist]: /blog/img/repolist.jpg "repolist"
-[cs-repolist]: /blog/img/cs-repolist.jpg "cs-repolist"
+[cs-repolist]: /blog/img/cs-repolist.png "cs-repolist"

@@ -11,6 +11,7 @@ Working on 204, inet is 26
 sudo su
 cat /etc/centos-release
 uname -a # Linux Core Version
+ulimit -a
 lscpu
 lsof -i # To display active TCP and UDP endpoints
 ifconfig
@@ -209,6 +210,8 @@ crontab -e
 ### Verify ports if Opened
 
 ``` sh
+# rsyncd
+telnet 192.168.86.199 873
 # memcached
 telnet 192.168.86.199 22122
 # mysql

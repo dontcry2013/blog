@@ -147,7 +147,7 @@ firewall-cmd --reload
 ## VirtualHost
 ```
 ln -s /aemg/moodle /var/www/moodle
-vim httpd/conf.d/cloudcampus.conf
+vim /etc/httpd/conf.d/cloudcampus.conf
 ```
 ``` yml
 <VirtualHost *:80>

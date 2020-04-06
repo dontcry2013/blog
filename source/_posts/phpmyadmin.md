@@ -137,3 +137,5 @@ Alias /phpmyadmin /usr/share/phpMyAdmin
 #    </Directory>
 #</IfModule>
 ```
+# Official doc
+The [phpMyAdmin official doc](https://docs.phpmyadmin.net/en/latest/) would be very useful, as it gives instruction of installation for latest version, and also use different ways, for example, the very popular docker.

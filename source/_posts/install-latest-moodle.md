@@ -41,6 +41,13 @@ firewall-cmd --reload
 ``` shell
 # 80 to 8080
 firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=8080
-# 80 to 192.168.0.1:8080
-firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toaddr=192.168.0.1:toport=8080
+# 8080 to 192.168.1.113:8080
+firewall-cmd --permanent --add-forward-port=port=8080:proto=tcp:toaddr=192.168.1.113:toport=80
+firewall-cmd --permanent --remove-forward-port=port=8080:proto=tcp:toport=80:toaddr=192.168.1.113
+```
+## masquerade to Allow forward IP
+```
+firewall-cmd --query-masquerade
+firewall-cmd --add-masquerade --permanent
+firewall-cmd --remove-masquerade
 ```

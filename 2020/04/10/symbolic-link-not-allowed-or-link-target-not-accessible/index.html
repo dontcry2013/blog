@@ -4,20 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Self-Executing Anonymous Functions | Zachary&#39;s blog</title>
+  <title>Symbolic link not allowed or link target not accessible | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自执行函数写法很诡异，mark一下，需要学习。">
-<meta name="keywords" content="ES5,TODO">
+  <meta name="description" content="Problem Descriptionapache2 can not access the symbolic link which located in default directory. Gives error “Forbidden You don’t have permission to access … on this server”.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Self-Executing Anonymous Functions">
-<meta property="og:url" content="http://dontcry2013.github.io/blog/2016/11/28/self-executing-anonymous-functions/index.html">
+<meta property="og:title" content="Symbolic link not allowed or link target not accessible">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="自执行函数写法很诡异，mark一下，需要学习。">
+<meta property="og:description" content="Problem Descriptionapache2 can not access the symbolic link which located in default directory. Gives error “Forbidden You don’t have permission to access … on this server”.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-18T12:38:22.547Z">
+<meta property="og:updated_time" content="2020-04-10T09:35:30.747Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Self-Executing Anonymous Functions">
-<meta name="twitter:description" content="自执行函数写法很诡异，mark一下，需要学习。">
+<meta name="twitter:title" content="Symbolic link not allowed or link target not accessible">
+<meta name="twitter:description" content="Problem Descriptionapache2 can not access the symbolic link which located in default directory. Gives error “Forbidden You don’t have permission to access … on this server”.">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -198,11 +197,11 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-self-executing-anonymous-functions" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-symbolic-link-not-allowed-or-link-target-not-accessible" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2016/11/28/self-executing-anonymous-functions/" class="article-date">
-  	<time datetime="2016-11-28T06:10:12.000Z" itemprop="datePublished">2016-11-28</time>
+      <a href="/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/" class="article-date">
+  	<time datetime="2020-04-10T09:14:55.000Z" itemprop="datePublished">2020-04-10</time>
 </a>
     </div>
   
@@ -215,7 +214,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Self-Executing Anonymous Functions
+      Symbolic link not allowed or link target not accessible
     </h1>
   
 
@@ -223,15 +222,7 @@ var _hmt = _hmt || [];
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es5/">ES5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/todo/">TODO</a></li></ul>
-	</div>
-
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/javascript/">JavaScript</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -239,9 +230,21 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>自执行函数写法很诡异，mark一下，需要学习。<br><a id="more"></a></p>
-<h1 id="jquery-的自执行函数"><a href="#jquery-的自执行函数" class="headerlink" title="jquery 的自执行函数"></a>jquery 的自执行函数</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line"></span><br><span class="line">  $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $fullText = $(<span class="string">'.admin-fullText'</span>);</span><br><span class="line">    $(<span class="string">'#admin-fullscreen'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      $.AMUI.fullscreen.toggle();</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    $(<span class="built_in">document</span>).on($.AMUI.fullscreen.raw.fullscreenchange, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      $.AMUI.fullscreen.isFullscreen ? $fullText.text(<span class="string">'关闭全屏'</span>) : $fullText.text(<span class="string">'开启全屏'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
-<p><a href="http://stackoverflow.com/questions/19491650/self-executing-function-jquery-vs-javascript-difference" target="_blank" rel="noopener">self executing function jquery vs JavaScript difference</a></p>
+        <h1 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h1><p>apache2 can not access the symbolic link which located in default directory. Gives error “Forbidden You don’t have permission to access … on this server”.</p>
+<a id="more"></a>
+<h1 id="Detection"><a href="#Detection" class="headerlink" title="Detection"></a>Detection</h1><h2 id="Check-the-Error-Log"><a href="#Check-the-Error-Log" class="headerlink" title="Check the Error Log"></a>Check the Error Log</h2><ul>
+<li>Apache error log is in <code>/var/log/httpd</code>, the error is <code>&quot;AH00037: Symbolic link not allowed or link target not accessible: /var/www/moodle&quot;</code>.</li>
+</ul>
+<h2 id="Do-not-Use-Symbolic-Link"><a href="#Do-not-Use-Symbolic-Link" class="headerlink" title="Do not Use Symbolic Link"></a>Do not Use Symbolic Link</h2><ul>
+<li>Create a directory which not use symbolic link, like <code>/var/www/test</code>, it turns out OK.</li>
+</ul>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>chmod o+x /root/</p>
+<p>The fix is immediate - no need to restart apache.</p>
+<h1 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# ll</span><br><span class="line">total 31</span><br><span class="line">lrwxrwxrwx.   1 root root     7 Nov 25  2018 bin -&gt; usr/bin</span><br><span class="line">dr-xr-xr-x.   6 root root  4096 Mar 24 11:58 boot</span><br><span class="line">drwxr-xr-x    2 root root   258 Apr  2 12:44 com.fr.intelli.record.FocusPoint</span><br><span class="line">drwxr-xr-x   21 root root  3520 Apr  7 11:02 dev</span><br><span class="line">drwxr-xr-x. 157 root root 12288 Apr 10 00:24 etc</span><br><span class="line">drwxr-xr-x.   6 root root    58 Apr  9 13:50 home</span><br><span class="line">lrwxrwxrwx.   1 root root     7 Nov 25  2018 lib -&gt; usr/lib</span><br><span class="line">lrwxrwxrwx.   1 root root     9 Nov 25  2018 lib64 -&gt; usr/lib64</span><br><span class="line">drwx------.   2 root root     6 Nov 25  2018 lost+found</span><br><span class="line">drwxr-xr-x.   2 root root     6 Apr 11  2018 media</span><br><span class="line">drwxr-xr-x.   2 root root     6 Apr 11  2018 mnt</span><br><span class="line">drwxr-xr-x.   6 root root    92 Apr  9 13:26 opt</span><br><span class="line">dr-xr-xr-x  518 root root     0 Apr  7 11:02 proc</span><br><span class="line">dr-xr-x---.  13 root root  4096 Apr 10 18:51 root</span><br><span class="line">drwxr-xr-x   44 root root  1360 Apr 10 06:25 run</span><br><span class="line">lrwxrwxrwx.   1 root root     8 Nov 25  2018 sbin -&gt; usr/sbin</span><br><span class="line">drwxr-xr-x.   2 root root     6 Apr 11  2018 srv</span><br><span class="line">dr-xr-xr-x   13 root root     0 Apr  7 11:02 sys</span><br><span class="line">drwxrwxrwt   24 root root   600 Apr 10 03:07 tmp</span><br><span class="line">drwxr-xr-x.  13 root root   155 Apr  9 13:16 usr</span><br><span class="line">drwxr-xr-x.  22 root root  4096 Mar 27 16:54 var</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Symbolic link needs <code>X</code> right for every directory in the source link, <code>/root</code> is the culprit.</li>
+<li>For others, they don’t have execution right on <code>root</code> direction</li>
+</ul>
 
       
     </div>
@@ -251,18 +254,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/11/28/jsonp-tricky-trap/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Jsonp Tricky Trap
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2016/11/24/promise-and-async/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Promise and Async</div>
+    <a href="/blog/2020/04/09/install-latest-moodle/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">install-latest-moodle</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -297,7 +291,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="self-executing-anonymous-functions" data-title="Self-Executing Anonymous Functions" data-url="http://dontcry2013.github.io/blog/blog/2016/11/28/self-executing-anonymous-functions/"></div>
+	<div class="ds-thread" data-thread-key="symbolic-link-not-allowed-or-link-target-not-accessible" data-title="Symbolic link not allowed or link target not accessible" data-url="http://dontcry2013.github.io/blog/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Symbolic link not allowed or link target not accessible | Zachary&#39;s blog</title>
+  <title>mp4 fast streaming | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem Descriptionapache2 can not access the symbolic link which located in default directory. Gives error “Forbidden You don’t have permission to access … on this server”.">
+  <meta name="description" content="moov position is the key for web friendly mp4, it should be ahead of mdat, the following shell checks the moov position and moves it to the right place.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Symbolic link not allowed or link target not accessible">
-<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/index.html">
+<meta property="og:title" content="mp4 fast streaming">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/04/15/mp4-fast-streaming/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="Problem Descriptionapache2 can not access the symbolic link which located in default directory. Gives error “Forbidden You don’t have permission to access … on this server”.">
+<meta property="og:description" content="moov position is the key for web friendly mp4, it should be ahead of mdat, the following shell checks the moov position and moves it to the right place.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-10T09:35:30.747Z">
+<meta property="og:updated_time" content="2020-04-14T23:45:06.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Symbolic link not allowed or link target not accessible">
-<meta name="twitter:description" content="Problem Descriptionapache2 can not access the symbolic link which located in default directory. Gives error “Forbidden You don’t have permission to access … on this server”.">
+<meta name="twitter:title" content="mp4 fast streaming">
+<meta name="twitter:description" content="moov position is the key for web friendly mp4, it should be ahead of mdat, the following shell checks the moov position and moves it to the right place.">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -197,11 +197,11 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-symbolic-link-not-allowed-or-link-target-not-accessible" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mp4-fast-streaming" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/" class="article-date">
-  	<time datetime="2020-04-10T09:14:55.000Z" itemprop="datePublished">2020-04-10</time>
+      <a href="/blog/2020/04/15/mp4-fast-streaming/" class="article-date">
+  	<time datetime="2020-04-14T23:41:06.000Z" itemprop="datePublished">2020-04-15</time>
 </a>
     </div>
   
@@ -214,7 +214,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Symbolic link not allowed or link target not accessible
+      mp4 fast streaming
     </h1>
   
 
@@ -230,22 +230,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h1><p>apache2 can not access the symbolic link which located in default directory. Gives error “Forbidden You don’t have permission to access … on this server”.</p>
+        <p>moov position is the key for web friendly mp4, it should be ahead of mdat, the following shell checks the moov position and moves it to the right place.</p>
 <a id="more"></a>
-<h1 id="Detection"><a href="#Detection" class="headerlink" title="Detection"></a>Detection</h1><h2 id="Check-the-Error-Log"><a href="#Check-the-Error-Log" class="headerlink" title="Check the Error Log"></a>Check the Error Log</h2><ul>
-<li>Apache error log is in <code>/var/log/httpd</code>, the error is <code>&quot;AH00037: Symbolic link not allowed or link target not accessible: /var/www/moodle&quot;</code>.</li>
-</ul>
-<h2 id="Do-not-Use-Symbolic-Link"><a href="#Do-not-Use-Symbolic-Link" class="headerlink" title="Do not Use Symbolic Link"></a>Do not Use Symbolic Link</h2><ul>
-<li>Create a directory which not use symbolic link, like <code>/var/www/test</code>, it turns out OK.</li>
-</ul>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>chmod o+x /root/</p>
-<p>The fix is immediate - no need to restart apache.</p>
-<h1 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# ll</span><br><span class="line">total 31</span><br><span class="line">lrwxrwxrwx.   1 root root     7 Nov 25  2018 bin -&gt; usr/bin</span><br><span class="line">dr-xr-xr-x.   6 root root  4096 Mar 24 11:58 boot</span><br><span class="line">drwxr-xr-x    2 root root   258 Apr  2 12:44 com.fr.intelli.record.FocusPoint</span><br><span class="line">drwxr-xr-x   21 root root  3520 Apr  7 11:02 dev</span><br><span class="line">drwxr-xr-x. 157 root root 12288 Apr 10 00:24 etc</span><br><span class="line">drwxr-xr-x.   6 root root    58 Apr  9 13:50 home</span><br><span class="line">lrwxrwxrwx.   1 root root     7 Nov 25  2018 lib -&gt; usr/lib</span><br><span class="line">lrwxrwxrwx.   1 root root     9 Nov 25  2018 lib64 -&gt; usr/lib64</span><br><span class="line">drwx------.   2 root root     6 Nov 25  2018 lost+found</span><br><span class="line">drwxr-xr-x.   2 root root     6 Apr 11  2018 media</span><br><span class="line">drwxr-xr-x.   2 root root     6 Apr 11  2018 mnt</span><br><span class="line">drwxr-xr-x.   6 root root    92 Apr  9 13:26 opt</span><br><span class="line">dr-xr-xr-x  518 root root     0 Apr  7 11:02 proc</span><br><span class="line">dr-xr-x---.  13 root root  4096 Apr 10 18:51 root</span><br><span class="line">drwxr-xr-x   44 root root  1360 Apr 10 06:25 run</span><br><span class="line">lrwxrwxrwx.   1 root root     8 Nov 25  2018 sbin -&gt; usr/sbin</span><br><span class="line">drwxr-xr-x.   2 root root     6 Apr 11  2018 srv</span><br><span class="line">dr-xr-xr-x   13 root root     0 Apr  7 11:02 sys</span><br><span class="line">drwxrwxrwt   24 root root   600 Apr 10 03:07 tmp</span><br><span class="line">drwxr-xr-x.  13 root root   155 Apr  9 13:16 usr</span><br><span class="line">drwxr-xr-x.  22 root root  4096 Mar 27 16:54 var</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Symbolic link needs <code>X</code> right for every directory in the source link, <code>/root</code> is the culprit.</li>
-<li>For others, they don’t have execution right on <code>root</code> direction</li>
-</ul>
-
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo $1</span><br><span class="line">if [[ -z "$1" ]]; then</span><br><span class="line">  echo 'directory is NULL'</span><br><span class="line">  exit</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">videos=`find $1 -type f -atime -365 | xargs -P 10 file -iN &#123;&#125; | grep "video/mp4" | awk -F ":" '&#123;print $1&#125;'`</span><br><span class="line">st=$(date '+%s')</span><br><span class="line">for video in $videos</span><br><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">  echo $video &gt;&gt; $st</span><br><span class="line">  ffmpeg -v trace -i $video 2&gt;&amp;1 | grep -e type:\'mdat\' -e type:\'moov\' &gt;&gt; $st</span><br><span class="line"><span class="meta">  #</span><span class="bash"> <span class="keyword">if</span> ffmpeg version is under 4</span></span><br><span class="line"><span class="meta">  #</span><span class="bash"> qtfaststart -l <span class="variable">$line</span> | grep <span class="string">'mdat\|moov'</span> &gt;&gt; <span class="variable">$st</span></span></span><br><span class="line">&#125; &amp;</span><br><span class="line">wait</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span> contain multi mdat process</span></span><br><span class="line">v_pretask='pretask'</span><br><span class="line">v_task='task'</span><br><span class="line">cat $st | grep -A 1 $1 &gt;&gt; $v_pretask</span><br><span class="line">cat pretask | grep -B 1 -e type:\'mdat\' | grep $1 &gt;&gt; $v_task</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> move moov</span></span><br><span class="line">prefix='NEW-'</span><br><span class="line">while IFS= read -r line</span><br><span class="line">do</span><br><span class="line">  qt-faststart $line $prefix$line</span><br><span class="line">  mv -f $prefix$line $line</span><br><span class="line">  echo qtfaststart -l $line | grep 'mdat\|moov'</span><br><span class="line">done &lt; "$v_task"</span><br><span class="line"></span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line">linenumbers=`grep -n moov $st | awk -F ':' '&#123;print$1&#125;'`</span><br><span class="line">touch 'task.txt'</span><br><span class="line">for lnumber in $linenumbers</span><br><span class="line">do</span><br><span class="line">  b=$(( $lnumber % 3 ))</span><br><span class="line">  if [ $b = 0 ]; then</span><br><span class="line">    lin=$(($lnumber - 2))</span><br><span class="line">    echo `head -n $lin $st|tail -n 1` &gt;&gt; task.txt</span><br><span class="line">  fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -254,18 +241,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2020/04/15/mp4-fast-streaming/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          mp4 fast streaming
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2020/04/09/install-latest-moodle/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">install-latest-moodle</div>
+    <a href="/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Symbolic link not allowed or link target not accessible</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -300,7 +278,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="symbolic-link-not-allowed-or-link-target-not-accessible" data-title="Symbolic link not allowed or link target not accessible" data-url="http://dontcry2013.github.io/blog/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/"></div>
+	<div class="ds-thread" data-thread-key="mp4-fast-streaming" data-title="mp4 fast streaming" data-url="http://dontcry2013.github.io/blog/blog/2020/04/15/mp4-fast-streaming/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -48,14 +48,20 @@ firewall-cmd --permanent --zone=public --add-source=210.10.220.42/32
 
 # Query state of port
 firewall-cmd --zone=public --query-port=80/tcp
+
 # Open port
 firewall-cmd --permanent --zone=public --add-port=8080/tcp
+
 # Remove
 firewall-cmd --permanent --zone=public --remove-port=8080/tcp
-
 firewall-cmd --permanent --zone=public --add-service=http
-firewall-cmd --permanent --add-service=mysql
-firewall-cmd --zone=public  --permanent --remove-service=ssh
+firewall-cmd --permanent --zone=public --add-service=mysql
+firewall-cmd --permanent --zone=public --remove-service=ssh
+```
+# Port Forward
+```
+firewall-cmd --permanent --zone=public --add-forward-port=port=8080:proto=tcp:toport=80:toaddr=192.168.1.113
+firewall-cmd --permanent --zone=public --remove-forward-port=port=8080:proto=tcp:toport=80:toaddr=192.168.1.113
 ```
 
 # Rich Rules

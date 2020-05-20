@@ -202,8 +202,9 @@ yum install php php-fpm php-gd php-json php-mbstring php-mysqlnd php-xml php-xml
 yum -y --enablerepo=remi-php72 install php php-fpm php-gd php-json php-mbstring php-mysqlnd php-xml php-xmlrpc php-opcache php-memcached php-zip php-curl php-mcrypt php-soap
 php --modules
 php72 --modules
-service httpd restart
-service httpd reload
+systemctl start httpd
+systemctl enable httpd
+systemctl reload httpd
 
 scp zac@192.168.86.65:/etc/php.ini /etc/php.ini.new
 mv /etc/php.ini /etc/php.ini.bak

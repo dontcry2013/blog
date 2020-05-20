@@ -24,7 +24,7 @@ sudo setenforce 0
 which telnet
 ```
 
-> Note: To disable selinux permanently, we should change the configuration file.
+>Note: To disable selinux permanently, we should change the configuration file.
 
 ``` bash
 vim /etc/selinux/config
@@ -105,20 +105,7 @@ exclude = moodle/config.php
 # Create Secrets File
 touch rsyncd.secrets
 chmod 600 rsyncd.secrets
-
-service xinetd start
 ```
-
-## Sync code
-```
-rsync -azp --password-file="/home/zac/rsync_pass" --log-file="/var/log/rsync" /aemg/cloudclassroom/moodle zac@192.168.86.26::moodle --delete
-```
-
-## In server end add this to iwait.sh:
-rsync -azvp --password-file="/home/zac/rsync_pass" --log-file="/var/log/rsync" --exclude "/aemg/cloudclassroom/moodle/config.php" /aemg/cloudclassroom/moodle zac@192.168.86.26::moodle --delete
-
-nohup /bin/bash /home/zac/iwait.sh &
-
 
 ## xinetd
 ```
@@ -126,6 +113,7 @@ yum list installed xinetd
 yum install xinetd
 vim /etc/xinetd.d/rsync
 ```
+
 add below code to `/etc/xinetd.d/rsync`
 ```
 service rsync
@@ -142,6 +130,34 @@ service rsync
     server_args = --daemon --config /etc/rsyncd.conf
 }
 ```
+
+and then start it
+```
+systemctl start xinetd
+```
+
+## Sync code
+>In 199, run below command
+```
+rsync -azpP --password-file="/home/zac/rsync_pass" --log-file="/var/log/rsync" /aemg/cloudclassroom/moodle zac@192.168.86.26::moodle --delete
+```
+In desired way, we would like install plugin without any troubles, which will need write permits of the code directory.
+```
+chown -R apache:apache /aemg/cloudclassroom/moodle
+```
+
+>In 199, add this to /home/zac/iwait.sh:
+```
+rsync -azvp --password-file="/home/zac/rsync_pass" --log-file="/var/log/rsync" --exclude "/aemg/cloudclassroom/moodle/config.php" /aemg/cloudclassroom/moodle zac@192.168.86.26::moodle --delete
+
+# kill exists and restart
+ps aux | grep iwait.sh
+ps aux | grep inotify
+
+nohup /bin/bash /home/zac/iwait.sh &
+```
+
+
 
 # Httpd & PHP
 
@@ -205,10 +221,10 @@ RHEL 8 provides PHP version 7.2, 7.3 in its official repository
 
 
 >Command to install the EPEL repository configuration package:
-    
 ```
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
+
 >Command to install the Remi repository configuration package:
 ```
 dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
@@ -256,10 +272,13 @@ https://rpms.remirepo.net/wizard/
 
 # Add Node to Load Balancer
 
-Configuration of Nginx
+1. add 192.168.86.26 www4.cloudcampus.com.au to `/etc/hosts`
 
-1. add node to upstream chain
-2. add 192.168.86.26 www4.cloudcampus.com.au to `/etc/hosts`
+2. add node to nginx upstream chain
+```  
+vim /etc/nginx/nginx.conf 
+nginx -s reload
+```
 
 # Optional
 
@@ -273,6 +292,14 @@ crontab -e
 ## Verify
 
 ### Verify ports if Opened
+If Telnet does not come with the system, install it.
+
+``` sh
+yum install telnet
+# or
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/telnet-0.17-64.el7.x86_64.rpm
+rpm -ivh telnet-0.17-64.el7.x86_64.rpm 
+```
 
 ``` sh
 # rsyncd
@@ -287,11 +314,4 @@ telnet 192.168.86.200 4006
 telnet 192.168.86.199 80
 lsof -i :80
 ```
-if Telnet does not come with the system, install it.
 
-``` sh
-yum install telnet
-# or
-wget http://mirror.centos.org/centos/7/os/x86_64/Packages/telnet-0.17-64.el7.x86_64.rpm
-rpm -ivh telnet-0.17-64.el7.x86_64.rpm 
-```

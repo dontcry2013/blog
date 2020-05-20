@@ -23,6 +23,14 @@ sestatus
 sudo setenforce 0
 which telnet
 ```
+
+> Note: To disable selinux permanently, we should change the configuration file.
+
+``` bash
+vim /etc/selinux/config
+# Set SELINUX=disabled
+sudo shutdown -r now
+```
 <!--more-->
 
 ## User Configuration

@@ -148,8 +148,8 @@ service rsync
 ## Httpd
 ``` sh
 yum --enablerepo=epel,remi install httpd
-firewall-cmd --permanent --add-service=http
-firewall-cmd --permanent --add-service=https
+firewall-cmd --permanent --zone=public --add-service=http
+firewall-cmd --permanent --zone=public --add-service=https
 firewall-cmd --reload
 ```
 ## VirtualHost
@@ -171,6 +171,8 @@ vim /etc/httpd/conf.d/cloudcampus.conf
 ```
 
 ## PHP
+
+### CentOS 7
 ``` sh
 yum install -y epel-release
 yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
@@ -196,6 +198,61 @@ vim /var/www/html/index.php
 # Write and Test
 <?php phpinfo(); ?>
 ```
+
+### CentOS 8
+
+RHEL 8 provides PHP version 7.2, 7.3 in its official repository
+
+
+>Command to install the EPEL repository configuration package:
+    
+```
+dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+>Command to install the Remi repository configuration package:
+```
+dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+```
+
+>Command to install the yum-utils package (for the yum-config-manager command):
+```
+dnf install yum-utils
+```
+
+>You want a single version which means replacing base packages from the distribution
+
+>Packages have the same name than the base repository, ie php-*
+
+>Some common dependencies are available in remi-safe repository, which is enabled by default
+
+>You have to enable the module stream for 7.2:
+```
+dnf module reset php
+dnf module install php:remi-7.2
+```
+>Command to upgrade (the repository only provides PHP):
+```
+dnf update
+```
+
+>Command to install additional packages:
+```
+dnf install php-xxx
+```
+
+>Command to install testing packages:
+```
+dnf --enablerepo=remi-modular-test install php-xxx
+```
+
+>Command to check the installed version and available extensions:
+```
+php --version
+php --modules
+```
+
+https://rpms.remirepo.net/wizard/
+
 
 # Add Node to Load Balancer
 

@@ -24,9 +24,29 @@ sudo setenforce 0
 which telnet
 date
 ```
->Note: Check the system clock would be very important, since web server relies on session time, a wrong time in server could result in login problems.
->Note: To disable selinux permanently, we should change the configuration file.
+>Note: Following configuration of firewall used many services, instead of assign port directly, using service is more straightforward, check the service-port map firstly.
+```
+vim /etc/services
+```
 
+>Note: Check the system clock would be very important, since web server relies on session time, a wrong time in server could result in login problems.
+```
+# Check timezone
+timedatectl
+
+# If wrong, set the timezone
+timedatectl list-timezones |  grep  -E "Asia/S.*"
+timedatectl set-timezone Asia/Shanghai
+
+# Sync clock
+firewall-cmd --permanent --zone=public --add-service=ntp
+firewall-cmd --reload
+
+systemctl start chronyd.service
+systemctl enable chronyd.service
+chronyc -a makestep
+```
+>Note: To disable selinux permanently, we should change the configuration file. Mysqld sometimes requires SELinux to be disabled.
 ``` bash
 vim /etc/selinux/config
 # Set SELINUX=disabled
@@ -37,6 +57,7 @@ sudo shutdown -r now
 ## User Configuration
 You may need to add user to sudo group
 ```
+id -u zac
 adduser zac
 passwd zac
 usermod -aG wheel zac
@@ -293,7 +314,8 @@ crontab -e
 
 ## Verify
 
-### Verify ports if Opened
+### Verify remote ports if Opened
+
 If Telnet does not come with the system, install it.
 
 ``` sh
@@ -316,4 +338,35 @@ telnet 192.168.86.200 4006
 telnet 192.168.86.199 80
 lsof -i :80
 ```
+### Verify service
 
+#### Commands
+```
+systemctl list-unit-files | grep enabled
+# or
+systemctl list-unit-files --state=enabled
+
+systemctl | grep running
+# or
+systemctl list-units --type=service --state=running
+```
+
+#### Services should be enabled
+
+* chronyd.service 
+* crond.service 
+* firewalld.service
+* mysqld.service **`# for db replication`**
+* httpd.service **`# for webserver`**
+* sshd.service
+* xinetd.service **`# for webserver`**
+* nfs-client.target **`# for webserver`**
+
+### Verify firewall
+
+```
+firewall-cmd --list-all
+```
+interfaces: eth0
+
+services: http https ntp rsyncd ssh or mysql

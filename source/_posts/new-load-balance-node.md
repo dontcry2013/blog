@@ -22,8 +22,9 @@ cat /etc/sysconfig/network #Gateway
 sestatus
 sudo setenforce 0
 which telnet
+date
 ```
-
+>Note: Check the system clock would be very important, since web server relies on session time, a wrong time in server could result in login problems.
 >Note: To disable selinux permanently, we should change the configuration file.
 
 ``` bash

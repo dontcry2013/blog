@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>goaccess | Zachary&#39;s blog</title>
+  <title>GoAccess | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="IntroGoAccess was designed to be a fast, terminal-based log analyzer. Its core idea is to quickly analyze and view web server statistics in real time without needing to use your browser (great if you">
 <meta property="og:type" content="article">
-<meta property="og:title" content="goaccess">
+<meta property="og:title" content="GoAccess">
 <meta property="og:url" content="http://dontcry2013.github.io/blog/2020/05/22/goaccess/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
 <meta property="og:description" content="IntroGoAccess was designed to be a fast, terminal-based log analyzer. Its core idea is to quickly analyze and view web server statistics in real time without needing to use your browser (great if you">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-22T02:10:05.381Z">
+<meta property="og:updated_time" content="2020-05-22T02:23:26.987Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="goaccess">
+<meta name="twitter:title" content="GoAccess">
 <meta name="twitter:description" content="IntroGoAccess was designed to be a fast, terminal-based log analyzer. Its core idea is to quickly analyze and view web server statistics in real time without needing to use your browser (great if you">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
@@ -214,7 +214,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      goaccess
+      GoAccess
     </h1>
   
 
@@ -231,12 +231,41 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>GoAccess was designed to be a fast, terminal-based log analyzer. Its core idea is to quickly analyze and view web server statistics in real time without needing to use your browser (great if you want to do a quick analysis of your access log via SSH, or if you simply love working in the terminal).</p>
-<p><a href="https://goaccess.io/" target="_blank" rel="noopener">goaccess</a><br><a id="more"></a></p>
+<p><a href="https://goaccess.io/" target="_blank" rel="noopener">GoAccess</a><br><a id="more"></a></p>
 <h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="Log"><a href="#Log" class="headerlink" title="Log"></a>Log</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">222.183.184.204 [22/May/2020:09:01:45 +0800] 200 &quot;GET /theme/yui_combo.php?m/1589419535/core/dock/dock-loader-min.js HTTP/1.1&quot; 768 https://www.cloudcampus.com.au/login/index.php https www.cloudcampus.com.au &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.25 Safari/537.36 Core/1.70.3756.400 QQBrowser/10.5.4043.400&quot; [192.168.86.199:80]</span><br><span class="line">222.183.184.204 [22/May/2020:09:01:46 +0800] 200 &quot;GET /lib/requirejs.php/1589419535/core/first.js HTTP/1.1&quot; 172531 https://www.cloudcampus.com.au/login/index.php https www.cloudcampus.com.au &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.25 Safari/537.36 Core/1.70.3756.400 QQBrowser/10.5.4043.400&quot; [192.168.86.203:8080]</span><br></pre></td></tr></table></figure>
 <h2 id="log-format"><a href="#log-format" class="headerlink" title="log_format"></a>log_format</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">log_format  main  &apos;$remote_addr [$time_local] $status &apos;</span><br><span class="line">                        &apos;&quot;$request&quot; $body_bytes_sent &apos;</span><br><span class="line">                        &apos;$http_referer $scheme $http_host &apos;</span><br><span class="line">                        &apos;&quot;$http_user_agent&quot; [$upstream_addr]&apos;;</span><br></pre></td></tr></table></figure>
 <h1 id="Goaccess"><a href="#Goaccess" class="headerlink" title="Goaccess"></a>Goaccess</h1><h2 id="Edit-configuration"><a href="#Edit-configuration" class="headerlink" title="Edit configuration"></a>Edit configuration</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/goaccess.conf</span><br></pre></td></tr></table></figure>
 <p>add new formatter</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">time-format %H:%M:%S</span><br><span class="line">date-format %d/%b/%Y</span><br><span class="line">#log-format %h %^ [%d:%t %^] &quot;%r&quot; status:%s %b %R %^ %^ %^ %^ %^ [%u] %^ %^</span><br><span class="line">log-format %h [%d:%t %^] %s &quot;%r&quot; %b %R %^ %^ &quot;%u&quot; [%^]</span><br></pre></td></tr></table></figure>
+<h2 id="SPECIFIERS"><a href="#SPECIFIERS" class="headerlink" title="SPECIFIERS"></a>SPECIFIERS</h2><ul>
+<li>%x A date and time field matching the time-format and date-format variables. This is used when a timestamp is given instead of the date and time being in two separate variables.</li>
+<li>%t time field matching the time-format variable.</li>
+<li>%d date field matching the date-format variable.</li>
+<li>%v The server name according to the canonical name setting (Server Blocks or Virtual Host).</li>
+<li>%e This is the userid of the person requesting the document as determined by HTTP authentication.</li>
+<li>%h host (the client IP address, either IPv4 or IPv6)</li>
+<li>%r The request line from the client. This requires specific delimiters around the request (single quotes, double quotes, etc) to be parsable. Otherwise, use a combination of special format specifiers such as %m, %U, %q and %H to parse individual fields.<blockquote>
+<p>Note: Use either %r to get the full request OR %m, %U, %q and %H to form your request, do not use both.</p>
+</blockquote>
+</li>
+<li>%m The request method.</li>
+<li>%U The URL path requested.<blockquote>
+<p>Note: If the query string is in %U, there is no need to use %q. However, if the URL path, does not include any query string, you may use %q and the query string will be appended to the request.</p>
+</blockquote>
+</li>
+<li>%q The query string.</li>
+<li>%H The request protocol.</li>
+<li>%s The status code that the server sends back to the client.</li>
+<li>%b The size of the object returned to the client.</li>
+<li>%R The “Referer” HTTP request header.</li>
+<li>%u The user-agent HTTP request header.</li>
+<li>%D The time taken to serve the request, in microseconds.</li>
+<li>%T The time taken to serve the request, in seconds with milliseconds resolution.</li>
+<li>%L The time taken to serve the request, in milliseconds as a decimal number.</li>
+<li>%^ Ignore this field.</li>
+<li>%~ Move forward through the log string until a non-space (!isspace) char is found.</li>
+<li>~h The host (the client IP address, either IPv4 or IPv6) in a X-Forwarded-For (XFF) field.</li>
+</ul>
 <h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">goaccess -a -d -f /var/log/nginx/a0522.log -p /etc/goaccess.conf -o /aemg/cloudclassroom/analytics/access_log/report2020-05-21.html</span><br><span class="line"></span><br><span class="line">goaccess -a -f /var/log/nginx/access.log &gt; /aemg/cloudclassroom/analytics/access_log/report2020-05-21.html</span><br></pre></td></tr></table></figure>
 <h1 id="Cron-Job"><a href="#Cron-Job" class="headerlink" title="Cron Job"></a>Cron Job</h1><h2 id="Create-a-bash-script"><a href="#Create-a-bash-script" class="headerlink" title="Create a bash script"></a>Create a bash script</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /bin/bash</span></span><br><span class="line">BIN_DIR=<span class="string">"/usr/bin"</span></span><br><span class="line">DATE=<span class="string">"`date --date='yesterday' +%F`"</span></span><br><span class="line">REPORT=<span class="string">"/aemg/cloudclassroom/analytics/access_log/report<span class="variable">$DATE</span>.html"</span></span><br><span class="line"><span class="variable">$BIN_DIR</span>/goaccess -f /var/<span class="built_in">log</span>/nginx/access.log -a &gt; <span class="variable">$REPORT</span></span><br></pre></td></tr></table></figure>
 <h2 id="Add-the-script-to-crond"><a href="#Add-the-script-to-crond" class="headerlink" title="Add the script to crond"></a>Add the script to crond</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">55 2 * * * /aemg/backups/nginx_report.sh  &gt; /dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
@@ -285,7 +314,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="goaccess" data-title="goaccess" data-url="http://dontcry2013.github.io/blog/blog/2020/05/22/goaccess/"></div>
+	<div class="ds-thread" data-thread-key="goaccess" data-title="GoAccess" data-url="http://dontcry2013.github.io/blog/blog/2020/05/22/goaccess/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -1,5 +1,5 @@
 ---
-title: goaccess
+title: GoAccess
 date: 2020-05-22 11:36:17
 categories:
 tags:
@@ -8,7 +8,7 @@ tags:
 
 GoAccess was designed to be a fast, terminal-based log analyzer. Its core idea is to quickly analyze and view web server statistics in real time without needing to use your browser (great if you want to do a quick analysis of your access log via SSH, or if you simply love working in the terminal).
 
-[goaccess](https://goaccess.io/)
+[GoAccess](https://goaccess.io/)
 <!--more-->
 
 # Nginx
@@ -42,6 +42,30 @@ date-format %d/%b/%Y
 #log-format %h %^ [%d:%t %^] "%r" status:%s %b %R %^ %^ %^ %^ %^ [%u] %^ %^
 log-format %h [%d:%t %^] %s "%r" %b %R %^ %^ "%u" [%^]
 ```
+## SPECIFIERS
+* %x A date and time field matching the time-format and date-format variables. This is used when a timestamp is given instead of the date and time being in two separate variables.
+* %t time field matching the time-format variable.
+* %d date field matching the date-format variable.
+* %v The server name according to the canonical name setting (Server Blocks or Virtual Host).
+* %e This is the userid of the person requesting the document as determined by HTTP authentication.
+* %h host (the client IP address, either IPv4 or IPv6)
+* %r The request line from the client. This requires specific delimiters around the request (single quotes, double quotes, etc) to be parsable. Otherwise, use a combination of special format specifiers such as %m, %U, %q and %H to parse individual fields.
+  >Note: Use either %r to get the full request OR %m, %U, %q and %H to form your request, do not use both.
+* %m The request method.
+* %U The URL path requested.
+  >Note: If the query string is in %U, there is no need to use %q. However, if the URL path, does not include any query string, you may use %q and the query string will be appended to the request.
+* %q The query string.
+* %H The request protocol.
+* %s The status code that the server sends back to the client.
+* %b The size of the object returned to the client.
+* %R The "Referer" HTTP request header.
+* %u The user-agent HTTP request header.
+* %D The time taken to serve the request, in microseconds.
+* %T The time taken to serve the request, in seconds with milliseconds resolution.
+* %L The time taken to serve the request, in milliseconds as a decimal number.
+* %^ Ignore this field.
+* %~ Move forward through the log string until a non-space (!isspace) char is found.
+* ~h The host (the client IP address, either IPv4 or IPv6) in a X-Forwarded-For (XFF) field.
 
 ## Test
 ```

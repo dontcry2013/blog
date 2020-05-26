@@ -23,6 +23,7 @@ sestatus
 sudo setenforce 0
 which telnet
 date
+route #check route ip table
 ```
 >Note: Following configuration of firewall used many services, instead of assign port directly, using service is more straightforward, check the service-port map firstly.
 ```

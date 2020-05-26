@@ -116,7 +116,14 @@ ip addr add 192.168.1.111/24 dev wlp3s0
 ```
 
 # Route table configuration
-
+```
+# show route
+netstat -anr
+# or
+route -n
+# or
+ip route list
+```
 ```
 route add -net 192.168.2.0 netmask 255.255.255.0 dev enp6s0	
 # or
@@ -125,6 +132,18 @@ ip route add 192.168.2.0/24 dev enp6s0
 route add default gw 192.168.2.254	
 # or
 ip route add default via 192.168.2.254
+
+
+
+route delete default gw 114.112.104.1 eth3
+route delete default gw 192.168.86.1 eth0
+route add default gw 192.168.86.68 dev eth0
+
+route del -net 114.112.104.0 gw 0.0.0.0 netmask 255.255.255.0 dev eth1
+```
+```
+systemctl list-units
+systemctl restart NetworkManager.service
 ```
 # Restart eth0
 1.

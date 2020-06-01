@@ -158,3 +158,28 @@ ip link set dev eth0 down;ip link set dev eth0 up
 ```
 
 
+# Centos 8
+
+```
+nmcli conn add type bridge con-name br0 ifname br0
+
+# edit /etc/sysconfig/network-scripts files
+
+nmcli conn up br0
+
+nmcli conn down enp4s0
+
+nmcli conn up enp4s0
+
+nmcli conn show  --active
+NAME     UUID                                  TYPE      DEVICE  
+br0      ec328a66-4eb0-4e3c-b4fd-e968378b9121  bridge    br0     
+docker0  97e90f37-0474-4932-b8ef-a9f2fb22c090  bridge    docker0 
+virbr0   8403786d-26b0-4e13-b28b-90c9c5825475  bridge    virbr0  
+enp4s0   10ddb735-cb66-43be-8865-0c2cec138e45  ethernet  enp4s0  
+
+bridge link show
+2: enp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master br0 state forwarding priority 32 cost 100 
+5: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 master virbr0 state disabled priority 32 cost 100 
+12: vethe5fea27@if11: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master docker0 state forwarding priority 32 cost 2 
+```

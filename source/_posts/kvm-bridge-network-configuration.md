@@ -183,3 +183,34 @@ bridge link show
 5: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 master virbr0 state disabled priority 32 cost 100 
 12: vethe5fea27@if11: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master docker0 state forwarding priority 32 cost 2 
 ```
+
+# Centos 7 NAT Gateway
+```
+[root@Firewall network-scripts]# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 52:54:00:c7:22:d2 brd ff:ff:ff:ff:ff:ff
+    inet 114.112.104.202/24 brd 114.112.104.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::5054:ff:fec7:22d2/64 scope link 
+       valid_lft forever preferred_lft forever
+4: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 52:54:00:1c:87:0c brd ff:ff:ff:ff:ff:ff
+    inet 192.168.86.1/24 brd 192.168.86.255 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::5054:ff:fe1c:870c/64 scope link 
+       valid_lft forever preferred_lft forever
+
+# eth1 is internal, eth0 is external
+firewall-cmd --permanent --direct --passthrough ipv4 -t nat -I POSTROUTING -o eth0 -j MASQUERADE -s 192.168.86.0/24
+firewall-cmd --permanent --direct --passthrough ipv4 -I FORWARD -i eth1 -j ACCEPT
+firewall-cmd --permanent --direct --get-all-passthroughs
+firewall-cmd --permanent --direct --get-passthroughs ipv4
+
+systemctl status iptables
+```

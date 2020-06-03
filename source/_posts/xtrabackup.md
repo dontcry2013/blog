@@ -174,3 +174,11 @@ https://www.percona.com/blog/2016/12/28/using-percona-xtrabackup-mysql-instance-
 xtrabackup: Can't create/write to file 'trabackup_logfile' (Errcode: 17 - File exists)
 
 Just delete it.
+
+## [Warning] InnoDB: Table mysql/innodb_index_stats has length mismatch in the column name table_name.  Please run mysql_upgrade
+
+```
+mysqlcheck -uroot  -p --all-databases --check-upgrade --auto-repair
+mysql_upgrade -uroot -p 
+systemctl restart mysqld
+```

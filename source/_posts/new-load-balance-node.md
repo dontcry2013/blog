@@ -315,6 +315,26 @@ crontab -e
 */5 * * * * /aemg/monitor.sh > /dev/null 2>&1
 ```
 
+#### Check and Install Mail Utility
+``` bash
+which mailx
+
+dnf install postfix
+systemctl enable postfix ; systemctl start postfix
+dnf install mailx
+
+$ mail root
+Subject: quota rise request
+Dear admin,
+Please increase my disk quota with 1 GB.
+Thanks, foo
+.
+EOT
+
+# Check in root account
+mail
+```
+
 ## Verify
 
 ### Verify remote ports if Opened

@@ -4,20 +4,15 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Self-Executing Anonymous Functions | Zachary&#39;s blog</title>
+  <title>Archives | Zachary&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自执行函数写法很诡异，mark一下，需要学习。">
-<meta name="keywords" content="ES5,TODO">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Self-Executing Anonymous Functions">
-<meta property="og:url" content="http://dontcry2013.github.io/blog/2016/11/28/self-executing-anonymous-functions/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Zachary&#39;s blog">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/archives/page/9/index.html">
 <meta property="og:site_name" content="Zachary&#39;s blog">
-<meta property="og:description" content="自执行函数写法很诡异，mark一下，需要学习。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-18T12:38:22.547Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Self-Executing Anonymous Functions">
-<meta name="twitter:description" content="自执行函数写法很诡异，mark一下，需要学习。">
+<meta name="twitter:title" content="Zachary&#39;s blog">
   
     <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
   
@@ -198,124 +193,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-self-executing-anonymous-functions" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/blog/2016/11/28/self-executing-anonymous-functions/" class="article-date">
-  	<time datetime="2016-11-28T06:10:12.000Z" itemprop="datePublished">2016-11-28</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/blog/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/blog/2016/02/26/hexo-config/" class="archive-article-date">
+  	<time datetime="2016-02-26T08:59:13.000Z" itemprop="datePublished">Feb 26</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Self-Executing Anonymous Functions
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/blog/2016/02/26/hexo-config/">Hexo Configuration</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es5/">ES5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/todo/">TODO</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/node-js/">Node.js</a></li></ul>
 	</div>
 
-        
+          
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/javascript/">JavaScript</a>
+	<a class="article-category-link" href="/blog/categories/tools/">Tools</a>
 	</div>
 
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>自执行函数写法很诡异，mark一下，需要学习。<br><a id="more"></a></p>
-<h1 id="jquery-的自执行函数"><a href="#jquery-的自执行函数" class="headerlink" title="jquery 的自执行函数"></a>jquery 的自执行函数</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line"></span><br><span class="line">  $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $fullText = $(<span class="string">'.admin-fullText'</span>);</span><br><span class="line">    $(<span class="string">'#admin-fullscreen'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      $.AMUI.fullscreen.toggle();</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    $(<span class="built_in">document</span>).on($.AMUI.fullscreen.raw.fullscreenchange, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      $.AMUI.fullscreen.isFullscreen ? $fullText.text(<span class="string">'关闭全屏'</span>) : $fullText.text(<span class="string">'开启全屏'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
-<p><a href="http://stackoverflow.com/questions/19491650/self-executing-function-jquery-vs-javascript-difference" target="_blank" rel="noopener">self executing function jquery vs JavaScript difference</a></p>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/blog/2016/11/28/jsonp-tricky-trap/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Jsonp Tricky Trap
-        
-      </div>
-    </a>
-  
-  
-    <a href="/blog/2016/11/24/promise-and-async/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Promise and Async</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="self-executing-anonymous-functions" data-title="Self-Executing Anonymous Functions" data-url="http://dontcry2013.github.io/blog/blog/2016/11/28/self-executing-anonymous-functions/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/blog/archives/page/8/">&laquo; Prev</a><a class="page-number" href="/blog/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/archives/page/7/">7</a><a class="page-number" href="/blog/archives/page/8/">8</a><span class="page-number current">9</span>
+    </nav>
+  
 
 </div>
       <footer id="footer">
@@ -341,8 +273,8 @@ var _hmt = _hmt || [];
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

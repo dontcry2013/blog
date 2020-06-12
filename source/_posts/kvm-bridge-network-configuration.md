@@ -184,6 +184,12 @@ bridge link show
 12: vethe5fea27@if11: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master docker0 state forwarding priority 32 cost 2 
 ```
 
+Centos 8 host should enable masquerade forwarding, to prevent dns problem, as you may able to ping ip, but cannot ping url.
+
+```
+firewall-cmd --permanent --zone=public --add-masquerade
+```
+
 # Centos 7 NAT Gateway
 ```
 [root@Firewall network-scripts]# ip a
@@ -214,3 +220,4 @@ firewall-cmd --permanent --direct --get-passthroughs ipv4
 
 systemctl status iptables
 ```
+

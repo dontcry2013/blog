@@ -241,6 +241,14 @@ vim /var/www/html/index.php
 <?php phpinfo(); ?>
 ```
 
+key points in php.init
+
+```
+max_execution_time 300
+post_max_size 4096M
+upload_max_filesize 4096M
+```
+
 ### CentOS 8
 
 RHEL 8 provides PHP version 7.2, 7.3 in its official repository

@@ -23,3 +23,23 @@ ALTER USER 'username'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 ```
 
 ---
+Date 2 JUL
+
+## Basic Settings
+
+* Permalink
+* Install theme
+* customize theme
+  * Header Image
+  * Menu Location
+  * Widget
+* Plugins
+  * WPForms
+  * Yoast SEO
+  * Insert Headers and Footers
+
+## Difference of platforms
+* Wix
+* Weebly
+* Shopify
+* Wordpress.com

@@ -15,6 +15,7 @@ ulimit -a
 lscpu
 lsof -i # To display active TCP and UDP endpoints
 ifconfig
+<!--more-->
 nmcli device status #list network card
 ls /etc/sysconfig/network-scripts/ #network card scripts
 cat /etc/resolv.conf #DNS
@@ -53,7 +54,6 @@ vim /etc/selinux/config
 # Set SELINUX=disabled
 sudo shutdown -r now
 ```
-<!--more-->
 
 ## User Configuration
 You may need to add user to sudo group

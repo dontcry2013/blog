@@ -15,7 +15,6 @@ ulimit -a
 lscpu
 lsof -i # To display active TCP and UDP endpoints
 ifconfig
-<!--more-->
 nmcli device status #list network card
 ls /etc/sysconfig/network-scripts/ #network card scripts
 cat /etc/resolv.conf #DNS
@@ -26,6 +25,8 @@ which telnet
 date
 route #check route ip table
 ```
+<!--more-->
+
 >Note: Following configuration of firewall used many services, instead of assign port directly, using service is more straightforward, check the service-port map firstly.
 ```
 vim /etc/services

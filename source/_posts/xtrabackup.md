@@ -25,7 +25,6 @@ sestatus
 firewall-cmd --list-all
 sudo setenforce 0
 ulimit -a # Check system limitation of open files number
-
 ulimit -n 2000000 # Probably need to set open files limit
 ```
 <!--more-->

@@ -195,6 +195,64 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-xtrabackup" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/03/13/xtrabackup/" class="article-date">
+  	<time datetime="2020-03-13T05:30:36.000Z" itemprop="datePublished">2020-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/03/13/xtrabackup/">xtrabackup</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This article is about the procedure to hot backup and configure a replication of MySQL sever.<br>The configuration servers are IP with 200 as master and 64 as slave;</p>
+<h1 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation:"></a>Preparation:</h1><p>It’s a good practice to check your work station first before you do anything, you have to know as more as possible including the hardware and system limitation, so that you can get a rough idea when encountered with a problem.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">cat /etc/centos-release</span><br><span class="line">lscpu</span><br><span class="line">ifconfig</span><br><span class="line">nmcli device status <span class="comment">#list network card</span></span><br><span class="line">TheMaster$ ping 192.168.86.64</span><br><span class="line">cat /etc/resolv.conf <span class="comment">#DNS</span></span><br><span class="line">cat /etc/sysconfig/network <span class="comment">#Gateway</span></span><br><span class="line">sestatus</span><br><span class="line">firewall-cmd --list-all</span><br><span class="line">sudo setenforce 0</span><br><span class="line"><span class="built_in">ulimit</span> -a <span class="comment"># Check system limitation of open files number</span></span><br><span class="line"><span class="built_in">ulimit</span> -n 2000000 <span class="comment"># Probably need to set open files limit</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/03/13/xtrabackup/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-yum-repo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -523,15 +581,6 @@ var _hmt = _hmt || [];
       
         <p>Working on 204, inet is 26</p>
 <h1 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">cat /etc/centos-release</span><br><span class="line">uname -a <span class="comment"># Linux Core Version</span></span><br><span class="line"><span class="built_in">ulimit</span> -a</span><br><span class="line">lscpu</span><br><span class="line">lsof -i <span class="comment"># To display active TCP and UDP endpoints</span></span><br><span class="line">ifconfig</span><br><span class="line">nmcli device status <span class="comment">#list network card</span></span><br><span class="line">ls /etc/sysconfig/network-scripts/ <span class="comment">#network card scripts</span></span><br><span class="line">cat /etc/resolv.conf <span class="comment">#DNS</span></span><br><span class="line">cat /etc/sysconfig/network <span class="comment">#Gateway</span></span><br><span class="line">sestatus</span><br><span class="line">sudo setenforce 0</span><br><span class="line"><span class="built_in">which</span> telnet</span><br><span class="line">date</span><br><span class="line">route <span class="comment">#check route ip table</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Note: Following configuration of firewall used many services, instead of assign port directly, using service is more straightforward, check the service-port map firstly.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/services</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>Note: Check the system clock would be very important, since web server relies on session time, a wrong time in server could result in login problems.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># Check timezone</span><br><span class="line">timedatectl</span><br><span class="line"></span><br><span class="line"># If wrong, set the timezone</span><br><span class="line">timedatectl list-timezones |  grep  -E &quot;Asia/S.*&quot;</span><br><span class="line">timedatectl set-timezone Asia/Shanghai</span><br><span class="line"></span><br><span class="line"># Sync clock</span><br><span class="line">firewall-cmd --permanent --zone=public --add-service=ntp</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line">systemctl start chronyd.service</span><br><span class="line">systemctl enable chronyd.service</span><br><span class="line">chronyc -a makestep</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>Note: To disable selinux permanently, we should change the configuration file. Mysqld sometimes requires SELinux to be disabled.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config</span><br><span class="line"><span class="comment"># Set SELINUX=disabled</span></span><br><span class="line">sudo shutdown -r now</span><br></pre></td></tr></table></figure></p>
-</blockquote>
       
     </div>
     
@@ -730,66 +779,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/01/31/linux-io/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-anti-virus" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/01/28/anti-virus/" class="article-date">
-  	<time datetime="2020-01-27T23:37:11.000Z" itemprop="datePublished">2020-01-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/01/28/anti-virus/">Anti Virus</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/blog/img/rsync-unknow.png" alt="default"><br>Because using the weak password, our test server was hacked.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/security/">Security</a><a class="article-category-link" href="/blog/categories/security/linux/">Linux</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/01/28/anti-virus/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

@@ -195,6 +195,62 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-docker-common-practice" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/07/03/docker-common-practice/" class="article-date">
+  	<time datetime="2020-07-03T03:55:41.000Z" itemprop="datePublished">2020-07-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/07/03/docker-common-practice/">docker common practice</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p># </p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/07/03/docker-common-practice/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-wordpress-study-log" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -683,64 +739,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/03/17/web-server-problem-detect-procedure/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-xtrabackup" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/03/13/xtrabackup/" class="article-date">
-  	<time datetime="2020-03-13T05:30:36.000Z" itemprop="datePublished">2020-03-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/03/13/xtrabackup/">xtrabackup</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This article is about the procedure to hot backup and configure a replication of MySQL sever.<br>The configuration servers are IP with 200 as master and 64 as slave;</p>
-<h1 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation:"></a>Preparation:</h1><p>It’s a good practice to check your work station first before you do anything, you have to know as more as possible including the hardware and system limitation, so that you can get a rough idea when encountered with a problem.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">cat /etc/centos-release</span><br><span class="line">lscpu</span><br><span class="line">ifconfig</span><br><span class="line">nmcli device status <span class="comment">#list network card</span></span><br><span class="line">TheMaster$ ping 192.168.86.64</span><br><span class="line">cat /etc/resolv.conf <span class="comment">#DNS</span></span><br><span class="line">cat /etc/sysconfig/network <span class="comment">#Gateway</span></span><br><span class="line">sestatus</span><br><span class="line">firewall-cmd --list-all</span><br><span class="line">sudo setenforce 0</span><br><span class="line"><span class="built_in">ulimit</span> -a <span class="comment"># Check system limitation of open files number</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ulimit</span> -n 2000000 <span class="comment"># Probably need to set open files limit</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/03/13/xtrabackup/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

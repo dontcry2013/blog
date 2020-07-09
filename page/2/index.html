@@ -195,6 +195,62 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-web-server-problem-detect-procedure" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/03/17/web-server-problem-detect-procedure/" class="article-date">
+  	<time datetime="2020-03-17T02:36:07.000Z" itemprop="datePublished">2020-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/03/17/web-server-problem-detect-procedure/">Web Server Problem Detect Procedure</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>When a new server is setup or when it restarted, we encounter the problems like can not access the website every now and then. Mostly, we should just check firewall and selinux. </p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/03/17/web-server-problem-detect-procedure/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-xtrabackup" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -715,70 +771,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/02/03/detach-process-in-terminal/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux-io" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/01/31/linux-io/" class="article-date">
-  	<time datetime="2020-01-31T04:50:50.000Z" itemprop="datePublished">2020-01-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/01/31/linux-io/">Linux I/O</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>A command expects the first three <strong><code>file descriptors</code></strong> to be available. The first, fd 0 (standard input, stdin), is for reading. The other two (fd 1, stdout and fd 2, stderr) are for writing.</p>
-<p>There is a stdin, stdout, and a stderr associated with each command. <strong><code>ls 2&gt;&amp;1</code></strong> means temporarily connecting the stderr of the ls command to the same “resource” as the shell’s stdout.</p>
-<p>By convention, a command reads its input from fd 0 (stdin), prints normal output to fd 1 (stdout), and error ouput to fd 2 (stderr). If one of those three fd’s is not open, you may encounter problems.</p>
-<h1 id="Redirection"><a href="#Redirection" class="headerlink" title="Redirection"></a>Redirection</h1><p>Multiple output streams may be redirected to one file.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ls -yz &gt;&gt; command.log 2&gt;&amp;1</span><br><span class="line"><span class="comment">#  Capture result of illegal options "yz" in file "command.log."</span></span><br><span class="line"><span class="comment">#  Because stderr is redirected to the file,</span></span><br><span class="line"><span class="comment">#+ any error messages will also be there.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  Note, however, that the following does *not* give the same result.</span></span><br><span class="line">ls -yz 2&gt;&amp;1 &gt;&gt; command.log</span><br><span class="line"><span class="comment">#  Outputs an error message, but does not write to file.</span></span><br><span class="line"><span class="comment">#  More precisely, the command output (in this case, null)</span></span><br><span class="line"><span class="comment">#+ writes to the file, but the error message goes only to stdout.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  If redirecting both stdout and stderr,</span></span><br><span class="line"><span class="comment">#+ the order of the commands makes a difference.</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/linux/">Linux</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/01/31/linux-io/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

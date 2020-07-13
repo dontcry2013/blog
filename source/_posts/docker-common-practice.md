@@ -1,12 +1,12 @@
 ---
-title: docker practice
+title: Docker Practice
 date: 2020-07-03 13:55:41
-categories:
-tags:
+categories: [Virtualization]
+tags: [Docker]
 ---
 # Docker commit
 
-This move save container to new image.
+This move save container to a new image.
 
 ``` bash
 [root@c8-2 ~]# docker ps
@@ -15,7 +15,6 @@ CONTAINER ID        IMAGE                                                 COMMAN
 388e9b6f5a75        docker.elastic.co/elasticsearch/elasticsearch:7.8.0   "/tini -- /usr/local…"   2 hours ago         Up 2 hours          0.0.0.0:9200->9200/tcp, 0.0.0.0:9300->9300/tcp                                                                                                       elasticsearch
 070dd7124d70        apachekylin/apache-kylin-standalone:3.0.1             "/home/admin/entrypo…"   8 days ago          Up 2 hours          0.0.0.0:7070->7070/tcp, 0.0.0.0:8032->8032/tcp, 0.0.0.0:8042->8042/tcp, 0.0.0.0:8088->8088/tcp, 0.0.0.0:16010->16010/tcp, 0.0.0.0:50070->50070/tcp   kylin
 ```
-
 <!--more-->
 
 ``` bash
@@ -77,7 +76,6 @@ IMAGE               CREATED             CREATED BY                              
 [root@c8-2 ~]# docker export -o ./kylin_sqoop.tar kylin
 [root@c8-2 ~]# docker export kylin > ./kylin_sqoop.tar
 
-
 # Usage:	docker save [OPTIONS] IMAGE [IMAGE...]
 [root@c8-2 ~]# docker save -o kylin_sqoop:20200708.tar kylin_sqoop:20200708
 [root@c8-2 ~]# docker save kylin_sqoop:20200708 > kylin_sqoop:20200708.tar
@@ -127,4 +125,4 @@ copy file to container
 # Tail the container log file
 ```
 [root@c8-2 ~]# docker logs -f elasticsearch
-``
+```

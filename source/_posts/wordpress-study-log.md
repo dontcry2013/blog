@@ -43,3 +43,23 @@ Date 2 JUL
 * Weebly
 * Shopify
 * Wordpress.com
+
+wp classic editor
+
+---
+## vantage theme
+
+https://www.youtube.com/watch?v=eYF23mCGiDw
+
+* lightweight social icon
+  * add social iocns to footer
+* wp video lightbox
+  * to enable clickable video button on banner
+* meta slider
+* front page control
+  * settings -> reading ->a static page -> edit front page, posts page
+* [iconmakr](https://logomakr.com/)
+* [pixlr](https://pixlr.com/)
+* \<a href="" rel="wp-video-lightbox"> to show a video by click
+* © 2020 Zach 
+* remove the theme copyright text in editor -> footer.php

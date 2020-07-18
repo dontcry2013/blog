@@ -63,3 +63,12 @@ https://www.youtube.com/watch?v=eYF23mCGiDw
 * \<a href="" rel="wp-video-lightbox"> to show a video by click
 * © 2020 Zach 
 * remove the theme copyright text in editor -> footer.php
+
+---
+## virtue with e-commerce
+* woocommercd
+
+## Elementor – Parallax Section Background Image
+* Code Snippets 
+
+[tutorial for Parallax Effect](https://snifflevalve.com/elementor-tutorials/elementor-parallax-section-background-image/)

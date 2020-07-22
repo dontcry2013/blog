@@ -195,6 +195,64 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-moodle-upgrade" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/07/22/moodle-upgrade/" class="article-date">
+  	<time datetime="2020-07-22T13:43:50.000Z" itemprop="datePublished">2020-07-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/07/22/moodle-upgrade/">moodle upgrade</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This is an article to document the process of upgrading of moodle from 3.5 to 3.9(which is the latest version by now).</p>
+<h1 id="Check-plugins-installed-locally"><a href="#Check-plugins-installed-locally" class="headerlink" title="Check plugins installed locally"></a>Check plugins installed locally</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`mdl_config_plugins`</span> <span class="keyword">where</span> <span class="keyword">plugin</span> <span class="keyword">like</span> <span class="string">'local%'</span></span><br></pre></td></tr></table></figure>
+<h1 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv moodle moodle35</span><br><span class="line">tar xvzf moodle-latest-3.9.tgz</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/07/22/moodle-upgrade/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-kylin-demo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -695,62 +753,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/04/09/install-latest-moodle/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-phpmyadmin" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/04/06/phpmyadmin/" class="article-date">
-  	<time datetime="2020-04-06T03:33:17.000Z" itemprop="datePublished">2020-04-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/04/06/phpmyadmin/">phpmyadmin</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Install-the-Latest-Version"><a href="#Install-the-Latest-Version" class="headerlink" title="Install the Latest Version"></a>Install the Latest Version</h1><p>If you’re using <code>yum</code> to install software in CentOS, most likely it is not the latest version, just like install phpmyadmin, run <code>yum install phpmyadmin</code>, it will only install version 4.4, which the latest version is 5.02 at the time I’m writing this article.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/04/06/phpmyadmin/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

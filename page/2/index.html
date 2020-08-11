@@ -195,6 +195,62 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-install-latest-moodle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/04/09/install-latest-moodle/" class="article-date">
+  	<time datetime="2020-04-09T13:03:35.000Z" itemprop="datePublished">2020-04-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/04/09/install-latest-moodle/">install-latest-moodle</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Install-PHP-7-3"><a href="#Install-PHP-7-3" class="headerlink" title="Install PHP 7.3"></a>Install PHP 7.3</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm </span><br><span class="line">yum install epel-release yum-utils</span><br><span class="line">yum repolist</span><br><span class="line">yum-config-manager --disable remi-php54</span><br><span class="line">yum-config-manager --enable remi-php73</span><br><span class="line">yum install php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json</span><br><span class="line">yum install php-xmlrpc php-intl php-soap</span><br><span class="line">rpm -qi php-mysqlnd</span><br><span class="line">php -v</span><br><span class="line">php -i | grep php.ini</span><br><span class="line">php -m</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/04/09/install-latest-moodle/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-phpmyadmin" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -708,64 +764,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/02/11/new-load-balance-node/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-selinux" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/02/11/selinux/" class="article-date">
-  	<time datetime="2020-02-11T04:23:21.000Z" itemprop="datePublished">2020-02-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/02/11/selinux/">SELinux</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>SELinux is a security mechanism built into the Linux kernel. Linux distributions such as CentOS, RHEL, and Fedora are equipped with SELinux by default.</p>
-<p>SELinux improves server security by restricting and defining how a server processes requests and users interact with sockets, network ports, and essential directories.</p>
-<p>For example, if an unauthorized user gains access, server access is restricted to a specified section, limiting the damage caused by the breach. SELinux can also obstruct the installation of software packages or terminate processes during regular use.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/02/11/selinux/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

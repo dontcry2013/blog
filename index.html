@@ -195,6 +195,65 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-mysql-full-unicode-support" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/08/11/mysql-full-unicode-support/" class="article-date">
+  	<time datetime="2020-08-11T06:13:11.000Z" itemprop="datePublished">2020-08-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/08/11/mysql-full-unicode-support/">mysql full unicode support</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Firstly, to check that which tables need to change the char set.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> INFORMATION_SCHEMA.TABLES <span class="keyword">WHERE</span> TABLE_SCHEMA= <span class="string">"moodle"</span> <span class="keyword">AND</span> TABLE_TYPE=<span class="string">"BASE TABLE"</span> <span class="keyword">AND</span> <span class="string">`TABLE_COLLATION`</span> &lt;&gt; <span class="string">"utf8mb4_unicode_ci"</span></span><br></pre></td></tr></table></figure>
+<p>And then, generate the SQL which need to be executed.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(<span class="string">'ALTER TABLE `'</span>, TABLE_NAME,<span class="string">'` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;'</span>) <span class="keyword">AS</span> mySQL <span class="keyword">FROM</span> INFORMATION_SCHEMA.TABLES <span class="keyword">WHERE</span> TABLE_SCHEMA= <span class="string">"moodle"</span> <span class="keyword">AND</span> TABLE_TYPE=<span class="string">"BASE TABLE"</span> <span class="keyword">AND</span> <span class="string">`TABLE_COLLATION`</span> &lt;&gt; <span class="string">"utf8mb4_unicode_ci"</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/08/11/mysql-full-unicode-support/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-moodle-upgrade" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -697,62 +756,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-install-latest-moodle" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/04/09/install-latest-moodle/" class="article-date">
-  	<time datetime="2020-04-09T13:03:35.000Z" itemprop="datePublished">2020-04-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/04/09/install-latest-moodle/">install-latest-moodle</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Install-PHP-7-3"><a href="#Install-PHP-7-3" class="headerlink" title="Install PHP 7.3"></a>Install PHP 7.3</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm </span><br><span class="line">yum install epel-release yum-utils</span><br><span class="line">yum repolist</span><br><span class="line">yum-config-manager --disable remi-php54</span><br><span class="line">yum-config-manager --enable remi-php73</span><br><span class="line">yum install php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json</span><br><span class="line">yum install php-xmlrpc php-intl php-soap</span><br><span class="line">rpm -qi php-mysqlnd</span><br><span class="line">php -v</span><br><span class="line">php -i | grep php.ini</span><br><span class="line">php -m</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/04/09/install-latest-moodle/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

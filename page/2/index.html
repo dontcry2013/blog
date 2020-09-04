@@ -195,6 +195,62 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
+    <article id="post-symbolic-link-not-allowed-or-link-target-not-accessible" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/" class="article-date">
+  	<time datetime="2020-04-10T09:14:55.000Z" itemprop="datePublished">2020-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/">Symbolic link not allowed or link target not accessible</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h1><p>apache2 can not access the symbolic link which located in default directory. Gives error “Forbidden You don’t have permission to access … on this server”.</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/blog/2020/04/10/symbolic-link-not-allowed-or-link-target-not-accessible/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-install-latest-moodle" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -703,67 +759,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/blog/2020/02/17/find-in-set/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-new-load-balance-node" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/2020/02/11/new-load-balance-node/" class="article-date">
-  	<time datetime="2020-02-11T05:07:01.000Z" itemprop="datePublished">2020-02-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/02/11/new-load-balance-node/">New Load Balance Node Configuration</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Working on 204, inet is 26</p>
-<h1 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">cat /etc/centos-release</span><br><span class="line">uname -a <span class="comment"># Linux Core Version</span></span><br><span class="line"><span class="built_in">ulimit</span> -a</span><br><span class="line">lscpu</span><br><span class="line">lsof -i <span class="comment"># To display active TCP and UDP endpoints</span></span><br><span class="line">ifconfig</span><br><span class="line">nmcli device status <span class="comment">#list network card</span></span><br><span class="line">ls /etc/sysconfig/network-scripts/ <span class="comment">#network card scripts</span></span><br><span class="line">cat /etc/resolv.conf <span class="comment">#DNS</span></span><br><span class="line">cat /etc/sysconfig/network <span class="comment">#Gateway</span></span><br><span class="line">sestatus</span><br><span class="line">sudo setenforce 0</span><br><span class="line"><span class="built_in">which</span> telnet</span><br><span class="line">date</span><br><span class="line">route <span class="comment">#check route ip table</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/blog/categories/linux/">Linux</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/blog/2020/02/11/new-load-balance-node/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

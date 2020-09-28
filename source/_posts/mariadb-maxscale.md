@@ -355,3 +355,21 @@ protocol=maxscaled
 address=localhost
 port=6603
 ```
+
+# Set Maintenance
+
+Before you do anything to the slave node, you should put the slave into maintenance mode. This allows for planned, temporary removal of a database from the cluster within the need to change the MariaDB MaxScale configuration.
+```
+maxctrl set server server4 maintenance
+# or
+MaxScale> set server server4 maintenance
+```
+This will cause MariaDB MaxScale to stop routing any new requests to the server, however if there are currently requests executing on the server these will not be interrupted.
+
+To bring the server back into service use the "clear server" command to clear the maintenance mode bit for that server.
+
+```
+maxctrl clear server server4 maintenance
+# or
+MaxScale> clear server server4 maintenance
+```

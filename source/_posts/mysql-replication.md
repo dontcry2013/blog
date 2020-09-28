@@ -1,10 +1,10 @@
 ---
-title: mysql replication
+title: MySQL Replication
 date: 2020-02-26 12:52:31
-categories:
-tags:
+categories: [Database]
+tags: [MySQL, Replication]
 ---
-# mysql replication configuration
+# MySQL Replication Configuration
 ```
 GRANT REPLICATION SLAVE ON *.* to 'rep1'@'192.168.8.11' identified by 'test123456';
 FLUSH PRIVILEGES;

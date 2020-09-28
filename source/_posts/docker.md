@@ -1,8 +1,8 @@
 ---
 title: Getting started with Docker
 date: 2019-12-05 11:28:38
-categories: [CI, Basic, Tools, Virtualization]
-tags: docker
+categories: [Virtualization]
+tags: [Docker]
 ---
 
 Since its release in 2013, [Docker] has been receiving a lot of attention and is considered to be likely to change the software industry.

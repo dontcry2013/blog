@@ -1,8 +1,8 @@
 ---
 title: Getting started with Docker
 date: 2019-12-05 11:28:38
-categories: [CI, Basic, Tools]
-tags:
+categories: [CI, Basic, Tools, Virtualization]
+tags: docker
 ---
 
 Since its release in 2013, [Docker] has been receiving a lot of attention and is considered to be likely to change the software industry.
@@ -50,7 +50,6 @@ In short, containers are a bit like lightweight virtual machines which can provi
 
 ## Writing a Dockerfile
 
-
 ## Creating an image file
 
 ## Generate Container
@@ -58,6 +57,10 @@ In short, containers are a bit like lightweight virtual machines which can provi
 ## Publishing Image Files
 
 
+## Set Host IP to Container
+```
+docker run -it -d --name t8 --add-host hostip:"192.168.86.36" -p 7899:8080 -p 48888:48888 -p 38889:38889 -v /home/zac/webapps/webroot:/usr/local/tomcat/webapps/webroot tomcat:9-jdk8-openjdk
+```
 
 
 

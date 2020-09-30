@@ -1,8 +1,8 @@
 ---
 title: KVM Bridge Network Configuration
 date: 2020-05-22 21:57:51
-categories:
-tags:
+categories: [Virtualization]
+tags: [KVM]
 ---
 # Host Configuration
 ## 1.

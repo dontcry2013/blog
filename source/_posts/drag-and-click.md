@@ -1,11 +1,12 @@
 ---
-title: drag and click
+title: Drag and Click
 date: 2020-09-04 20:31:46
 categories:
 tags:
 ---
-# 
+# The Demo Webpage to Tell Drag and Click
 
+Sometimes it's not that intuitive to tell drag and click event, as both of them are detecting mousedown event. The following script handles this problem, and provide basic drag and click functions.
 <!--more-->
 
 ``` html
@@ -14,15 +15,9 @@ tags:
 <meta charset="UTF-8" />
 <meta view-port="width=device-width, initial-scale" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-
 <head>
   <style>
-    #box1,
-    #box2,
-    #box3,
-    #box4,
-    #box5,
-    #box6 {
+    #box1, #box2, #box3, #box4, #box5, #box6 {
       position: absolute;
     }
 
@@ -37,14 +32,12 @@ tags:
 
     }
 
-    h2,
-    p {
+    h2, p {
       font-size: 100%;
       font-weight: normal;
     }
 
-    ul,
-    li {
+    ul, li {
       list-style: none;
     }
 
@@ -52,7 +45,6 @@ tags:
       overflow: hidden;
       padding: 3em;
     }
-
 
     ul li a {
       text-decoration: none;
@@ -138,8 +130,8 @@ tags:
     }
   </style>
 
-  <!-- not working javascript -->
   <script type="text/javascript">
+    var noClick = false;
     window.onload = function () {
       var box1 = document.getElementById("box1");
       var box2 = document.getElementById("box2");
@@ -153,8 +145,6 @@ tags:
       drag(box4);
       drag(box5);
       drag(box6);
-
-      var noclick = false;
       function drag(obj) {
         console.log(123);
         obj.onmousedown = function (event) {
@@ -165,7 +155,7 @@ tags:
           var ot = event.clientY - obj.offsetTop;
 
           document.onmousemove = function (event) {
-            noclick = true;
+            noClick = true;
             event = event || window.event;
             var left = event.clientX - ol;
             var top = event.clientY - ot;
@@ -175,7 +165,6 @@ tags:
           };
 
           document.onmouseup = function (e) {
-            console.log(34234)
             document.onmousemove = null;
             document.onmouseup = null;
             obj.releaseCapture && obj.releaseCapture();
@@ -185,147 +174,113 @@ tags:
           return false;
         };
         obj.onclick = function (event){
-          if(noclick){
-            noclick = false;
+          if(noClick){
+            noClick = false;
             event.preventDefault();
             return false;
           }
         }
       }
-
     }
-
   </script>
-
 </head>
-<!-- Set the main content -->
-<!-- Adding a diary container -->
-<ul>
-  <li>
-    <a href="javascript:alert('Hi, you clicked me!');" id="box1">
-      <h2>Wednesday 6th September, 10:36pm</h2>
-      <p>1, I have continued trade talks with Iran.
-        <br>
-        2, Replied to Trump about stuff.
-        <br>
-        3, Followed up on trade deals with Israel.
-        <br>
-        4, Started hopeful trade deals with Egypt.
-        <br>
-        <br>
-        &nbsp; &nbsp; ADD &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DELETE
-      </p>
-    </a>
-  </li>
-  <li>
-    <a href="javascript:alert('Hi, you clicked me!');" id="box2">
-      <h2>Wednesday 6th September, 7:22pm</h2>
-      <p>
-        Things to do...
-        <br>
-        1, follow up trade deals and Arms deals in case people have forgotten i.e., Israel, Turkey, Libya and Egypt
-        <br>
-        <br>
+<body>
+  <ul>
+    <li>
+      <a href="javascript:alert('Hi, you clicked me!');" id="box1">
+        <h2>Wednesday 6th September, 10:36pm</h2>
+        <p>
+          1, I have continued trade talks with Iran.
+          <br>
+          2, Replied to Trump about stuff.
+          <br>
+          3, Followed up on trade deals with Israel.
+          <br>
+          4, Started hopeful trade deals with Egypt.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:alert('Hi, you clicked me!');" id="box2">
+        <h2>Wednesday 6th September, 7:22pm</h2>
+        <p>
+          Things to do...
+          <br>
+          1, follow up trade deals and Arms deals in case people have forgotten i.e., Israel, Turkey, Libya and Egypt
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:alert('Hi, you clicked me!');" id="box3">
+        <h2>Monday 4th September, 5:09pm</h2>
+        <p>
+          Important: We decided to have a meeting at 7pm Tuesday to discuss Israel-Palestine conflict.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:alert('Hi, you clicked me!');" id="box4">
+        <h2>Sunday 3rd September, 5:37pm</h2>
+        <p>
+          1, I have assured Morocco that we support them in their ownership of the Western Sahara.
+          <br>
+          2, Also, have tweeted about it and contacted all media issuing a statement that we support Morocco
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:alert('Hi, you clicked me!');" id="box5">
+        <h2>Saturday 2nd September, 4:56pm</h2>
+        <p>
+          I have continued trade talks with Saudi Arabia, Israel and Morocco. No response yet. I have also added the
+          trade talks tags to each of the emails and archived them.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:alert('Hi, you clicked me!');" id="box6">
+        <h2>Saturday 2nd September, 2:48pm</h2>
+        <p>I'll do Algeria, Libya and Iran
+          <br>
+          you can do Saudi, Israel and Morocco
+          <br>
+          then we need to talk more with the European leaders let's try start talks with them about Syria and say we don't
+          believe a ceasefire will work
+        </p>
+      </a>
+    </li>
 
-        <br>
-        <br>
-        &nbsp; &nbsp; ADD &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DELETE
-      </p>
-    </a>
-  </li>
-  <li>
-    <a href="javascript:alert('Hi, you clicked me!');" id="box3">
-      <h2>Monday 4th September, 5:09pm</h2>
-      <p>Important: We decided to have a meeting at 7pm Tuesday to discuss Israel-Palestine conflict.
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        &nbsp; &nbsp; ADD &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DELETE
-      </p>
-    </a>
-  </li>
-  <li>
-    <a href="javascript:alert('Hi, you clicked me!');" id="box4">
-      <h2>Sunday 3rd September, 5:37pm</h2>
-      <p>
-        1, I have assured Morocco that we support them in their ownership of the Western Sahara.
-        <br>
-        2, Also, have tweeted about it and contacted all media issuing a statement that we support Morocco
-        <br>
-        <br>
-        &nbsp; &nbsp; ADD &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DELETE
-      </p>
-    </a>
-  </li>
-  <li>
-    <a href="javascript:alert('Hi, you clicked me!');" id="box5">
-      <h2>Saturday 2nd September, 4:56pm</h2>
-      <p>I have continued trade talks with Saudi Arabia, Israel and Morocco. No response yet. I have also added the
-        trade talks tags to each of the emails and archived them.
-        <br>
-        <br>
-        <br>
-        &nbsp; &nbsp; ADD &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DELETE
-      </p>
-    </a>
-  </li>
-  <li>
-    <a href="javascript:alert('Hi, you clicked me!');" id="box6">
-      <h2>Saturday 2nd September, 2:48pm</h2>
-      <p>I'll do Algeria, Libya and Iran
-        <br>
-        you can do Saudi, Israel and Morocco
-        <br>
-        then we need to talk more with the European leaders let's try start talks with them about Syria and say we don't
-        believe a ceasefire will work
-        <br>
-        <br>
-        &nbsp; &nbsp; ADD &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DELETE
-      </p>
-    </a>
-  </li>
+  </ul>
 
-</ul>
-
-<!-- set a side bar -->
-<div class="contact-info">
-  <div class="option">
-    <i class="fa fa-home"></i>
-    <a class="text" href="#">Home</a>
+  <!-- set a side bar -->
+  <div class="contact-info">
+    <div class="option">
+      <i class="fa fa-home"></i>
+      <a class="text" href="#">Home</a>
+    </div>
+    <div class="option">
+      <i class="fa fa-envelope"></i>
+      <a class="text" href="email">Email</a>
+    </div>
+    <div class="option">
+      <i class="fab fa-twitter-square"></i>
+      <a class="text" href="tweet">Tweet</a>
+    </div>
+    <div class="option">
+      <i class="fas fa-newspaper"></i>
+      <a class="text" href="news">News</a>
+    </div>
+    <div class="option">
+      <i class="fas fa-comment-alt"></i>
+      <a class="text" href="chat">Chat</a>
+    </div>
+    <div class="option">
+      <i class="fa fa-cog"></i>
+      <a class="text" href="control">Control</a>
+    </div>
   </div>
 
-  <div class="option">
-    <i class="fa fa-envelope"></i>
-    <a class="text" href="email">Email</a>
-
-  </div>
-
-  <div class="option">
-    <i class="fab fa-twitter-square"></i>
-    <a class="text" href="tweet">Tweet</a>
-
-  </div>
-
-  <div class="option">
-    <i class="fas fa-newspaper"></i>
-    <a class="text" href="news">News</a>
-  </div>
-
-  <div class="option">
-    <i class="fas fa-comment-alt"></i>
-    <a class="text" href="chat">Chat</a>
-  </div>
-
-  <div class="option">
-    <i class="fa fa-cog"></i>
-    <a class="text" href="control">Control</a>
-
-  </div>
-</div>
-
+</body>
 </html>
 
 ```

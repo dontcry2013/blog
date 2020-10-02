@@ -1,8 +1,8 @@
 ---
-title: moodle upgrade
+title: Moodle Upgrade
 date: 2020-07-22 23:43:50
-categories:
-tags:
+categories: [LMS]
+tags: [Moodle]
 ---
 
 This is an article to document the process of upgrading of moodle from 3.5 to 3.9(which is the latest version by now).
@@ -104,11 +104,7 @@ cp -pr $M35/attendance_webservice.php $M39/attendance_webservice.php && \
 cp -pr $M35/favicon.ico $M39/favicon.ico && \
 cp -pr $M35/googleb7d620aa11fbf244.html $M39/googleb7d620aa11fbf244.html && \
 cp -pr $M35/robots.txt $M39/robots.txt
-
-
-
 cp -pr $M35/githash.php $M39/githash.php
-
 
 rm -fr $M39/mod/customcert && \
 rm -fr $M39/mod/customlabel && \

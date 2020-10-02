@@ -2,7 +2,7 @@
 title: GoAccess
 date: 2020-05-22 11:36:17
 categories:
-tags:
+tags: [Nginx, Shell]
 ---
 # Intro
 

@@ -1,8 +1,8 @@
 ---
-title: kylin demo
+title: Kylin Demo
 date: 2020-07-09 16:37:28
-categories:
-tags:
+categories: [Big Data]
+tags: [Docker, Hive, Kylin]
 ---
 First and formost, Login in server 115.
 

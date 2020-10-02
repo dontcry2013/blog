@@ -1,8 +1,8 @@
 ---
-title: wordpress study log
+title: Wordpress Study Log
 date: 2020-06-30 22:44:19
-categories:
-tags:
+categories: [CMS]
+tags: [Wordpress]
 ---
 # XAMPP
 
@@ -38,7 +38,7 @@ Date 2 JUL
   * Yoast SEO
   * Insert Headers and Footers
 
-## Difference of platforms
+## Difference of Platforms
 * Wix
 * Weebly
 * Shopify
@@ -47,7 +47,7 @@ Date 2 JUL
 wp classic editor
 
 ---
-## vantage theme
+## Vantage Theme
 
 https://www.youtube.com/watch?v=eYF23mCGiDw
 
@@ -60,12 +60,12 @@ https://www.youtube.com/watch?v=eYF23mCGiDw
   * settings -> reading ->a static page -> edit front page, posts page
 * [iconmakr](https://logomakr.com/)
 * [pixlr](https://pixlr.com/)
-* \<a href="" rel="wp-video-lightbox"> to show a video by click
+* `<a href="" rel="wp-video-lightbox">` to show a video by click
 * © 2020 Zach 
 * remove the theme copyright text in editor -> footer.php
 
 ---
-## virtue with e-commerce
+## Virtue with E-Commerce
 * woocommercd
 
 ## Elementor – Parallax Section Background Image

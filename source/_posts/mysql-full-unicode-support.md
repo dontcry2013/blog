@@ -1,8 +1,8 @@
 ---
-title: mysql full unicode support
+title: MySQL Full Unicode Support
 date: 2020-08-11 16:13:11
-categories:
-tags:
+categories: [Database]
+tags: [MySQL, Moodle]
 ---
 Firstly, to check that which tables need to change the char set.
 
@@ -39,7 +39,7 @@ ALTER TABLE `mdl_user_devices` CHANGE `pushid` `pushid` VARCHAR(191) CHARACTER S
 
 [Moodle MySQL](https://docs.moodle.org/39/en/MySQL)
 
-[MySQL_full_unicode_support](https://docs.moodle.org/39/en/MySQL_full_unicode_support)
+[Moodle MySQL Full Unicode Support](https://docs.moodle.org/39/en/MySQL_full_unicode_support)
 
 
 

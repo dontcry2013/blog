@@ -1,13 +1,12 @@
 ---
-title: Centos8 install msyql5.7
+title: Centos8 Install MySQL 5.7
 date: 2020-06-03 09:47:53
-categories:
-tags:
+categories: [Database, Linux]
+tags: [MySQL]
 ---
 # Normal Way
 
 <!--more-->
-
 
 ```
 sudo dnf remove @mysql

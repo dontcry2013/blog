@@ -1,12 +1,12 @@
 ---
-title: phpmyadmin
+title: Install phpMyAdmin
 date: 2020-04-06 13:33:17
 categories:
-tags:
+tags: [Apache, phpMyAdmin]
 ---
 # Install the Latest Version
 
-If you're using `yum` to install software in CentOS, most likely it is not the latest version, just like install phpmyadmin, run `yum install phpmyadmin`, it will only install version 4.4, which the latest version is 5.02 at the time I'm writing this article.
+If you're using `yum` to install software in CentOS, most likely it is not the latest version, just like install phpMyAdmin, run `yum install phpmyadmin`, it will only install version 4.4, which the latest version is 5.02 at the time I'm writing this article.
 
 <!--more-->
 

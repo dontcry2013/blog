@@ -1,8 +1,8 @@
 ---
-title: nginx access log analysis command
+title: Nginx Access Log Analysis Command
 date: 2020-02-20 10:31:14
-categories:
-tags:
+categories: [Shell]
+tags: [Nginx]
 ---
 # Procedure
 * First of All, Get the Target

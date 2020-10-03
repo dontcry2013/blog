@@ -1,5 +1,5 @@
 ---
-title: yum repo
+title: Yum Repository
 date: 2020-03-12 16:40:09
 categories: [Linux]
 tags: [CentOS]

@@ -2,7 +2,7 @@
 title: MP4 Fast Streaming
 date: 2020-04-15 09:41:06
 categories: 
-tags: [shell]
+tags: [Shell]
 ---
 moov position is the key for web friendly mp4, it should be ahead of mdat, the following shell checks the moov position and moves it to the right place.
 

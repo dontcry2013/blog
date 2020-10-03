@@ -1,8 +1,8 @@
 ---
-title: install-latest-moodle
+title: Install Latest Moodle
 date: 2020-04-09 23:03:35
-categories:
-tags:
+categories: [LMS]
+tags: [Moodle, PHP, Apache]
 ---
 # Install PHP 7.3
 ``` shell

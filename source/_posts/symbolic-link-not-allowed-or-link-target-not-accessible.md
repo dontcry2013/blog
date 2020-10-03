@@ -1,15 +1,14 @@
 ---
-title: Symbolic link not allowed or link target not accessible
+title: Symbolic Link not Allowed or Link Target not Accessible
 date: 2020-04-10 19:14:55
-categories:
-tags:
+categories: [Solutions]
+tags: [Symbolic Link]
 ---
 # Problem Description
 
 apache2 can not access the symbolic link which located in default directory. Gives error "Forbidden You don't have permission to access ... on this server".
 
 <!--more-->
-
 
 # Detection
 
@@ -23,9 +22,9 @@ apache2 can not access the symbolic link which located in default directory. Giv
 
 # Solution
 
-chmod o+x /root/
+`chmod o+x /root/`
 
-The fix is immediate - no need to restart apache.
+The fix is immediate - no need to restart apache. But it's not recommended, as you changed the integrity of root account privilege, the better to way is to work in `/var` or `/opt` instead of `/root`.
 
 # Reason
 

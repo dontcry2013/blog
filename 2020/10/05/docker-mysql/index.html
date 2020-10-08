@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Docker Deploy MySQL | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#">
+<meta name="keywords" content="MySQL,Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Deploy MySQL">
+<meta property="og:url" content="http://dontcry2013.github.io/blog/2020/10/05/docker-mysql/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="#">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-10-05T13:17:36.229Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker Deploy MySQL">
+<meta name="twitter:description" content="#">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/img/favicon.png">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/blog/">homepage</a></li>
+				        
+							<li><a href="/blog/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/blog/tags/android/" style="font-size: 14px;">Android</a> <a href="/blog/tags/apache/" style="font-size: 14px;">Apache</a> <a href="/blog/tags/c/" style="font-size: 14px;">C</a> <a href="/blog/tags/css/" style="font-size: 10px;">CSS</a> <a href="/blog/tags/centos/" style="font-size: 18px;">CentOS</a> <a href="/blog/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/blog/tags/command/" style="font-size: 12px;">Command</a> <a href="/blog/tags/docker/" style="font-size: 16px;">Docker</a> <a href="/blog/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/blog/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/blog/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/blog/tags/example/" style="font-size: 10px;">Example</a> <a href="/blog/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/blog/tags/firewall/" style="font-size: 10px;">Firewall</a> <a href="/blog/tags/git/" style="font-size: 12px;">Git</a> <a href="/blog/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/blog/tags/html/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/blog/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/blog/tags/hive/" style="font-size: 10px;">Hive</a> <a href="/blog/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/blog/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/blog/tags/java/" style="font-size: 14px;">Java</a> <a href="/blog/tags/kvm/" style="font-size: 10px;">KVM</a> <a href="/blog/tags/kylin/" style="font-size: 10px;">Kylin</a> <a href="/blog/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/blog/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/blog/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/blog/tags/moodle/" style="font-size: 14px;">Moodle</a> <a href="/blog/tags/mysql/" style="font-size: 20px;">MySQL</a> <a href="/blog/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/blog/tags/nginx/" style="font-size: 14px;">Nginx</a> <a href="/blog/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/blog/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/blog/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/blog/tags/php/" style="font-size: 12px;">PHP</a> <a href="/blog/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/blog/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/blog/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/blog/tags/replication/" style="font-size: 14px;">Replication</a> <a href="/blog/tags/selinux/" style="font-size: 12px;">SELinux</a> <a href="/blog/tags/sql/" style="font-size: 12px;">SQL</a> <a href="/blog/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/blog/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/blog/tags/symbolic-link/" style="font-size: 10px;">Symbolic Link</a> <a href="/blog/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/blog/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/blog/tags/tuning/" style="font-size: 12px;">Tuning</a> <a href="/blog/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/blog/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/blog/tags/wordpress/" style="font-size: 10px;">Wordpress</a> <a href="/blog/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/blog/tags/phpmyadmin/" style="font-size: 10px;">phpMyAdmin</a> <a href="/blog/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/blog/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/blog/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/blog/">homepage</a></li>
+		        
+					<li><a href="/blog/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-docker-mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2020/10/05/docker-mysql/" class="article-date">
+  	<time datetime="2020-10-05T12:34:31.000Z" itemprop="datePublished">2020-10-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Docker Deploy MySQL
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">MySQL</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/blog/categories/virtualization/">Virtualization</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p># </p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br><span class="line">docker pull mysql:latest</span><br><span class="line">docker ps -a</span><br><span class="line">docker run -itd --name mysql8 -v /Users/devmac/my.cnf:/etc/mysql/my.cnf -v /opt/mysqldir:/opt/mysqldir mysql:8.0.21</span><br><span class="line">docker logs $(docker ps -a | grep mysql8 | cut -d<span class="string">' '</span> -f 1)</span><br><span class="line">docker <span class="built_in">exec</span> -it mysql8 bash</span><br><span class="line"></span><br><span class="line">docker cp mysql8:/etc/my.cnf .</span><br><span class="line">(correct the file)</span><br><span class="line">docker cp my.cnf mysql8:/etc/my.cnf</span><br><span class="line"></span><br><span class="line">docker run \</span><br><span class="line">--detach \</span><br><span class="line">--name=mysql8 \</span><br><span class="line">--publish 3306:3306 \</span><br><span class="line">--volume=/Users/devmac/my.cnf:/etc/mysql/my.cnf \</span><br><span class="line">--volume=/opt/mysqldir:/opt/mysqldir mysql:8.0.21</span><br></pre></td></tr></table></figure>
+<p>For the previous example, I should put a port mapping in the commnad, which goes like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name mysql8 -v /Users/devmac/my.cnf:/etc/mysql/my.cnf -v /opt/mysqldir:/opt/mysqldir --publish 3306:3306 mysql:8.0.21</span><br></pre></td></tr></table></figure></p>
+<p>If you want to initialize the database with root password, go like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name mysql8 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql</span><br></pre></td></tr></table></figure></p>
+<h2 id="my-cnf-in-Users-devmac-my-cnf"><a href="#my-cnf-in-Users-devmac-my-cnf" class="headerlink" title="my.cnf in /Users/devmac/my.cnf"></a>my.cnf in /Users/devmac/my.cnf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">character-set-server = utf8mb4</span><br><span class="line">disable_log_bin</span><br><span class="line">sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE</span><br><span class="line">max_allowed_packet=256M</span><br><span class="line">innodb_log_file_size=256M</span><br><span class="line">#innodb_data_file_path=/var/lib/mysql/ibdata1:768M:autoextend</span><br><span class="line">wait_timeout=28800</span><br><span class="line">#lower_case_table_names=1</span><br><span class="line">datadir=/opt/mysqldir</span><br><span class="line">secure-file-priv=NULL</span><br></pre></td></tr></table></figure>
+<h1 id="Docker-Change-Port-Mapping-for-an-Existing-Container"><a href="#Docker-Change-Port-Mapping-for-an-Existing-Container" class="headerlink" title="Docker Change Port Mapping for an Existing Container"></a>Docker Change Port Mapping for an Existing Container</h1><p>Most common answer’s a roundabout solution.</p>
+<ul>
+<li>You cannot do that! You’ll have to create a new container with proper port mapping</li>
+<li>Create an image of your existing container. Then use “docker run” with your desired port mapping for your “newly created” image.</li>
+</ul>
+<blockquote>
+<p>Step 1: Using “docker inspect” get details about current port mapping. This will be seen under “NetworkSettings”. And “PortBindings” under “HostConfig”.</p>
+</blockquote>
+<blockquote>
+<p>Step 2: Stop the container and docker engine before editing the below files. Go to <code>/var/lib/docker</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ vi /var/lib/docker/containers/[hash_of_the_container]/config.v2.json</span><br><span class="line">...</span><br><span class="line">&#123;</span><br><span class="line">&quot;Config&quot;: &#123;</span><br><span class="line">....</span><br><span class="line">    &quot;ExposedPorts&quot;: &#123;</span><br><span class="line">        &quot;3306/tcp&quot;: &#123;&#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">....</span><br><span class="line">&#125;,</span><br><span class="line">&quot;NetworkSettings&quot;: &#123;</span><br><span class="line">....</span><br><span class="line">    &quot;Ports&quot;: &#123;</span><br><span class="line">        &quot;3306/tcp&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;HostIp&quot;: &quot;&quot;,</span><br><span class="line">                &quot;HostPort&quot;: &quot;3306&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">    &#125;,</span><br><span class="line">....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ vi /var/lib/docker/containers/[hash_of_the_container]/hostconfig.json</span><br><span class="line">&#123;</span><br><span class="line">....</span><br><span class="line"> &quot;PortBindings&quot;: &#123;</span><br><span class="line">    &quot;3306/tcp&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;HostIp&quot;: &quot;&quot;,</span><br><span class="line">            &quot;HostPort&quot;: &quot;3306&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line"> &#125;,</span><br><span class="line">.....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Step 3: Re-start your docker engine (docker service via systemctl). Verify docker engine has started successfully, without any errors. Start your container.</p>
+</blockquote>
+<h1 id="Where-is-var-lib-docker-on-Mac-OS-X"><a href="#Where-is-var-lib-docker-on-Mac-OS-X" class="headerlink" title="Where is /var/lib/docker on Mac/OS X"></a>Where is /var/lib/docker on Mac/OS X</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty</span><br><span class="line">ctrl + a + d</span><br><span class="line">screen -ls</span><br><span class="line">screen -X quit</span><br></pre></td></tr></table></figure>
+<p>I suggest to use <code>cat</code> to copy, edit in you VScode, and <code>vi</code> to delete original one, post the modify text. It’s much convenient compared with just edit in <code>vi</code>.</p>
+<h1 id="Connect-to-MySQL"><a href="#Connect-to-MySQL" class="headerlink" title="Connect to MySQL"></a>Connect to MySQL</h1><p>open another shell to test the connection to MySQL.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p -h127.0.0.1</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW FULL TABLES IN ss WHERE TABLE_TYPE LIKE &apos;VIEW&apos;;</span><br><span class="line">mysql&gt; SHOW CREATE VIEW v_teaching_signations\G</span><br><span class="line"></span><br><span class="line">mysql&gt; mysql -uUSER -p -e &apos;SHOW VARIABLES WHERE Variable_Name LIKE &quot;%dir&quot;&apos;</span><br><span class="line"></span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; SELECT * FROM user\G</span><br><span class="line">mysql&gt; SELECT user();</span><br><span class="line">mysql&gt; SELECT user, host, db, command FROM information_schema.processlist;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Check-Which-MySQL-Configuration-File-is-Used"><a href="#Check-Which-MySQL-Configuration-File-is-Used" class="headerlink" title="Check Which MySQL Configuration File is Used"></a>Check Which MySQL Configuration File is Used</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/sbin/mysqld --verbose --help | grep -A 1 &quot;Default options&quot;</span><br><span class="line">Default options are read from the following files in the given order:</span><br><span class="line">/etc/mysql/my.cnf ~/.my.cnf /usr/etc/my.cnf</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2020/10/03/create-bootable-flash-stick/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Create Bootable Flash Stick</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="docker-mysql" data-title="Docker Deploy MySQL" data-url="http://dontcry2013.github.io/blog/blog/2020/10/05/docker-mysql/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2020 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/blog/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

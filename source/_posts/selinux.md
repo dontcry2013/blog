@@ -1,8 +1,8 @@
 ---
 title: SELinux
 date: 2020-02-11 15:23:21
-categories:
-tags:
+categories: [Linux]
+tags: [SELinux, CentOS]
 ---
 # Introduction
 SELinux is a security mechanism built into the Linux kernel. Linux distributions such as CentOS, RHEL, and Fedora are equipped with SELinux by default.

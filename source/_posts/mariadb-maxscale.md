@@ -2,7 +2,7 @@
 title: MariaDB MaxScale
 date: 2020-03-06 15:29:58
 categories: [Database]
-tags: [Replication]
+tags: [Replication, MySQL]
 ---
 # Intro
 

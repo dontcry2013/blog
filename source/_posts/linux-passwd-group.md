@@ -1,7 +1,7 @@
 ---
 title: Linux passwd and group Mangagement
 date: 2020-01-23 10:14:46
-categories: [Linux, Security]
+categories: [Linux, Security, Shell]
 tags: []
 ---
 # Format

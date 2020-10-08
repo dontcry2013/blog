@@ -1,12 +1,12 @@
 ---
-title: find_in_set
+title: MySQL find_in_set
 date: 2020-02-17 21:21:33
-categories:
-tags:
+categories: [Database]
+tags: [MySQL]
 ---
 # MySQL FIND_IN_SET Function
 
-MySQL FIND_IN_SET() function to return the position of a string in a comma-separated list of strings.
+MySQL `FIND_IN_SET()` function to return the position of a string in a comma-separated list of strings.
 
 > FIND_IN_SET(needle,haystack);
 

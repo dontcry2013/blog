@@ -1,8 +1,8 @@
 ---
 title: XtraBackup
 date: 2020-03-13 16:30:36
-categories: 
-tags: [MySQL, Replication]
+categories: [Database, Shell]
+tags: [MySQL, Replication, SQL]
 ---
 
 This article is about the procedure to hot backup and configure a replication of MySQL sever.

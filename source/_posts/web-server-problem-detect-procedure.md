@@ -1,8 +1,8 @@
 ---
 title: Web Server Problem Detect Procedure
 date: 2020-03-17 13:36:07
-categories:
-tags:
+categories: [Solutions, Linux]
+tags: [Firewall, SELinux, CentOS]
 ---
 When a new server is setup or when it restarted, we encounter the problems like can not access the website every now and then. Mostly, we should just check firewall and selinux. 
 

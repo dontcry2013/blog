@@ -59,3 +59,11 @@ stat /home/replication_test.sql
 create database cmdb default charset utf8;
 mysql -uroot -p replication_test</home/replication_test.sql
 ```
+
+# When Slave_SQL_Running is False
+It means the slave and master data is different, slave data may be changed somehow.
+Try to figure out what SQL caused the difference, and execute the SQL correspondingly.
+
+``` sql
+/usr/local/mysql/bin/mysqlbinlog -v --base64-output=DECODE-ROWS /usr/local/mysql/data/myslq-bin.000797 |grep -A '10' 876403636
+```

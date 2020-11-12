@@ -2,7 +2,7 @@
 title: MariaDB MaxScale
 date: 2020-03-06 15:29:58
 categories: [Database]
-tags: [Replication, MySQL]
+tags: [Replication, MySQL, MaxScale]
 ---
 # Intro
 
@@ -373,3 +373,20 @@ maxctrl clear server server4 maintenance
 # or
 MaxScale> clear server server4 maintenance
 ```
+
+# Starting the MaxScale Instance
+
+## CentOS 6
+
+<center>
+
+Operation | Command
+------- | -------
+Start | service maxscale start
+Stop | service maxscale stop
+Status | service maxscale status
+Restart | service maxscale restart
+Enable startup | chkconfig --add maxscale
+Disable startup | chkconfig --del maxscale
+
+</center>

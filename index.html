@@ -221,7 +221,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Deploy-MySQL-as-RDS-MySQL-Slave"><a href="#Deploy-MySQL-as-RDS-MySQL-Slave" class="headerlink" title="Deploy MySQL as RDS MySQL Slave"></a>Deploy MySQL as RDS MySQL Slave</h1>
+        <h1 id="Use-Alibaba-Cloud-ECS-to-Build-RDS-MySQL-Slave-Database"><a href="#Use-Alibaba-Cloud-ECS-to-Build-RDS-MySQL-Slave-Database" class="headerlink" title="Use Alibaba Cloud ECS to Build RDS MySQL Slave Database"></a>Use Alibaba Cloud ECS to Build RDS MySQL Slave Database</h1><p>Friendly reminder: The steps to install MySQL software will not be introduced in this article. After installing MySQL, you do not need to worry about initializing the database and starting the service. Just make sure that the installed MySQL version is not lower than the Alibaba Cloud RDS MySQL version, and create a new MySQL system user running the MySQL service in advance. For safety, part of the content has been mosaicked. The master-slave mode is determined by the version of RDS MySQL. This article mainly uses RDS MySQL version 5.6 as an example and uses the new GTID mode as the master and slave. The 5.5 version is more simple to configure the master and slave. The first 15 steps are the same. There are no 16 and 17 operations. The 18th step uses the traditional mode of binlog file and location as the master and slave. You can modify the corresponding SQL statement, so I won’t add more explanation here.</p>
+<p>Alibaba Cloud uses the open source Percona Xtrabackup tool to do full physical backup of RDS MySQL. Using Alibaba Cloud ECS self-built slave library still needs to use this tool to import full backup data. In order to solve the package dependency problem encountered during installation, it is recommended to install Percona Xtrabackup using yum, and it is recommended to install the latest version.</p>
       
     </div>
     

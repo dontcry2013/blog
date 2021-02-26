@@ -13,6 +13,8 @@ When the directory data is changed.
 
 <!--more-->
 # Install 
+> Note: you can installl from yum now,
+> https://github.com/inotify-tools/inotify-tools/wiki
 
 ## Install from Source
 ``` bash

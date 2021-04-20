@@ -22,3 +22,7 @@ The difference between React.PureComponent and React.Component is that `React.Co
   2. You end up with less code
   3. They help you to use best practices.
   4. The React team mentioned that there may be a performance boost for functional component in future React versions.
+
+## What is the difference between state and props?
+
+props (short for “properties”) and state are both plain JavaScript objects. While both hold information that influences the output of render, they are different in one important way: props get passed to the component (`similar to function parameters`) whereas state is managed within the component (`similar to variables declared within a function`).
